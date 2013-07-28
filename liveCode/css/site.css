@@ -1,0 +1,403 @@
+/**
+ * D / G Ross
+ * Gallery Circus 2013
+ */
+
+ /* site */
+* {
+  margin:0px;
+  padding:0px;
+  list-style:none;
+  
+  font-family: 'Loved by the King', cursive;
+}
+
+:focus {
+  outline:none !important;
+}
+
+body {
+  background: url("/img/websiteBGTile.png") repeat scroll center bottom transparent;
+  height:100%;
+  -moz-box-shadow:    inset 0 0 50px #000000;
+  -webkit-box-shadow: inset 0 0 50px #000000;
+  box-shadow:         inset 0 0 50px #000000;
+}
+
+img { 
+	max-width: 100%; 
+	height: auto;
+	width:auto\9;
+}
+
+a {
+	text-decoration:none;
+	color: #000;
+}
+a:hover {
+	text-decoration:none;
+	color: #000;
+}
+a:active {
+	text-decoration:none;
+	color: #000;
+}
+
+.clear {
+	clear:both;
+}
+
+.headerFooter {
+	background: url("/img/navSite.jpg") repeat scroll center bottom transparent;
+	zoom: 1;
+	filter: alpha(opacity=90);
+	opacity: 0.9;
+	-moz-box-shadow:    0px 0px 1px 2px #000; /* ccc */
+    -webkit-box-shadow: 0px 0px 1px 2px #000;
+    box-shadow:         0px 0px 1px 2px #000;	
+}
+
+#contact {
+	height: 6%;
+	width: 100%;
+	margin-top:2%;
+	
+	font-size: 2.5vw; /* relative to the viewport's width */
+	font-size: 2.5vh; /* relative to the viewport's height */
+	font-size: 2.5vmin; /* relative to the ratio width/height of the viewport */
+	
+	font-weight:bold;
+}
+
+#footerText {
+	height:100%;
+	width:45%;
+	margin:auto;
+}
+
+#nav {
+    height: 6%;
+	width: 100%;
+    position: fixed;
+    z-index: 999;
+	
+	font-size: 3.5vw; /* relative to the viewport's width */
+	font-size: 3.5vh; /* relative to the viewport's height */
+	font-size: 3.5vmin; /* relative to the ratio width/height of the viewport */
+	
+	font-weight:bold;
+}
+
+/* Nav */
+#nav2 {
+	height:100%;
+	width:100%;
+}
+
+#leftNav {
+	float:left;
+	height:100%;
+	width:70%;
+}
+
+#rightNav {
+	float:right;
+	height:100%;
+	width:30%;
+}
+
+#logo {
+	float:left;
+	height:100%;
+	width:40%;
+	
+	left: 20%;
+    position: relative;
+}
+
+#linkSee {
+	height:100%;
+	width:100%;
+}
+
+#tornado {
+	height:260%;
+	width:40%;
+	float:left;
+}
+
+#arrow{
+	height:100%;
+	width:11.5%;
+}
+
+#pageLinks {
+	float:right;
+	height:100%;
+	width:40%;
+}
+
+#pageLinks ul {
+	height:100%;
+}
+#pageLinks ul li {
+	display: inline; 
+	margin-right: 3%;
+}
+
+#socialTab{
+	float:right;
+	height:100%;
+	width:100%;
+}
+
+.socialLink {
+	height:100%;
+	width:100%;
+}
+
+.socialIcon {
+	height:90%;
+	width:10%;
+	margin-top:0.5%;
+}
+
+.linkElement {
+	height:90%;
+	width: 25%;
+}
+/* end Nav */
+
+
+/* Main */
+#mainContainer {
+	height:100%;
+	width:100%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#polaroidsTopContainer {
+	height:100%;
+	width:100%;
+}
+
+#polaroidsTop {
+	height:100%;
+	width:100%;
+	
+}
+
+#polaroidsTopImg {
+	margin-top:5%;
+}
+
+#polaroidsBottomContainer {
+	height:100%;
+	width:100%;
+}
+
+#polaroidsBottom {
+	height:100%;
+	width:100%;
+}
+
+#polaroidsBottomImg {
+	margin-top:2%;
+}
+
+#music {
+	height:100%;
+	width:100%;
+	
+	margin-top:3%;
+}
+
+#media1 {
+	float:left;
+	margin-left:17%;
+	position:relative;
+}
+
+#media2 {
+	float:right;
+	margin-right:17%;
+	position:relative;
+}
+
+.media {
+	width:30%;
+	height:50%;
+	
+	padding: 0.5%;
+	font-size: 3vmin;
+}
+
+.polaroidFade {
+	/*give the frame's background colour a gradient*/
+	background: #eee6d8; /*fallback colour for browsers that don't support gradients*/
+	background: -webkit-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+	background: -moz-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+	background: -o-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+	background: -ms-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+	background: linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+	
+	/*give the Polaroids a small drop shadow*/
+	-webkit-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+	-moz-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+	box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+}
+
+/* end Main */
+
+
+#shows {
+	height: 100%;
+	width: 100%;
+	margin-top:3%;
+}
+
+#leftGig {
+	height: 100%;
+	width: 30%;
+	float: left;
+	margin-left:10%;
+}
+
+#innerGigContainer {
+	float:right;
+	height:100%;
+	width:45%;
+	
+	margin-top:2%;
+	margin-right:11%;
+	padding: 0.5%;
+	
+	position:relative;
+}
+
+#innerGigContainerText {
+  margin-top:2%; 
+  font-size:3vmin;
+ }
+
+#innerGigContainer table {
+
+	border-collapse:collapse;
+	font-size:1.5vw;
+	
+}
+
+#innerGigContainer table th {
+	font-size: 2vw;
+}
+
+#innerGigContainer table tr:nth-child(even) {
+    background-color: rgba(150, 150, 150, 0.1);
+}
+
+#innerGigContainer table tr:nth-child(odd) {
+    background-color: rgba(100, 100, 100, 0.1);
+}
+
+#innerGigContainer table .tblDate {
+	font-size: 1.8vw;
+}
+
+#innerGigContainer table img {
+	height:30%;
+	width:30%
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+   #innerGigContainer table img {
+		width:28%;
+		height: 100%;
+	}
+}
+
+#newContact {
+	width:80%;
+	height:100%;
+	margin-top:3%;
+	position:relative;
+	left:11%;
+}
+
+#newContactImg {
+	width:100%;
+	height:100%;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+   #newContactImg {
+		width:100%;
+		height: auto;
+	}
+}
+
+#innerGigContainer:before { /*see the support section below to more info on using the :before psuedo element*/
+content: '';
+display: block;
+position: absolute;
+left:-7%; /*postion from the left side of the frame (positive value move the tape right, negative moves it left)*/
+top: -2%; /*position from the top of the frame (positive move it above the frame, negative below)*/
+width: 20%; /*width of the tape*/
+height: 5%; /*height of the tape*/
+background-color: rgba(222,220,198,0.7); /*colour of the tape, use rgba to make it slightly transparent*/
+/*rotate the tape 12 degrees anti-clockwise*/
+-webkit-transform: rotate(-15deg);
+-moz-transform: rotate(-15deg);
+-o-transform: rotate(-15deg);
+-ms-transform: rotate(-15deg);
+}
+
+#media1:before { /*see the support section below to more info on using the :before psuedo element*/
+content: '';
+display: block;
+position: absolute;
+left:40%; /*postion from the left side of the frame (positive value move the tape right, negative moves it left)*/
+top: -3%; /*position from the top of the frame (positive move it above the frame, negative below)*/
+width: 20%; /*width of the tape*/
+height: 5%; /*height of the tape*/
+background-color: rgba(222,220,198,0.7); /*colour of the tape, use rgba to make it slightly transparent*/
+/*rotate the tape 12 degrees anti-clockwise*/
+-webkit-transform: rotate(-7deg);
+-moz-transform: rotate(-7deg);
+-o-transform: rotate(-7deg);
+-ms-transform: rotate(-7deg);
+}
+
+#media2:before { /*see the support section below to more info on using the :before psuedo element*/
+content: '';
+display: block;
+position: absolute;
+left:40%; /*postion from the left side of the frame (positive value move the tape right, negative moves it left)*/
+top: -3%; /*position from the top of the frame (positive move it above the frame, negative below)*/
+width: 20%; /*width of the tape*/
+height: 5%; /*height of the tape*/
+background-color: rgba(222,220,198,0.7); /*colour of the tape, use rgba to make it slightly transparent*/
+/*rotate the tape 12 degrees anti-clockwise*/
+-webkit-transform: rotate(-168deg);
+-moz-transform: rotate(-168deg);
+-o-transform: rotate(-168deg);
+-ms-transform: rotate(-168deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
