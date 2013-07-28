@@ -1,0 +1,68 @@
+/**
+ * D / G Ross
+ * Gallery Circus 2013
+ */
+
+
+* {
+  margin:0px;
+  padding:0px;
+  list-style:none;
+  text-decoration: none;
+  font-family: 'Loved by the King', cursive;
+}
+
+:focus {
+  outline:none !important;
+}
+
+body {
+  /*background: url("") repeat scroll center bottom transparent;*/
+  height:100%;
+  width:100%
+}
+
+/* audio controls */
+#controls {
+	font-size:30px;
+}
+
+#media {
+	width:50px;
+	height:50px;
+}
+/* end audio contols */
+
+
+/* audio player */
+#jPlayer {
+	width: 0px; 
+	height: 0px;
+}
+
+#jp_audio_0 {
+	width: 0px; 
+	height: 0px; 
+	display: none;
+}
+/* end audio player */
+
+
+/* small video styles */
+.videoContainerSmall {
+	position:relative;width:400px;height:296px;
+}
+
+.videoSmall {
+    preload: auto;
+	width: 400px; 
+	height: 296px;
+	border:0px !important;
+	position:absolute;
+}
+
+.leftSmall{position:absolute;width:5px;height:296px;left:0.3px;z-index:10;background:#fff}
+.rightSmall{position:absolute;width:5px;height:296px;right:0.3px;z-index:10;background:#fff}
+.topSmall{position:absolute;height:5px;width:400px;top:0.3px;z-index:10;background:#fff}
+.bottomSmall{position:absolute;height:5px;width:400px;bottom:0.3px;z-index:10;background:#fff}
+/* end small video styles */
