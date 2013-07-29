@@ -219,26 +219,49 @@
 									
 									drag: function(a,ui){
 										
+										var obj = null;
+										var lostScope = false;
+										if (typeof $(a.target).attr("id") != 'undefined' && $(a.target).attr("id").indexOf("tile_") != -1 && parseInt($(a.target).attr("id").split('_')[1]) == currentDraggerID)
+											obj = $(a.target).parent();
+										else {
+											obj = $("#tile_"+currentDraggerID).parent();
+											lostScope = true;
+										}
+										
 										var changedColour = false;
-										var currentPosition = $(a.target).parent().position();
+										var currentPosition = obj.position();
 											for (var i = 0; i < tilesAndPositions.length; i++) {
 												var pos = tilesAndPositions[i];
 												if (startPosition != currentPosition && currentPosition.left == pos.Left && currentPosition.top == pos.Top) {
-
-													var tm = parseInt($(a.target).parent().attr('tileNumber'));
+													
+													var tm = 0;
+													if (lostScope) 
+														tm = parseInt($("#tile_"+currentDraggerID).parent().attr('tileNumber'));
+													else
+														tm = parseInt($(a.target).parent().attr('tileNumber'));
+													
 													if ( i == tm + 1 
 														|| i == tm - 1 
 														|| i == tm + COLS 
 														|| i == tm - COLS) {
-															$(a.target).css("border-color","#CFE001");
+															
+															if (lostScope)
+																$("#tile_"+currentDraggerID).css("border-color","#CFE001");
+															else 
+																$(a.target).css("border-color","#CFE001");
+															
 															changedColour = true;
 														}
 													
 												}
 											}
 											
-											if (!changedColour)
-												$(a.target).css("border-color","#D11919");
+											if (!changedColour) {
+												if (lostScope)
+													$("#tile_"+currentDraggerID).css({"border-color": "#D11919", "border-weight":"1px", "border-style":"solid"});
+												else 
+													$(a.target).css("border-color","#D11919");
+											}
 										//var grp = $(a.target).data('group');
 										//if(grp != undefined){
 											//calculate distanse of drag
@@ -271,67 +294,90 @@
 										
 										
 										var isSet = false;
-										if (inFocus) {
-											var currentPosition = $(a.target).parent().position();
-											for (var i = 0; i < tilesAndPositions.length; i++) {
-												var pos = tilesAndPositions[i];
-												if (startPosition != currentPosition && currentPosition.left == pos.Left && currentPosition.top == pos.Top) {
+										
+										var currentPosition = 0;
+										if (inFocus)
+											currentPosition = $(a.target).parent().position();
+										else
+											currentPosition = $("#tile_"+currentDraggerID).parent();
+										
+										for (var i = 0; i < tilesAndPositions.length; i++) {
+											var pos = tilesAndPositions[i];
+											if (startPosition != currentPosition && currentPosition.left == pos.Left && currentPosition.top == pos.Top) {
 
-													var tm = parseInt($(a.target).parent().attr('tileNumber'));
-													if ( i == tm + 1 
-														|| i == tm - 1 
-														|| i == tm + COLS 
-														|| i == tm - COLS) {
-														// update tileNumber to match grid layout
-														// update offset array with values for the current tile, and the tile that it's swithing with
-														//$('#box').find('div[tileNumber="'+i+'"]').offset({ top: startPosition.top, left: startPosition.left });
+												var tm = 0;
+												if (inFocus) 
+													tm = parseInt($(a.target).parent().attr('tileNumber'));
+												else
+													tm = parseInt($("#tile_"+currentDraggerID).parent().attr('tileNumber'));
 														
-														// update pos for animate
-														var vals = parseInt($(a.target).attr('id').split('_')[1]);
-														var previousPosition = tilePositions[vals]; //current pos
-														var ppp = {left: ui.position.left, top: ui.position.top}
-														tilePositions[vals] = ppp; // update with new pos
-														
-														// update other tile pos
-														var vals2 = parseInt($('#box').find('div[tileNumber="'+i+'"]').attr('id').split('_')[1]);	
-														var lll = 0;
-														if (previousPosition.left != ui.position.left) {
-															if (previousPosition.left < ui.position.left)
-																lll = tilePositions[vals2].left - ((previousPosition.left*-1) - (ui.position.left*-1));
-															else
-																lll = tilePositions[vals2].left + ((ui.position.left*-1) - (previousPosition.left*-1));
-														}
-														else {
-															lll = tilePositions[vals2].left;
-														}
-														
-														var ttt = 0;
-														if (previousPosition.top != ui.position.top) {
-															if (previousPosition.top < ui.position.top)
-																ttt = tilePositions[vals2].top - ((previousPosition.top*-1) - (ui.position.top*-1));
-															else
-																ttt = tilePositions[vals2].top + ((ui.position.top*-1) - (previousPosition.top*-1));
-														}
-														else {
-															ttt = tilePositions[vals2].top;
-														}
-														var ppp2 = {left: lll, top: ttt}
-														tilePositions[vals2] = ppp2;
-														
-														$('#box').find('div[tileNumber="'+i+'"]').animate({ left: ppp2.left, top: ppp2.top }, 100);
-														
-														// update tile numbers
-														var startIndex = $(a.target).parent().attr('tileNumber');
-														$('#box').find('div[tileNumber="'+i+'"]').attr('tileNumber', startIndex);
-														$(a.target).parent().attr('tileNumber', i);
-														
-														isSet = true;
-														break;
+												if ( i == tm + 1 
+													|| i == tm - 1 
+													|| i == tm + COLS 
+													|| i == tm - COLS) {
+													// update tileNumber to match grid layout
+													// update offset array with values for the current tile, and the tile that it's swithing with
+													//$('#box').find('div[tileNumber="'+i+'"]').offset({ top: startPosition.top, left: startPosition.left });
+													
+													// update pos for animate
+													var vals = 0;
+													if (inFocus)
+														vals = parseInt($(a.target).attr('id').split('_')[1]);
+													else
+														vals = parseInt($("#tile_"+currentDraggerID).attr('id').split('_')[1]);
+													
+													var previousPosition = tilePositions[vals]; //current pos
+													var ppp = {left: ui.position.left, top: ui.position.top}
+													tilePositions[vals] = ppp; // update with new pos
+													
+													// update other tile pos
+													var vals2 = parseInt($('#box').find('div[tileNumber="'+i+'"]').attr('id').split('_')[1]);	
+													var lll = 0;
+													if (previousPosition.left != ui.position.left) {
+														if (previousPosition.left < ui.position.left)
+															lll = tilePositions[vals2].left - ((previousPosition.left*-1) - (ui.position.left*-1));
+														else
+															lll = tilePositions[vals2].left + ((ui.position.left*-1) - (previousPosition.left*-1));
+													}
+													else {
+														lll = tilePositions[vals2].left;
 													}
 													
+													var ttt = 0;
+													if (previousPosition.top != ui.position.top) {
+														if (previousPosition.top < ui.position.top)
+															ttt = tilePositions[vals2].top - ((previousPosition.top*-1) - (ui.position.top*-1));
+														else
+															ttt = tilePositions[vals2].top + ((ui.position.top*-1) - (previousPosition.top*-1));
+													}
+													else {
+														ttt = tilePositions[vals2].top;
+													}
+													var ppp2 = {left: lll, top: ttt}
+													tilePositions[vals2] = ppp2;
+													
+													$('#box').find('div[tileNumber="'+i+'"]').animate({ left: ppp2.left, top: ppp2.top }, 100);
+													
+													// update tile numbers
+													var startIndex = 0;
+													if (inFocus) {
+														startIndex = $(a.target).parent().attr('tileNumber');
+														$('#box').find('div[tileNumber="'+i+'"]').attr('tileNumber', startIndex);
+														$(a.target).parent().attr('tileNumber', i);
+													}
+													else {
+														startIndex = $("#tile_"+currentDraggerID).attr('tileNumber');
+														$('#box').find('div[tileNumber="'+i+'"]').attr('tileNumber', startIndex);
+														$("#tile_"+currentDraggerID).parent().attr('tileNumber', i);
+													}
+													
+													isSet = true;
+													break;
 												}
+												
 											}
 										}
+										
 										
 										if (!isSet) {
 											
