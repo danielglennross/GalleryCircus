@@ -1,3 +1,7 @@
 test 5
+<<<<<<< HEAD
 removed 6
+=======
+test 6
+>>>>>>> 9fd6656bc34bc5ef6daf7a31a6f74e479c0788f1
 
