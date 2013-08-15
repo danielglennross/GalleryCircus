@@ -1,2 +1,3 @@
 test 5
+removed 6
 
