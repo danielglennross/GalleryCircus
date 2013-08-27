@@ -34,7 +34,7 @@
 			}
 				
 			#box{
-				width:660px; 
+				width:654px; /*720*/
 				height:500px;
 				
 				margin:0px auto;
@@ -44,8 +44,8 @@
 			}
 			
 			.tileBorder {
-				padding: 1px;
-				float: left;
+				/*padding: 1px;*/
+				float: left;	
 			}
 			
 			.tile{	
@@ -127,6 +127,29 @@
 				opacity:0;
 			}
 			
+			#loader {
+				width:380px; 
+				height:15px; 
+				float:right; 
+				margin-top:10px; 
+				position:relative
+			}
+			
+			#percent {
+				loat:left; 
+				background-color: white; 
+				position:relative; 
+				left: 25px; 
+				position:absolute; 
+				bottom:0;
+			}
+			
+			#percentIndicator {
+				float:right; 
+				padding-left:10px; 
+				height:15px;
+			}
+			
 		</style>
 
 	</head>
@@ -139,8 +162,8 @@
 				<video id="source-vid" autobuffer preload="auto"> <!--loop (add this attr to make it loops)-->
 					<!--<source src="videos/Sequence02.mp4" type="video/mp4">
 					<source src="videos/Sequence_02.ogv" type="video/ogg">-->
-					<source src="videos/videoTest.mp4" type="video/mp4">
-					<source src="videos/videoTest.ogv" type="video/ogg">
+					<source src="videos/vid.mp4" type="video/mp4">
+					<source src="videos/vid.ogv" type="video/ogg">
 				</video>
 			</div>
 
@@ -164,10 +187,9 @@
 				
 				<!-- song controls -->
 				<div id="controls" style="float:left; width:640px; position:relative; left:354px; top:-70px;">
-					<!--<div id="jPlayer">
-						<img id="jp_poster_0">
-						<audio id="jp_audio_0" preload="metadata" src="song.mp3"></audio>
-					</div>-->
+					<div id="gameGrid" style="float:left;">
+						<a id="gameGridLink" href="javascript:">EASIER?</a>
+					</div>
 
 					<div id="media" style="float:right; width:150px;">
 						<a id="play" href="javascript:" style="float:left; width:60px;">PLAY</a>
@@ -177,9 +199,9 @@
 					
 					<div style="clear:both;"></div>
 					
-					<div id="loader" style="width:380px; height:20px; float:right; margin-top:10px;">
-						<canvas id="percent" style="float:left; background-color: black; position:relative; left: 25px;" height="20" width="310"></canvas>
-						<label id="percentIndicator" style="float:right; padding-left:10px; height:20px;"><label>
+					<div id="loader">
+						<canvas id="percent" height="8" width="310"></canvas>
+						<label id="percentIndicator"><label>
 					</div>
 					
 				</div>
@@ -188,17 +210,39 @@
 
 		</div>
 
-		<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		
+		<!--<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>-->
 		<script src="jquery.jplayer.min.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
 			
 			// store timing triggers (trigger num index -> second to fire, timeout)
-			var imageBuffer = 1000;
+			var imageBuffer = 0; //1000
 			var timings = new Array();
-			timings[0] = { fireTimeSecs:1, timeoutLengthMilli:3500 - imageBuffer, sourceImage:"/newSingle/img/littlegunrecklessdumb.png" };
-			timings[1] = { fireTimeSecs:2, timeoutLengthMilli:3500 - imageBuffer, sourceImage:"/newSingle/img/littlegunrecklessdumb.png" };
+			// Verse 1
+			timings[0] = { fireTimeSecs:26.2 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/littlegunrecklessdumb.png" };
+			timings[1] = { fireTimeSecs:29 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/wereyourcelebratedscum.png" };
+			timings[2] = { fireTimeSecs:32 - imageBuffer, timeoutLengthMilli:3200, sourceImage:"/newSingle/img/futuretabloidindestructibles.png" };
+			timings[3] = { fireTimeSecs:35.2 - imageBuffer, timeoutLengthMilli:2800, sourceImage:"/newSingle/img/itsanenemyuntouched.png" };
+			timings[4] = { fireTimeSecs:38 - imageBuffer, timeoutLengthMilli:3300, sourceImage:"/newSingle/img/drinkusuplikeavampire.png" };
+			timings[5] = { fireTimeSecs:41.3 - imageBuffer, timeoutLengthMilli:3500, sourceImage:"/newSingle/img/sweeterthanyouraverageliar.png" };
+			timings[6] = { fireTimeSecs:44 - imageBuffer, timeoutLengthMilli:5500, sourceImage:"/newSingle/img/werecontrolyournobodynoone.png" };
+			// Chorus 1
+			timings[7] = { fireTimeSecs:51 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/kingdomoverridekidsdieyoungtonight.png" };
+			timings[8] = { fireTimeSecs:54 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/roseisthawning.png" };
+			timings[9] = { fireTimeSecs:57 - imageBuffer, timeoutLengthMilli:3000 , sourceImage:"/newSingle/img/kingdomoverridekidsdieyoungtonight2.png" };
+			timings[10] = { fireTimeSecs:60 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/roseisthawning2.png" };
+			timings[11] = { fireTimeSecs:63 - imageBuffer, timeoutLengthMilli:6000, sourceImage:"/newSingle/img/poweredbykilowattswereelctricnumbers.png" };
+			timings[12] = { fireTimeSecs:69 - imageBuffer, timeoutLengthMilli:2500, sourceImage:"/newSingle/img/werecomingforyourneighborhoods.png" };
+			timings[13] = { fireTimeSecs:71 - imageBuffer, timeoutLengthMilli:4500, sourceImage:"/newSingle/img/goingtocomeforthecrown.png" };
+			// Verse 2
+			timings[14] = { fireTimeSecs:92.2 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/littlegunrecklessdumb2.png" };
+			timings[15] = { fireTimeSecs:95 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/gotakickforkillerfun.png" };
+			timings[16] = { fireTimeSecs:98 - imageBuffer, timeoutLengthMilli:3200, sourceImage:"/newSingle/img/likeasystematichurricane.png" };
+			timings[17] = { fireTimeSecs:101.2 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/droppingcutthroattornadoes.png" };
 
 			// store related methods
 			//var timingHandler = {
@@ -224,12 +268,13 @@
 			var currentTrigger = 0;
 			
 			// video vars 
-			var ROWS = 3;
-			var COLS = 3;
+			var ROWS = 4;
+			var COLS = 4;
 			var video = $("#source-vid")[0];
-			var videoNaturalWidth = 654;
+			var videoNaturalWidth = 654; //720
 			var videoNaturalHeight = 480;
 			var frameRate = 20;
+			var stopAnimateInProgress = false;
 			
 			var failBorder = "#D11919";
 			var successBorder = "#00BB3F";
@@ -261,6 +306,8 @@
 				update(video);
 
 				SetUpMouseEventHandlers();
+				
+				$(".tileBorder").draggable('disable');
 			});
 			
 			function colorTile(context, tileW, tileH) {
@@ -284,8 +331,10 @@
 			}
 			
 			function updateColorArray(tileNum) {
-				$('#box').find('div[tileNumber="'+tileNum+'"]').css('opacity','0.8'); 
-				colorArray.push($('#box').find('div[tileNumber="'+tileNum+'"]').attr('id'));
+				var ob = $('#box').find('div[tileNumber="'+tileNum+'"]');
+				ob.css('opacity','0.8'); 
+				ob.css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
+				colorArray.push(ob.attr('id'));
 			}
 			
 			function getTileToMoveSingleCoord(tileToMovePreviousVal, senderPreviousVal, senderCurrentVal) {
@@ -315,13 +364,14 @@
 					return;
 				
 				var isInOrder = true;
+				var prevTileNum = -1;
 				$('.tileBorder').each(function() {
-					var rand = parseInt($(this).attr('randomNumber'));
 					var tileNum = parseInt($(this).attr('tileNumber'));
-					if (tileNum != rand) {
+					if (tileNum < prevTileNum) {
 						isInOrder = false;
 						return; // break
 					}
+					prevTileNum = tileNum
 				});
 					
 				if (isInOrder) {
@@ -386,10 +436,13 @@
 						} else {
 							
 							// get the tile's associated random coords (only if game has started)
-							var location = parseInt($('#tile_' + tileNumber).attr('randomNumber'));
-							var rr = isGameStart ? Math.floor(location / COLS) : ri;
-							var cc = isGameStart ? location < (COLS - 1) ? location : location % COLS : ci;
+							//ar location = parseInt($('#tile_' + tileNumber).attr('randomNumber'));
+							//var rr = isGameStart ? Math.floor(location / COLS) : ri;
+							//var cc = isGameStart ? location < (COLS - 1) ? location : location % COLS : ci;
 		
+							var rr = ri;
+							var cc = ci;
+							
 							// determine whether this tile be coloured diff
 							var foundCoords = false;
 							for (var i = 0; i < colorArray.length; i++) {
@@ -412,6 +465,90 @@
 				}
 			}
 			
+			function randmoizeTiles() {
+				
+				for (var i = tileNaturalPositions.length - 1; i >= 0; i--) {
+					var currentTile = $("#tileBorder_"+i);
+					var randNum = parseInt(currentTile.attr("randomNumber"));
+					
+					var valueLeft = 0;
+					if (tileNaturalPositions[i].Left != tileNaturalPositions[randNum].Left) {
+						if (tileNaturalPositions[i].Left < tileNaturalPositions[randNum].Left)
+							valueLeft = tileNaturalPositions[randNum].Left - tileNaturalPositions[i].Left;
+						else
+							valueLeft = (tileNaturalPositions[i].Left - tileNaturalPositions[randNum].Left) *-1;
+					}
+
+					var valueTop = 0;
+					if (tileNaturalPositions[i].Top != tileNaturalPositions[randNum].Top) {
+						if (tileNaturalPositions[i].Top < tileNaturalPositions[randNum].Top)
+							valueTop = tileNaturalPositions[randNum].Top - tileNaturalPositions[i].Top;
+						else
+							valueTop = (tileNaturalPositions[i].Top - tileNaturalPositions[randNum].Top) *-1;
+					}
+					
+					currentTile.animate({left: valueLeft, top: valueTop }, 500);
+					
+					// update all array positions
+					tileNaturalPositions[i] = { Left: currentTile.position().left, Top: currentTile.position().top };
+					tileRelativePositions[i] = { left: valueLeft, top: valueTop };
+				}
+
+				for (var i = tileNaturalPositions.length - 1; i >= 0; i--) {
+					var currentTile = $("#tileBorder_"+i);
+					var currentTileInner = $("#tile_"+i);
+					
+					var randNum = parseInt(currentTile.attr("randomNumber"));
+					
+					currentTile.attr("tileNumber",randNum);
+					currentTileInner.attr("tileNumber",randNum);
+				}
+				
+			}
+			
+			var goBackArray = null;
+			function deRandmoizeTiles() {
+				goBackArray = [];
+				RevertTiles();
+				$('.tileBorder:not([z-index="auto"])').each(function() { // reset all z-indexs
+					$(this).css('opacity','auto');
+				});
+			}
+			
+			function RevertTiles() {
+				if (goBackArray.length == tileNaturalPositions.length)
+					return;
+				
+				var randomNumber = getRandomInt(0, tileNaturalPositions.length - 1);
+				while ($.inArray(randomNumber, goBackArray) !== -1) {
+					randomNumber = getRandomInt(0, tileNaturalPositions.length - 1);
+				}
+				goBackArray.push(randomNumber);
+				
+				var currentTile = $('#box').find('div[tileNumber="'+randomNumber+'"]');
+				
+				var origanlNum = parseInt(currentTile.attr('id').split('_')[1]);
+				var tileNumber = parseInt(currentTile.attr('tileNumber'));
+				
+				if (origanlNum != tileNumber) {
+					$('#tileBorder_'+randomNumber).css('opacity', '1'); // reset the tile over this one (if there is one) to opaque
+					
+					if ($.inArray(origanlNum, goBackArray) == -1) {
+						currentTile.css('opacity', '0.5'); // if we're placing a tile over another one, make it transparent
+					}
+					currentTile.css({'z-index':'99'}).animate({left: 0, top: 0 }, 300);
+
+					setTimeout(function() { 
+						currentTile.css('z-index','1'); // set to 1, not auto to prevent some current tiles appearing under instead of over others	
+						RevertTiles();				
+					}, 300);
+				}
+				else {
+					RevertTiles();	
+				}
+			}
+			
+			
 			function SetUpDragHandlers() {
 				
 				var CONSTRAINT = { NONE: 0, LEFT: 1, TOP: 2 };
@@ -423,17 +560,18 @@
 					containment: '#box', 
 					
 					start:function(a,ui){
-						
-						$(a.target).css('z-index','99').css('opacity','0.5').css({"border-color": failBorder, "border-weight":"1px", "border-style":"solid"});
+					
+						$(a.target).children().css('z-index','99').css('opacity','0.5').css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
+						$(a.target).css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
 						
 						// get initial position of tileBorder
-						startPosition = $(a.target).parent().position();
+						startPosition = $(a.target).position();
 						
 						// get div id of selected (we will use this if our sender loses or changes focus during drag)
 						currentDraggerID = parseInt($(a.target).attr("id").split('_')[1]);
 						
 						// show applicable divs (and add them colorArray)
-						var tileNumber = parseInt($(a.target).parent().attr('tileNumber'));
+						var tileNumber = parseInt($(a.target).attr('tileNumber'));
 						upper = tileNumber - COLS;
 						lower = tileNumber + COLS;
 						left = tileNumber % COLS == 0 ? -1 : tileNumber - 1;
@@ -456,7 +594,7 @@
 					drag: function(a,ui){
 						
 						// check whether our sender has lost scope
-						var inFocus = (typeof $(a.target).attr("id") != 'undefined' && $(a.target).attr("id").indexOf("tile_") != -1 && parseInt($(a.target).attr("id").split('_')[1]) == currentDraggerID);
+						var inFocus = (typeof $(a.target).attr("id") != 'undefined' && $(a.target).attr("id").indexOf("tileBorder_") != -1 && parseInt($(a.target).attr("id").split('_')[1]) == currentDraggerID);
 						// find our tileBorder using sender, or currentDraggerID if the scope is lost
 						var obj = inFocus ? $(a.target) : $("#tile_"+currentDraggerID);
 						
@@ -483,36 +621,36 @@
 						var boundary = calcTileBoundary();
 						
 						var changedColour = false;
-						var currentPosition = obj.parent().position();
+						var currentPosition = obj.position();
 						for (var i = 0; i < tileNaturalPositions.length; i++) {
 							var pos = tileNaturalPositions[i];
 							
 							// create a boundary to check within
 							var currentLeftLower = Math.round(pos.Left);
-							if (right != -1 && parseInt($(a.target).parent().attr("tileNumber")) + 1 == i) 
+							if (right != -1 && parseInt($(a.target).attr("tileNumber")) + 1 == i) 
 								currentLeftLower = Math.round(pos.Left) - boundary;	
 
 							var currentLeftUpper = Math.round(pos.Left);								
-							if (left != -1 && parseInt($(a.target).parent().attr("tileNumber")) - 1 == i) 
+							if (left != -1 && parseInt($(a.target).attr("tileNumber")) - 1 == i) 
 								currentLeftUpper = Math.round(pos.Left) + boundary;
 							
 							var currentTopUpper = Math.round(pos.Top);							
-							if (parseInt($(a.target).parent().attr("tileNumber")) - COLS == i) 
+							if (parseInt($(a.target).attr("tileNumber")) - COLS == i) 
 								currentTopUpper = Math.round(pos.Top) + boundary;
 							
 							var currentTopLower = Math.round(pos.Top);
-							if (parseInt($(a.target).parent().attr("tileNumber")) + COLS == i) 
+							if (parseInt($(a.target).attr("tileNumber")) + COLS == i) 
 								currentTopLower = Math.round(pos.Top) - boundary;
 
 							if (startPosition != currentPosition 
 								&& Math.round(currentPosition.left) >= currentLeftLower && Math.round(currentPosition.left) <= currentLeftUpper
 								&& Math.round(currentPosition.top) >= currentTopLower && Math.round(currentPosition.top) <= currentTopUpper
 							   ) {
-								var tm = parseInt(obj.parent().attr('tileNumber'));
+								var tm = parseInt(obj.attr('tileNumber'));
 								// only change color if still in scope
 								// when checking left / right - make sure, they're on the same row
 								if (inFocus && ((right != -1 && i == tm + 1) || (left != -1 && i == tm - 1) || i == tm + COLS || i == tm - COLS)) {	
-									obj.css("border-color", successBorder);
+									obj.children().css("border-color", successBorder);
 									changedColour = true;
 								}
 							}
@@ -520,29 +658,35 @@
 							
 						if (!changedColour) {
 							if (inFocus)
-								obj.css("border-color", failBorder);
+								obj.children().css("border-color", failBorder);
 							else 
-								obj.css({"border-color": failBorder, "border-weight":"1px", "border-style":"solid"});
+								obj.children().css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
 						}
 					},
 					
 					stop: function(a,ui){
-					
-						var inFocus = (typeof $(a.target).attr("id") != 'undefined' && $(a.target).attr("id").indexOf("tile_") != -1 && parseInt($(a.target).attr("id").split('_')[1]) == currentDraggerID);
-						if (inFocus)
-							$(a.target).css('z-index','auto').css('opacity','1').css('border', 'none');
+
+						var inFocus = (typeof $(a.target).attr("id") != 'undefined' && $(a.target).attr("id").indexOf("tileBorder_") != -1 && parseInt($(a.target).attr("id").split('_')[1]) == currentDraggerID);
+						if (inFocus) {
+							$(a.target).children().css('z-index','auto').css('opacity','1').css('border', 'none');
+							$(a.target).css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
+						}
 						else {
-							$("#tile_"+currentDraggerID).css('z-index','auto').css('opacity','1').css('border', 'none');
+							$("#tileBorder_"+currentDraggerID).children().css('z-index','auto').css('opacity','1').css('border', 'none');
+							$("#tileBorder_"+currentDraggerID).css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
 						}
 						
-						colorArray = []; // clear array
+						colorArray = []; // clear array (also reset opacities and shadow borders)
 						$('.tileBorder:not([opacity="1"])').each(function() {
 							$(this).css('opacity','1');
+						});
+						$('.tileBorder:not([box-shadow=""])').each(function() {
+							$(this).css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
 						});
 						
 						var isSet = false;
 						if (inFocus) {
-							var currentPosition = $(a.target).parent().position();
+							var currentPosition = $(a.target).position();
 
 							for (var i = 0; i < tileNaturalPositions.length; i++) {
 								var pos = tileNaturalPositions[i];
@@ -552,19 +696,19 @@
 							
 								// create a boundary to check within
 								var currentLeftLower = Math.round(pos.Left);
-								if (right != -1 && parseInt($(a.target).parent().attr("tileNumber")) + 1 == i) 
+								if (right != -1 && parseInt($(a.target).attr("tileNumber")) + 1 == i) 
 									currentLeftLower = Math.round(pos.Left) - boundary;	
 
 								var currentLeftUpper = Math.round(pos.Left);								
-								if (left != -1 && parseInt($(a.target).parent().attr("tileNumber")) - 1 == i) 
+								if (left != -1 && parseInt($(a.target).attr("tileNumber")) - 1 == i) 
 									currentLeftUpper = Math.round(pos.Left) + boundary;
 								
 								var currentTopUpper = Math.round(pos.Top);							
-								if (parseInt($(a.target).parent().attr("tileNumber")) - COLS == i) 
+								if (parseInt($(a.target).attr("tileNumber")) - COLS == i) 
 									currentTopUpper = Math.round(pos.Top) + boundary;
 								
 								var currentTopLower = Math.round(pos.Top);
-								if (parseInt($(a.target).parent().attr("tileNumber")) + COLS == i) 
+								if (parseInt($(a.target).attr("tileNumber")) + COLS == i) 
 									currentTopLower = Math.round(pos.Top) - boundary;
 
 								if (startPosition != currentPosition 
@@ -572,7 +716,7 @@
 									&& Math.round(currentPosition.top) >= currentTopLower && Math.round(currentPosition.top) <= currentTopUpper
 								   ) {
 
-									var tm = tm = parseInt($(a.target).parent().attr('tileNumber'));	
+									var tm = tm = parseInt($(a.target).attr('tileNumber'));	
 									// when checking left / right - make sure, they're on the same row
 									if ((right != -1 && i == tm + 1) || (left != -1 && i == tm - 1) || i == tm + COLS || i == tm - COLS) {
 										
@@ -588,7 +732,7 @@
 											valueTop = tileRelativePositions[vvv].top + ((startPosition.top*-1) - (pos.Top*-1));
 
 										// move dragged tile to it's correct offset
-										$(a.target).parent().animate({left: valueLeft, top: valueTop }, 100);
+										$(a.target).animate({left: valueLeft, top: valueTop }, 100);
 										
 										// update pos for animate
 										var vals = parseInt($(a.target).attr('id').split('_')[1]);
@@ -608,9 +752,9 @@
 										$('#box').find('div[tileNumber="'+i+'"]').animate({ left: ppp2.left, top: ppp2.top }, 100);
 										
 										// update tile numbers
-										var startIndex = $(a.target).parent().attr('tileNumber');
+										var startIndex = $(a.target).attr('tileNumber');
 										$('#box').find('div[tileNumber="'+i+'"]').attr('tileNumber', startIndex);
-										$(a.target).parent().attr('tileNumber', i);
+										$(a.target).attr('tileNumber', i);
 
 										// increment number of total moves
 										updatePlayerMovesAndScore();
@@ -627,8 +771,8 @@
 							var vals = inFocus ? parseInt($(a.target).attr('id').split('_')[1]) : currentDraggerID;
 							var tmt = inFocus ? $(a.target) : $("#tile_" + currentDraggerID);
 							var yyy = tileRelativePositions[vals];
-							tmt.parent().css('z-index','99').animate({ left: yyy.left, top: yyy.top }, 300);
-							setTimeout(function() { tmt.parent().css('z-index','auto') }, 500);
+							tmt.css('z-index','99').animate({ left: yyy.left, top: yyy.top }, 300);
+							setTimeout(function() { tmt.css('z-index','auto') }, 500);
 						}
 						
 						// if a tile was hilighted on mouse over, remove this after animation (otherwise we'll re highlight)
@@ -642,18 +786,39 @@
 			}
 			
 			function SetUpMouseEventHandlers() {
+				
 				$(document.body).on("mouseover", ".tile", function() {
-					$(this).css('z-index','99').css({"border-color": failBorder, "border-weight":"1px", "border-style":"solid"});
+					//if (!isGameStart) return;
+					$(this).css('z-index','99').css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
+					$(this).parent().css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
 				});
 				
 				$(document.body).on("mouseleave", ".tile", function() {
+					//if (!isGameStart) return;
 					$(this).css('z-index','auto').css("border","none");
+					$(this).parent().css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
 				});
+			
 			}
 
-			
-			
-			
+			function StopResetGame() {
+				isGameStart = false;
+				isGameWon = false;
+				totalPlayerMoves = 0;
+				totalPlayerScore = 0;
+				
+				// clear all arrays
+				currentTrigger = 0;
+				tileNaturalPositions = [];
+				tileRelativePositions = [];
+				
+				// redraw tiles and calc new rando positions
+				$("#box").html('');
+				tiles(videoNaturalWidth, videoNaturalHeight, ROWS, COLS);
+				update(video);
+				
+				$(".tileBorder").draggable('disable');
+			}
 			
 			function GalleryCircusMain() {
 			
@@ -675,12 +840,12 @@
 						var buffered = video.buffered.end(0);
 						var percent = Math.round(100 * buffered / video.duration);
 
-						//Your code here
 						var canvas = $("#percent").get(0);
 						var ctx = canvas.getContext('2d');
 						var r = video.buffered;
 						ctx.fillStyle = "white";
 						ctx.fillRect(0,0,canvas.width,canvas.height);
+						
 						ctx.fillStyle = "grey";
 						if (r) {
 							for (var i=0; i<r.length; i++) {
@@ -753,44 +918,88 @@
 			
 				// stop control click event
 				$(stopControl).click(function() {
+					
+					if (!isGameStart)
+						return;
+					
 					// clean up
 					$(playControl).text('PLAY');
-					currentTrigger = 0;
 					
 					// vid control
 					video.pause();
-					video.currentTime = 0;	
-					
-					// reset game play vars
-					isGameStart = false;
-					isGameWon = false;
-					totalPlayerMoves = 0;
-					totalPlayerScore = 0;
-					
-					// clear all arrays
-					tileNaturalPositions = [];
-					tileRelativePositions = [];
-					
-					// redraw tiles and calc new rando positions
-					$("#box").html('');
-					tiles(videoNaturalWidth, videoNaturalHeight, ROWS, COLS);
-					update(video);
+
+					if (isGameWon) {
+						video.currentTime = 0;
+						StopResetGame();
+					}
+					else if (!stopAnimateInProgress) {
+						stopAnimateInProgress = true;
+						
+						var howManyTilesAreNotInOrder = 0;
+						$('.tileBorder').each(function() {
+							if (parseInt($(this).attr("tileNumber")) != parseInt($(this).attr("id").split("_")[1]))
+								howManyTilesAreNotInOrder++;
+						});
+						
+						deRandmoizeTiles();
+
+						// reset game play vars
+						setTimeout(function () {
+							$("#box").fadeOut('fast');
+							video.currentTime = 0;
+							$("#box").fadeIn('fast');						
+						
+							StopResetGame();
+							
+							stopAnimateInProgress = false;
+							
+						}, (300 * howManyTilesAreNotInOrder) + 300);
+					}
 				});
 
 				// play control click event
 				$(playControl).click(function() {
 				
-					if (!isGameStart)
+					if (!isGameStart) {
+						randmoizeTiles();
 						isGameStart = true;
+					}
 				
-					if ($(playControl).text() == "PAUSE") {
-						$(playControl).text('PLAY');
+					if ($(this).text() == "PAUSE") {
 						video.pause();
+						$(this).text('PLAY');
+						$(".tileBorder").draggable('disable');
 					}
 					else {
-						$(playControl).text('PAUSE');
+						$(this).text('PAUSE');
 						video.play();
+						$(".tileBorder").draggable('enable');
 					}
+				});
+				
+				// game mode control
+				$("#gameGridLink").click(function() {
+					
+					if ($(this).text() == "HARDER?") {
+						ROWS = 4; COLS = 4;
+						$(this).text('EASIER?');
+					}
+					else {
+						$(this).text('HARDER?');
+						ROWS = 3; COLS = 3;
+					}
+					
+					$("#box").fadeOut('fast');
+					
+					$(playControl).text('PLAY');
+					
+					// vid control
+					video.pause();
+					video.currentTime = 0;
+		
+					StopResetGame();
+
+					$("#box").fadeIn('fast');
 				});
 			}
 			
