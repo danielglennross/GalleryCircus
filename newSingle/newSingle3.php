@@ -14,23 +14,18 @@
 			}
 
 			body {
-				height:100%;
+				/*height:100%;*/
 				margin:0px;
 				padding:0px;
 				list-style:none;
 				
-				
-				background: url("/newSingle/img/testBG.png") no-repeat scroll; 
-				/*-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;*/
-				
-				
-				/*background: url("/img/websiteBGTile.png") repeat scroll center bottom transparent;
+				background: url("/img/websiteBGTile.png") repeat scroll center bottom transparent;
 				-moz-box-shadow: inset 0 0 50px #000000;
 				-webkit-box-shadow: inset 0 0 50px #000000;
-				box-shadow: inset 0 0 50px #000000;*/
+				box-shadow: inset 0 0 50px #000000;
+				
+				font-family: 'Permanent Marker', cursive;
+				font-size: 16px;
 			}
 				
 			#box{
@@ -39,6 +34,19 @@
 				
 				margin:0px auto;
 				position:relative;
+				
+				float:right;
+			}
+			
+			#vidz{
+				width:654px; /*720*/
+				height:500px;
+				
+				margin:0px auto;
+				position:relative;
+				
+				margin-top: 30px;
+				padding-bottom: 40px; /* will override bottom padding of .media*/
 				
 				float:left;
 			}
@@ -89,6 +97,23 @@
 				-o-transform: rotate(-3deg);
 				-ms-transform: rotate(-3deg);
 			}
+			
+			#vidz:before { 
+				content: '';
+				display: block;
+				position: absolute;
+				left:235px; /*postion from the left side of the frame (positive value move the tape right, negative moves it left)*/
+				top: -22px; /*position from the top of the frame (positive move it above the frame, negative below)*/
+				width: 200px; /*width of the tape*/
+				height: 40px; /*height of the tape*/
+				background-color: rgba(222,220,198,0.7); /*colour of the tape, use rgba to make it slightly transparent*/
+
+				/*rotate the tape degrees anti-clockwise*/
+				-webkit-transform: rotate(-3deg);
+				-moz-transform: rotate(-3deg);
+				-o-transform: rotate(-3deg);
+				-ms-transform: rotate(-3deg);
+			}
 
 			.wrapper {
 				min-height: 100%;
@@ -101,8 +126,10 @@
 			
 			#main {
 				margin:auto; 
-				width:1354px; /*1274*/
-				padding-top:35px;
+				width:1300px; /*1274*/
+				padding-top:40px;
+				
+				background: url("/newSingle/img/superCellBackground.png") no-repeat scroll; 
 			}
 			
 			#sideBoxLeft {
@@ -132,7 +159,7 @@
 				height:15px; 
 				float:right; 
 				margin-top:10px; 
-				position:relative
+				position:relative;
 			}
 			
 			#percent {
@@ -150,11 +177,153 @@
 				height:15px;
 			}
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+img { 
+	max-width: 100%; 
+	height: auto;
+	width:auto\9;
+}
+
+a {
+	text-decoration:none;
+	color: #000;
+}
+a:hover {
+	text-decoration:none;
+	color: #000;
+}
+a:active {
+	text-decoration:none;
+	color: #000;
+}
+
+.clear {
+	clear:both;
+}
+
+#nav {
+    height: 40px;
+	width: 1300px;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+#logo {
+	float:right;
+    position: relative;
+	height:100px;
+	width:125px;
+}
+
+#tornado {
+	height:100px;
+	width:125px;
+}
+
+#socialTab{
+	float:right;
+	height:40px;
+	margin-right: 20px;
+}
+
+.socialLink {
+	height:40px;
+}
+
+.socialIcon {
+	height:40px;
+	width:50px;
+	margin-top:2px;
+	
+			background-color: rgba(233, 234, 230, 0.4);
+
+	outline: 0;
+	outline: thin dotted \9;
+	/* IE6-9 */
+
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
+	   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
+		    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
+}
+
+
+#txtLine1 {
+	-webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    transform: rotate(1deg);
+}
+
+#txtLine2 {
+	-webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+}
+
+
+.shadowFail {
+  border-color: rgba(250, 40, 40, 0.8); /* 82, 168, 236 blue */
+  border-width: 1px;
+  border-style: solid; 
+  
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(250, 40, 40, 0.8);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(250, 40, 40, 0.8);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(250, 40, 40, 0.8);
+}
+
+.shadowYay {
+  border-color: rgba(40, 250, 96, 0.8); /* 82, 168, 236 blue */ /* 40 250 96 green*/
+  border-width: 2px;
+  border-style: solid; 
+  
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(40, 250, 96, 0.8);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(40, 250, 96, 0.8);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(40, 250, 96, 0.8);
+}
+
+
+
 		</style>
 
 	</head>
 
 	<body>
+	
+		
+		<!-- header / nav -->
+		<div id="nav">
+			<div id="logo">
+				<img id="tornado" src="/img/GCLogo.png">
+			</div>
+			<div id="socialTab">
+				<a class="socialLink" alt="Gallery Circus on Facebook" target="_blank" href="http://www.facebook.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Facebook.png"></a>
+				<a class="socialLink" alt="Gallery Circus on Twitter" target="_blank" href="http://www.twitter.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Twitter.png"></a>
+				<a class="socialLink" alt="Gallery Circus on YouTube" target="_blank" href="http://www.youtube.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Youtube.png"></a>
+				<a class="socialLink" alt="Gallery Circus on Tumblr" target="_blank" href="http://sanfrancircus.tumblr.com"><img class="socialIcon shakeable" src="/img/Tumblr.png"></a>
+			</div>
+		</div>
+		<!-- end header / nav -->
+	
 		
 		<div class="wrapper">
 		
@@ -162,54 +331,63 @@
 				<video id="source-vid" autobuffer preload="auto"> <!--loop (add this attr to make it loops)-->
 					<!--<source src="videos/Sequence02.mp4" type="video/mp4">
 					<source src="videos/Sequence_02.ogv" type="video/ogg">-->
-					<source src="videos/vid.mp4" type="video/mp4">
+					<source src="videos/vid.mp4" type="video/mp4 codecs=avc1.42E01E,mp4a.40.2">
 					<source src="videos/vid.ogv" type="video/ogg">
 				</video>
 			</div>
 
 			
 			<div id="main">
-				<div id="sideBoxLeft" class="sideBoxes" style="">
-					<div number="0" class="poppingLeft popping"><img src=""/></div>
-					<div number="1" class="poppingLeft popping"><img src=""/></div>
-					<div number="2" class="poppingLeft popping"><img src=""/></div>
+			
+				<!-- video -->
+				<div id="vidz" class="media polaroidFade">
+					<iframe width="654" height="480" src="http://www.youtube.com/embed/dwZr6Q3EhkE" frameborder="0" allowfullscreen></iframe>
 				</div>
+				<!-- video -->
 				
-				<div id="box" class="media polaroidFade"></div>
-
-				<div id="sideBoxRight" class="sideBoxes" style="float:left; width:300px; height:500px">
-					<div number="0" class="poppingRight popping"><img src=""/></div>
-					<div number="1" class="poppingRight popping"><img src=""/></div>
-					<div number="2" class="poppingRight popping"><img src=""/></div>
-				</div>
-				
-				<div style="clear:both;"></div>
-				
-				<!-- song controls -->
-				<div id="controls" style="float:left; width:640px; position:relative; left:354px; top:-70px;">
-					<div id="gameGrid" style="float:left;">
-						<a id="gameGridLink" href="javascript:">EASIER?</a>
-					</div>
-
-					<div id="media" style="float:right; width:150px;">
-						<a id="play" href="javascript:" style="float:left; width:60px;">PLAY</a>
-						<div id="time" style="float:left; width:50px;">00:00</div>
-						<a id="stop" href="javascript:" style="float:left; width:40px;">STOP</a>
-					</div>
+				<div style="clear:both; margin-bottom:100px;"></div>
+			
+				<div style="position:relative;">
+					<!-- game -->
+					<div id="box" class="media polaroidFade"></div>
+					<!-- game -->
 					
 					<div style="clear:both;"></div>
 					
-					<div id="loader">
-						<canvas id="percent" height="8" width="310"></canvas>
-						<label id="percentIndicator"><label>
+					<!-- song controls -->
+					<div id="controls" style="float:right; width:640px; position:relative; right:15px; top:-70px;">
+						<div id="gameGrid" style="float:left;">
+							<a id="gameGridLink" shouldDissapearOnStop href="javascript:">EASIER?</a>
+						</div>
+
+						<div id="media" style="float:right; width:160px;">
+							<a id="play" shouldDissapearOnStop href="javascript:" style="float:left; width:60px;">PLAY</a>
+							<div id="time" style="float:left; width:60px;">00:00</div>
+							<a id="stop" href="javascript:" style="float:left; width:40px;">STOP</a>
+						</div>
+						
+						<div style="clear:both;"></div>
+						
+						<div id="loader">
+							<canvas id="percent" height="8" width="310"></canvas>
+							<label id="percentIndicator"><label>
+						</div>
+						
 					</div>
+					<!-- end song controls -->
 					
+					<div id="txtLine1" style="width:275px; height:50px;position:absolute; bottom:-16px; left:15px; text-align: center">Try putting the video back together</div>
+					<div id="txtLine2" style="width:275px; height:50px;position:absolute; bottom:144px; left:330px; text-align: center">Drag a tile one space at a time - no diagonals!</div>
 				</div>
-				<!-- end song controls -->
+				
+				<div style="clear:both; margin-bottom:20px;"></div>
+				
 			</div>
 
 		</div>
 
+		<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+		
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		
@@ -220,29 +398,28 @@
 		<script type="text/javascript">
 			
 			// store timing triggers (trigger num index -> second to fire, timeout)
-			var imageBuffer = 0; //1000
 			var timings = new Array();
 			// Verse 1
-			timings[0] = { fireTimeSecs:26.2 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/littlegunrecklessdumb.png" };
-			timings[1] = { fireTimeSecs:29 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/wereyourcelebratedscum.png" };
-			timings[2] = { fireTimeSecs:32 - imageBuffer, timeoutLengthMilli:3200, sourceImage:"/newSingle/img/futuretabloidindestructibles.png" };
-			timings[3] = { fireTimeSecs:35.2 - imageBuffer, timeoutLengthMilli:2800, sourceImage:"/newSingle/img/itsanenemyuntouched.png" };
-			timings[4] = { fireTimeSecs:38 - imageBuffer, timeoutLengthMilli:3300, sourceImage:"/newSingle/img/drinkusuplikeavampire.png" };
-			timings[5] = { fireTimeSecs:41.3 - imageBuffer, timeoutLengthMilli:3500, sourceImage:"/newSingle/img/sweeterthanyouraverageliar.png" };
-			timings[6] = { fireTimeSecs:44 - imageBuffer, timeoutLengthMilli:5500, sourceImage:"/newSingle/img/werecontrolyournobodynoone.png" };
+			timings[0] = { fireTimeSecs:1, timeoutLengthMilli:3000, text:"little gun, i'm reckless dumb" }; //{ fireTimeSecs:26.2, timeoutLengthMilli:3000, text:"little gun, i'm reckless dumb" };
+			timings[1] = { fireTimeSecs:2, timeoutLengthMilli:3000, text:"we're your celebrated scum" }; //{ fireTimeSecs:29, timeoutLengthMilli:3000, text:"we're your celebrated scum" };
+			timings[2] = { fireTimeSecs:32, timeoutLengthMilli:3200, text:"i'm a tabloid indestructable" };
+			timings[3] = { fireTimeSecs:35.2, timeoutLengthMilli:2800, text:"it's an enemy untouched" };
+			timings[4] = { fireTimeSecs:38, timeoutLengthMilli:3300, text:"/newSingle/img/drinkusuplikeavampire.png" };
+			timings[5] = { fireTimeSecs:41.3, timeoutLengthMilli:3500, text:"/newSingle/img/sweeterthanyouraverageliar.png" };
+			timings[6] = { fireTimeSecs:44, timeoutLengthMilli:5500, text:"/newSingle/img/werecontrolyournobodynoone.png" };
 			// Chorus 1
-			timings[7] = { fireTimeSecs:51 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/kingdomoverridekidsdieyoungtonight.png" };
-			timings[8] = { fireTimeSecs:54 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/roseisthawning.png" };
-			timings[9] = { fireTimeSecs:57 - imageBuffer, timeoutLengthMilli:3000 , sourceImage:"/newSingle/img/kingdomoverridekidsdieyoungtonight2.png" };
-			timings[10] = { fireTimeSecs:60 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/roseisthawning2.png" };
-			timings[11] = { fireTimeSecs:63 - imageBuffer, timeoutLengthMilli:6000, sourceImage:"/newSingle/img/poweredbykilowattswereelctricnumbers.png" };
-			timings[12] = { fireTimeSecs:69 - imageBuffer, timeoutLengthMilli:2500, sourceImage:"/newSingle/img/werecomingforyourneighborhoods.png" };
-			timings[13] = { fireTimeSecs:71 - imageBuffer, timeoutLengthMilli:4500, sourceImage:"/newSingle/img/goingtocomeforthecrown.png" };
+			timings[7] = { fireTimeSecs:51, timeoutLengthMilli:3000, text:"/newSingle/img/kingdomoverridekidsdieyoungtonight.png" };
+			timings[8] = { fireTimeSecs:54, timeoutLengthMilli:3000, text:"/newSingle/img/roseisthawning.png" };
+			timings[9] = { fireTimeSecs:57, timeoutLengthMilli:3000 , text:"/newSingle/img/kingdomoverridekidsdieyoungtonight2.png" };
+			timings[10] = { fireTimeSecs:60, timeoutLengthMilli:3000, text:"/newSingle/img/roseisthawning2.png" };
+			timings[11] = { fireTimeSecs:63, timeoutLengthMilli:6000, text:"/newSingle/img/poweredbykilowattswereelctricnumbers.png" };
+			timings[12] = { fireTimeSecs:69, timeoutLengthMilli:2500, text:"/newSingle/img/werecomingforyourneighborhoods.png" };
+			timings[13] = { fireTimeSecs:71, timeoutLengthMilli:4500, text:"/newSingle/img/goingtocomeforthecrown.png" };
 			// Verse 2
-			timings[14] = { fireTimeSecs:92.2 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/littlegunrecklessdumb2.png" };
-			timings[15] = { fireTimeSecs:95 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/gotakickforkillerfun.png" };
-			timings[16] = { fireTimeSecs:98 - imageBuffer, timeoutLengthMilli:3200, sourceImage:"/newSingle/img/likeasystematichurricane.png" };
-			timings[17] = { fireTimeSecs:101.2 - imageBuffer, timeoutLengthMilli:3000, sourceImage:"/newSingle/img/droppingcutthroattornadoes.png" };
+			timings[14] = { fireTimeSecs:92.2, timeoutLengthMilli:3000, text:"/newSingle/img/littlegunrecklessdumb2.png" };
+			timings[15] = { fireTimeSecs:95, timeoutLengthMilli:3000, text:"/newSingle/img/gotakickforkillerfun.png" };
+			timings[16] = { fireTimeSecs:98, timeoutLengthMilli:3200, text:"/newSingle/img/likeasystematichurricane.png" };
+			timings[17] = { fireTimeSecs:101.2, timeoutLengthMilli:3000, text:"/newSingle/img/droppingcutthroattornadoes.png" };
 
 			// store related methods
 			//var timingHandler = {
@@ -318,9 +495,9 @@
 					var gre = data[i+1];
 					var blu = data[i+2];
 					
-					data[i] = red * 1.9;
-					data[i+1] = gre * 1.4;
-					data[i+2] = blu * 0.6;
+					data[i] = red * 0.4; //1.9
+					data[i+1] = gre * 1.8; //1.4
+					data[i+2] = blu * 0.7; //0.6
 				}
 				idata.data = data; 
 				context.putImageData(idata,0,0); 
@@ -561,8 +738,8 @@
 					
 					start:function(a,ui){
 					
-						$(a.target).children().css('z-index','99').css('opacity','0.5').css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
-						$(a.target).css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
+						$(a.target).children().css('z-index','99').css('opacity','0.5').addClass('shadowFail');//.css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
+						//$(a.target).css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
 						
 						// get initial position of tileBorder
 						startPosition = $(a.target).position();
@@ -650,7 +827,7 @@
 								// only change color if still in scope
 								// when checking left / right - make sure, they're on the same row
 								if (inFocus && ((right != -1 && i == tm + 1) || (left != -1 && i == tm - 1) || i == tm + COLS || i == tm - COLS)) {	
-									obj.children().css("border-color", successBorder);
+									obj.children().removeClass('shadowFail').addClass('shadowYay');//obj.children().css("border-color", successBorder);
 									changedColour = true;
 								}
 							}
@@ -658,9 +835,9 @@
 							
 						if (!changedColour) {
 							if (inFocus)
-								obj.children().css("border-color", failBorder);
+								obj.children().removeClass('shadowYay').addClass('shadowFail');//obj.children().css("border-color", failBorder);
 							else 
-								obj.children().css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
+								bj.children().removeClass('shadowYay').addClass('shadowFail');//obj.children().css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
 						}
 					},
 					
@@ -668,12 +845,12 @@
 
 						var inFocus = (typeof $(a.target).attr("id") != 'undefined' && $(a.target).attr("id").indexOf("tileBorder_") != -1 && parseInt($(a.target).attr("id").split('_')[1]) == currentDraggerID);
 						if (inFocus) {
-							$(a.target).children().css('z-index','auto').css('opacity','1').css('border', 'none');
-							$(a.target).css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
+							$(a.target).children().css('z-index','auto').css('opacity','1').removeClass('shadowFail').removeClass('shadowYay');//.css('border', 'none');
+							$(a.target)//.css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
 						}
 						else {
-							$("#tileBorder_"+currentDraggerID).children().css('z-index','auto').css('opacity','1').css('border', 'none');
-							$("#tileBorder_"+currentDraggerID).css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
+							$("#tileBorder_"+currentDraggerID).children().css('z-index','auto').css('opacity','1').removeClass('shadowFail').removeClass('shadowYay');//.css('border', 'none');
+							$("#tileBorder_"+currentDraggerID)//.css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
 						}
 						
 						colorArray = []; // clear array (also reset opacities and shadow borders)
@@ -778,7 +955,7 @@
 						// if a tile was hilighted on mouse over, remove this after animation (otherwise we'll re highlight)
 						// check if we've won
 						setTimeout(function () {$('.tile:not([z-index="auto"])').each(function() {
-							$(this).css('z-index','auto').css('border','none');
+							//$(this).css('z-index','auto').children().removeClass('shadowFail').removeClass('shadowYay');//.css('border','none');
 							isGameComplete();
 						}); }, 50);
 					}
@@ -789,14 +966,14 @@
 				
 				$(document.body).on("mouseover", ".tile", function() {
 					//if (!isGameStart) return;
-					$(this).css('z-index','99').css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
-					$(this).parent().css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
+					$(this).css('z-index','99').addClass('shadowFail');//.css({"border-color": failBorder, "border-width":"2px", "border-style":"solid"});
+					//$(this).parent().addClass('shadowOutline');//.css({"-moz-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "-webkit-box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)", "box-shadow": "-3px 2px 1px 0px rgba(0,0,0,0.5)"});
 				});
 				
 				$(document.body).on("mouseleave", ".tile", function() {
 					//if (!isGameStart) return;
-					$(this).css('z-index','auto').css("border","none");
-					$(this).parent().css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
+					$(this).css('z-index','auto').removeClass('shadowFail');//.css("border","none");
+					//$(this).parent().removeClass('shadowOutline');//.css({"-moz-box-shadow": "", "-webkit-box-shadow": "", "box-shadow": ""});
 				});
 			
 			}
@@ -858,7 +1035,7 @@
 						$("#percentIndicator").html(percent.toString()+"%");
 
 						//If finished buffering buffering quit calling it
-						if (buffered >= video.duration) {
+						if (buffered.toFixed(2) >= video.duration.toFixed(2)) {
 							clearInterval(watchBuffer);
 							$("#loader").animate({ opacity: 0 }, 500);
 						}
@@ -906,10 +1083,10 @@
 						// if we're reached a new timing - trigger related event
 						var fireTime = timings[currentTrigger].fireTimeSecs;
 						var timeout = timings[currentTrigger].timeoutLengthMilli;
-						var image = timings[currentTrigger].sourceImage;
+						var text = timings[currentTrigger].text;
 						
 						if (vTime >= fireTime) {
-							fireTrigger(currentTrigger, timeout, image);
+							fireTrigger(currentTrigger, timeout, text);
 							currentTrigger++;
 						}
 					}
@@ -922,18 +1099,19 @@
 					if (!isGameStart)
 						return;
 					
-					// clean up
-					$(playControl).text('PLAY');
+					$(".tileBorder").draggable('disable');
 					
 					// vid control
 					video.pause();
 
 					if (isGameWon) {
+						$(playControl).text('PLAY');
 						video.currentTime = 0;
 						StopResetGame();
 					}
 					else if (!stopAnimateInProgress) {
 						stopAnimateInProgress = true;
+						$("a[shouldDissapearOnStop]").animate({opacity:0}, 300)
 						
 						var howManyTilesAreNotInOrder = 0;
 						$('.tileBorder').each(function() {
@@ -945,16 +1123,31 @@
 
 						// reset game play vars
 						setTimeout(function () {
+							$(playControl).text('PLAY');
+							
 							$("#box").fadeOut('fast');
 							video.currentTime = 0;
 							$("#box").fadeIn('fast');						
 						
 							StopResetGame();
 							
+							$("a[shouldDissapearOnStop]").animate({opacity:1}, 300)
 							stopAnimateInProgress = false;
 							
 						}, (300 * howManyTilesAreNotInOrder) + 300);
 					}
+					
+					if (globalTimeout.length > 0) {
+						for (var i = 0; i < globalTimeout.length; i++) {
+							clearTimeout(globalTimeout[i]);
+						}
+						globalTimeout = [];
+					}
+										
+					if ($("#txtLine1:visible")) { $("#txtLine1").fadeOut(300) };
+					if ($("#txtLine2:visible")) { $("#txtLine2").fadeOut(300) };
+					setTimeout(function() { $("#txtLine1").html("Try putting the video back together").fadeIn("slow"); }, 400);
+					setTimeout(function() { $("#txtLine2").html("Drag a tile one space at a time - no diagonals!").fadeIn("slow"); }, 400);
 				});
 
 				// play control click event
@@ -963,6 +1156,8 @@
 					if (!isGameStart) {
 						randmoizeTiles();
 						isGameStart = true;
+						$("#txtLine1").fadeOut('fast');
+						$("#txtLine2").fadeOut('fast');
 					}
 				
 					if ($(this).text() == "PAUSE") {
@@ -1003,38 +1198,12 @@
 				});
 			}
 			
-			var previousImageLocation = -1;
-			var poppingPolaroidsCount = 3;
-			function fireTrigger(triggerNum, timeout, image) {
-				var randomNumber = getRandomInt(0, poppingPolaroidsCount - 1);
-				while (previousImageLocation == randomNumber) {
-						randomNumber = getRandomInt(0, poppingPolaroidsCount - 1);
-				}
-				
-				var leftOrRight = triggerNum % 2 == 0 ? "poppingLeft" : "poppingRight";
-				var imageObj = $("."+leftOrRight+"[number="+randomNumber+"] img");
-
-				imageObj.attr("src",image);
-				
-				var deg = getRandomInt(1, 12);
-				var posOrNeg = deg % 2 == 0 ? "+" : "-";
-				var degString = posOrNeg.toString() + deg.toString() + "deg";
-				imageObj.css({
-					"-webkit-transform": "rotate("+degString+")",
-					"-moz-transform": "rotate("+degString+")",
-					"-o-transform": "rotate("+degString+")",
-					"-ms-transform": "rotate("+degString+")"
-				});
-				
-				//imageObj.load(function() {
-				//	imageObj.animate({ opacity: 1 }, 500);
-				//	setTimeout(function() { imageObj.animate({ opacity: 0 }, 500); }, timeout);
-				//});
-				
-				setTimeout(function() { imageObj.animate({ opacity: 1 }, 500); }, imageBuffer); // leave 1 second to load image
-				setTimeout(function() { imageObj.animate({ opacity: 0 }, 500); }, timeout);
-
-				previousImageLocation = randomNumber;
+			var globalTimeout = [];
+			function fireTrigger(triggerNum, timeout, text) {
+				var line1Or2 = triggerNum % 2 == 0 ? "txtLine1" : "txtLine2";
+				$("#"+line1Or2).html(text);
+				$("#"+line1Or2).fadeIn('fast');
+				globalTimeout.push(setTimeout(function() { $("#"+line1Or2).fadeOut('fast'); }, timeout));
 			}
 			
 			
