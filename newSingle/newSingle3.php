@@ -68,7 +68,7 @@
 
 			.polaroidFade {
 				/*give the frame's background colour a gradient*/
-				background: #eee6d8; /fallback colour for browsers that don't support gradients/
+				background: #eee6d8; /*fallback colour for browsers that don't support gradients*/
 				background: -webkit-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
 				background: -moz-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
 				background: -o-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
@@ -163,7 +163,7 @@
 			}
 			
 			#percent {
-				loat:left; 
+				float:left; 
 				background-color: white; 
 				position:relative; 
 				left: 25px; 
@@ -206,6 +206,11 @@ a:active {
 	color: #000;
 }
 
+a img {
+	border:none;
+	outline:none;
+}
+
 .clear {
 	clear:both;
 }
@@ -244,11 +249,11 @@ a:active {
 	width:50px;
 	margin-top:2px;
 	
-			background-color: rgba(233, 234, 230, 0.4);
+	background-color: rgba(233, 234, 230, 0.4);
 
-	outline: 0;
+	/* outline: 0;
 	outline: thin dotted \9;
-	/* IE6-9 */
+	IE6-9 */
 
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
 	   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
@@ -278,29 +283,110 @@ a:active {
   border-width: 1px;
   border-style: solid; 
   
-  outline: 0;
+  /* outline: 0;
   outline: thin dotted \9;
-  /* IE6-9 */
+  IE6-9 */
 
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(250, 40, 40, 0.8);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(250, 40, 40, 0.8);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(250, 40, 40, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 44px rgba(250, 40, 40, 0.8);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 44px rgba(250, 40, 40, 0.8);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 44px rgba(250, 40, 40, 0.8);
 }
 
 .shadowYay {
-  border-color: rgba(40, 250, 96, 0.8); /* 82, 168, 236 blue */ /* 40 250 96 green*/
+  border-color: rgba(82, 168, 236, 0.8); /* 82, 168, 236 blue */ /* 40 250 96 green*/
   border-width: 2px;
   border-style: solid; 
   
-  outline: 0;
+  /* outline: 0;
   outline: thin dotted \9;
-  /* IE6-9 */
+  IE6-9 */
 
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(40, 250, 96, 0.8);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(40, 250, 96, 0.8);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(40, 250, 96, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 84px rgba(82, 168, 236, 0.8); /*14px*/
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 84px rgba(82, 168, 236, 0.8);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 84px rgba(82, 168, 236, 0.8);
 }
 
+.winner {
+  border-color: rgba(233, 234, 230, 1); /* 82, 168, 236 blue */ /* 40 250 96 green*/
+
+  /* outline: 0;
+  outline: thin dotted \9;
+  IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 254px rgba(233, 234, 230, 1); /*14px*/
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 254px rgba(233, 234, 230, 1);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 254px rgba(233, 234, 230, 1);
+}
+
+/* Media Queries */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+	body {
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+	#vidz{
+		width:654px; /*720*/
+		height:500px;
+	}
+	#gameContainer {
+		display:none;
+	}
+	#main {
+		width:654px;
+		background: url("");
+	}
+	#nav {
+		margin-top:50px;
+		height: 200px;
+		width: 670px;
+	}
+	.socialIcon {
+		height:140px;
+		width: 150px;
+	}
+	#logo {
+		display:none;
+	}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+	body {
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+	#vidz{
+		width:654px; /*720*/
+		height:500px;
+	}
+	#gameContainer {
+		display:none;
+	}
+	#main {
+		width:654px;
+		background: url("");
+	}
+	#nav {
+		margin-top:50px;
+		height: 200px;
+		width: 670px;
+	}
+	.socialIcon {
+		height:140px;
+		width: 150px;
+	}
+	#logo {
+		display:none;
+	}
+}
 
 
 		</style>
@@ -327,11 +413,12 @@ a:active {
 		
 		<div class="wrapper">
 		
+			
 			<div style="display:none;">
 				<video id="source-vid" autobuffer preload="auto"> <!--loop (add this attr to make it loops)-->
 					<!--<source src="videos/Sequence02.mp4" type="video/mp4">
 					<source src="videos/Sequence_02.ogv" type="video/ogg">-->
-					<source src="videos/vid.mp4" type="video/mp4 codecs=avc1.42E01E,mp4a.40.2">
+					<source src="videos/vid.mp4" type="video/mp4"> <!-- codecs=avc1.42E01E,mp4a.40.2" (this was messing up IE)-->
 					<source src="videos/vid.ogv" type="video/ogg">
 				</video>
 			</div>
@@ -341,46 +428,53 @@ a:active {
 			
 				<!-- video -->
 				<div id="vidz" class="media polaroidFade">
-					<iframe width="654" height="480" src="http://www.youtube.com/embed/dwZr6Q3EhkE" frameborder="0" allowfullscreen></iframe>
+					<!--<iframe width="654" height="480" src="http://www.youtube.com/embed/dwZr6Q3EhkE" frameborder="0" allowfullscreen></iframe>-->
 				</div>
 				<!-- video -->
 				
 				<div style="clear:both; margin-bottom:100px;"></div>
-			
-				<div style="position:relative;">
-					<!-- game -->
-					<div id="box" class="media polaroidFade"></div>
-					<!-- game -->
-					
-					<div style="clear:both;"></div>
-					
-					<!-- song controls -->
-					<div id="controls" style="float:right; width:640px; position:relative; right:15px; top:-70px;">
-						<div id="gameGrid" style="float:left;">
-							<a id="gameGridLink" shouldDissapearOnStop href="javascript:">EASIER?</a>
-						</div>
-
-						<div id="media" style="float:right; width:160px;">
-							<a id="play" shouldDissapearOnStop href="javascript:" style="float:left; width:60px;">PLAY</a>
-							<div id="time" style="float:left; width:60px;">00:00</div>
-							<a id="stop" href="javascript:" style="float:left; width:40px;">STOP</a>
-						</div>
+				
+				<div id="gameContainer">
+				
+					<div style="position:relative;">
+						<!-- game -->
+						<div id="box" class="media polaroidFade"></div>
+						<!-- game -->
 						
 						<div style="clear:both;"></div>
 						
-						<div id="loader">
-							<canvas id="percent" height="8" width="310"></canvas>
-							<label id="percentIndicator"><label>
+						<!-- song controls -->
+						<div id="controls" style="float:right; width:640px; position:relative; right:15px; top:-70px;">
+							<div id="gameGrid" style="float:left;">
+								<a id="gameGridLink" shouldDissapearOnStop href="javascript:">EASIER?</a>
+							</div>
+
+							<div id="media" style="float:right; width:160px;">
+								<a id="play" shouldDissapearOnStop href="javascript:" style="float:left; width:60px;">PLAY</a>
+								<div id="time" style="float:left; width:60px;">00:00</div>
+								<a id="stop" href="javascript:" style="float:left; width:40px;">STOP</a>
+							</div>
+							
+							<div id="winnerMsg" style="float:right; margin-right:90px">
+							</div>
+							
+							<div style="clear:both;"></div>
+							
+							<div id="loader">
+								<canvas id="percent" height="8" width="310"></canvas>
+								<label id="percentIndicator"></label>
+							</div>
+							
 						</div>
+						<!-- end song controls -->
 						
+						<div id="txtLine1" style="width:275px; height:50px;position:absolute; bottom:-16px; left:15px; text-align: center">Try putting the video back together</div>
+						<div id="txtLine2" style="width:275px; height:50px;position:absolute; bottom:144px; left:330px; text-align: center">Drag a tile one space at a time - no diagonals!</div>
 					</div>
-					<!-- end song controls -->
 					
-					<div id="txtLine1" style="width:275px; height:50px;position:absolute; bottom:-16px; left:15px; text-align: center">Try putting the video back together</div>
-					<div id="txtLine2" style="width:275px; height:50px;position:absolute; bottom:144px; left:330px; text-align: center">Drag a tile one space at a time - no diagonals!</div>
-				</div>
-				
-				<div style="clear:both; margin-bottom:20px;"></div>
+					<div style="clear:both; margin-bottom:20px;"></div>
+					
+				</div>	
 				
 			</div>
 
@@ -388,8 +482,11 @@ a:active {
 
 		<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 		
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		
+		<!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
 		
 		<!--<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>-->
@@ -466,6 +563,8 @@ a:active {
 			var isGameStart = false;
 			var totalPlayerMoves = 0;
 			var totalPlayerScore = 0;
+			var completedTime = 0;
+			var accumTime = 0;
 			var upper = 0;
 			var lower = 0;
 			var left = 0;
@@ -552,11 +651,25 @@ a:active {
 				});
 					
 				if (isInOrder) {
-					alert("game won");
 					isGameWon = true;
-					
+					$('#box').addClass('winner');
 					totalPlayerScore = 0;
-					//$('#playerScore').text(totalPlayerScore);
+					
+					// TODO take into account game level here
+					var message = "";
+					if (completedTime > 240)
+						message = "What took you so long:";
+					else if (completedTime > 180)
+						message = "Not too bad:";
+					else if (completedTime > 120)
+						message = "Pretty good:";
+					else if (completedTime > 60)
+						message = "Daaaamn fast:"
+					else 
+						message = "Woooaaah:";
+					
+					$('#winnerMsg').html(message + " " + completedTime);
+					$('#winnerMsg').fadeIn(300);
 				}
 			}
 			
@@ -710,13 +823,15 @@ a:active {
 				if (origanlNum != tileNumber) {
 					$('#tileBorder_'+randomNumber).css('opacity', '1'); // reset the tile over this one (if there is one) to opaque
 					
+					currentTile.children().addClass('shadowYay');
 					if ($.inArray(origanlNum, goBackArray) == -1) {
 						currentTile.css('opacity', '0.5'); // if we're placing a tile over another one, make it transparent
 					}
 					currentTile.css({'z-index':'99'}).animate({left: 0, top: 0 }, 300);
 
 					setTimeout(function() { 
-						currentTile.css('z-index','1'); // set to 1, not auto to prevent some current tiles appearing under instead of over others	
+						currentTile.css('z-index','1').children().removeClass('shadowYay'); // set to 1, not auto to prevent some current tiles appearing under instead of over others	
+						
 						RevertTiles();				
 					}, 300);
 				}
@@ -991,11 +1106,36 @@ a:active {
 				
 				// redraw tiles and calc new rando positions
 				$("#box").html('');
+				
+				if ($("#box").hasClass('winner')) {
+					$("#box").removeClass('winner');
+				}
+				
+				if ($("#winnerMsg:visible")) {
+					$("#winnerMsg").fadeOut(300);
+					setTimeout(function() { $("#winnerMsg").html("");}, 400);
+				}
+				
 				tiles(videoNaturalWidth, videoNaturalHeight, ROWS, COLS);
 				update(video);
 				
 				$(".tileBorder").draggable('disable');
 			}
+			
+			function resetPolaroidText() {
+				if (globalTimeout.length > 0) {
+					for (var i = 0; i < globalTimeout.length; i++) {
+						clearTimeout(globalTimeout[i]);
+					}
+					globalTimeout = [];
+				}
+									
+				if ($("#txtLine1:visible")) { $("#txtLine1").fadeOut(300) };
+				if ($("#txtLine2:visible")) { $("#txtLine2").fadeOut(300) };
+				setTimeout(function() { $("#txtLine1").html("Try putting the video back together").fadeIn("slow"); }, 400);
+				setTimeout(function() { $("#txtLine2").html("Drag a tile one space at a time - no diagonals!").fadeIn("slow"); }, 400);
+			}
+			
 			
 			function GalleryCircusMain() {
 			
@@ -1073,11 +1213,15 @@ a:active {
 				
 					var vTime = video.currentTime;
 				
+					accumTime = Math.floor(vTime);
+				
 					// render new time on page
 					var minutes = Math.floor(vTime / 60);   
-					var seconds = Math.floor(vTime);
+					var seconds = Math.floor(vTime % 60);
 					var timeDis = (minutes < 10 ? "0"+minutes.toString() : minutes.toString()) + ":" + (seconds < 10 ? "0"+seconds.toString() : seconds.toString());
 					$(timeDisplay).html(timeDis);
+					
+					completedTime = timeDis;
 					
 					if (currentTrigger < timings.length) {
 						// if we're reached a new timing - trigger related event
@@ -1137,17 +1281,7 @@ a:active {
 						}, (300 * howManyTilesAreNotInOrder) + 300);
 					}
 					
-					if (globalTimeout.length > 0) {
-						for (var i = 0; i < globalTimeout.length; i++) {
-							clearTimeout(globalTimeout[i]);
-						}
-						globalTimeout = [];
-					}
-										
-					if ($("#txtLine1:visible")) { $("#txtLine1").fadeOut(300) };
-					if ($("#txtLine2:visible")) { $("#txtLine2").fadeOut(300) };
-					setTimeout(function() { $("#txtLine1").html("Try putting the video back together").fadeIn("slow"); }, 400);
-					setTimeout(function() { $("#txtLine2").html("Drag a tile one space at a time - no diagonals!").fadeIn("slow"); }, 400);
+					resetPolaroidText();
 				});
 
 				// play control click event
@@ -1191,7 +1325,11 @@ a:active {
 					// vid control
 					video.pause();
 					video.currentTime = 0;
-		
+			
+					if (isGameStart) {
+						resetPolaroidText();
+					}
+			
 					StopResetGame();
 
 					$("#box").fadeIn('fast');
@@ -1206,7 +1344,12 @@ a:active {
 				globalTimeout.push(setTimeout(function() { $("#"+line1Or2).fadeOut('fast'); }, timeout));
 			}
 			
-			
+			function tweet() {
+				var tweet_url = 'https://twitter.com/intent/tweet?related=gallerycircus&text=';
+				tweet_url += encodeURIComponent("Test tweet");
+				tweet_url += '&url=' + window.location.href;
+				window.open(tweet_url,'_blank');
+			} 
 			
 			
 			
