@@ -16,13 +16,13 @@ this.GC = this.GC || {};
 		this.refreshRate = 500;
 		this.videoLoader = null;
 		
-		this.assetCollection = [
-			{ face:this.cubeFaceEnum.FRONT,  type:"video", id:"videoFront",  sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
-			{ face:this.cubeFaceEnum.BACK,   type:"video", id:"videoBack",   sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
-			{ face:this.cubeFaceEnum.LEFT,   type:"video", id:"videoLeft",   sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
-			{ face:this.cubeFaceEnum.RIGHT,  type:"video", id:"videoRight",  sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
-			{ face:this.cubeFaceEnum.TOP,    type:"video", id:"videoTop",    sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
-			{ face:this.cubeFaceEnum.BOTTOM, type:"video", id:"videoBottom", sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] }
+		this.assetCollection = [ // bgSuperCell videoGame
+			{ face:this.cubeFaceEnum.FRONT,  type:"video", id:"videoFront",  mute:true, sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
+			{ face:this.cubeFaceEnum.BACK,   type:"video", id:"videoBack",   mute:true, sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
+			{ face:this.cubeFaceEnum.LEFT,   type:"video", id:"videoLeft",   mute:true, sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
+			{ face:this.cubeFaceEnum.RIGHT,  type:"video", id:"videoRight",  mute:true, sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
+			{ face:this.cubeFaceEnum.TOP,    type:"video", id:"videoTop",    mute:true, sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] },
+			{ face:this.cubeFaceEnum.BOTTOM, type:"video", id:"videoBottom", mute:true, sources:[ {src:"bgSuperCell.mp4", type:"video/mp4"}, {src:"bgSuperCell.ogv", type:"video/ogg"} ] }
 		];
 		
 		this.videos = [];
@@ -66,6 +66,7 @@ this.GC = this.GC || {};
 			vid.preload = true;
 			vid.face = elem.face;
 			vid.style.display = "none";
+			vid.muted = elem.mute;
 			for (var i=0; i<elem.sources.length; i++) {
 				var s = document.createElement('source');
 				s.src = elem.sources[i].src;

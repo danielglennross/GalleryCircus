@@ -21,6 +21,8 @@ this.GC = this.GC || {};
 			if (preloader.allVideosLoaded()) {
 				clearInterval(this.poller);
 				var cube = new GC.Cube(preloader.videos);
+				cube.init();
+				cube.animate();
 			}
 		}
 	}
