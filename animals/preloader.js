@@ -31,14 +31,18 @@ this.GC = this.GC || {};
 			this.assetsLoaded = 0;
 			this.assetsToLoad = this.assetCollection.length;
 			for (var i=0; i<this.assetsToLoad; i++) {
-				var v = this.createVideo(this.assetCollection[i]);
+				var v = createVideo(this.assetCollection[i]);
 				v.load();
 				this.videos.push(v);
 			}
-			this.videoLoader = setInterval(this.pollLoader.bind(_this), this.refreshRate); // this was changing context
+			this.videoLoader = setInterval(pollLoader.bind(_this), this.refreshRate); // this was changing context
 		}
 		
-		this.pollLoader = function() {
+		this.allVideosLoaded = function() {
+			return this.assetsLoaded == this.assetsToLoad;
+		}
+		
+		function pollLoader() {
 			for (var i=0; i<this.assetsToLoad; i++) {
 				var video = this.videos[i];
 				if (video.readyState) {
@@ -56,11 +60,7 @@ this.GC = this.GC || {};
 			}
 		}
 		
-		this.allVideosLoaded = function() {
-			return this.assetsLoaded == this.assetsToLoad;
-		}
-		
-		this.createVideo = function(elem) {
+		function createVideo(elem) {
 			var vid = document.createElement('video');
 			vid.id = elem.id;
 			vid.preload = true;

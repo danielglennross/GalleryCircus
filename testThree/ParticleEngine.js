@@ -93,7 +93,7 @@ function Particle()
 	this.position     = new THREE.Vector3();
 	this.velocity     = new THREE.Vector3(); // units per second
 	this.acceleration = new THREE.Vector3();
-
+	
 	this.angle             = 0;
 	this.angleVelocity     = 0; // degrees per second
 	this.angleAcceleration = 0; // degrees per second, per second
@@ -150,6 +150,9 @@ function ParticleEngine()
 	
 	this.positionStyle = Type.CUBE;		
 	this.positionBase   = new THREE.Vector3();
+	
+	this.xyz = { x:0, y:0, z:0 }; // override this.positionBase
+	
 	// cube shape data
 	this.positionSpread = new THREE.Vector3();
 	// sphere shape data
@@ -249,7 +252,9 @@ ParticleEngine.prototype.setValues = function( parameters )
 	// attach tweens to particles
 	Particle.prototype.sizeTween    = this.sizeTween;
 	Particle.prototype.colorTween   = this.colorTween;
-	Particle.prototype.opacityTween = this.opacityTween;	
+	Particle.prototype.opacityTween = this.opacityTween;
+
+    this.positionBase = new THREE.Vector3(this.xyz.x, this.xyz.y, this.xyz.z);
 	
 	// calculate/set derived particle engine values
 	this.particleArray = [];
@@ -290,7 +295,6 @@ ParticleEngine.prototype.randomVector3 = function(base, spread)
 	var rand3 = new THREE.Vector3( Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5 );
 	return new THREE.Vector3().addVectors( base, new THREE.Vector3().multiplyVectors( spread, rand3 ) );
 }
-
 
 ParticleEngine.prototype.createParticle = function()
 {
@@ -337,7 +341,7 @@ ParticleEngine.prototype.createParticle = function()
 	return particle;
 }
 
-ParticleEngine.prototype.initialize = function()
+ParticleEngine.prototype.initialize = function(scene)
 {
 	// link particle data with geometry/material data
 	for (var i = 0; i < this.particleCount; i++)
@@ -362,7 +366,7 @@ ParticleEngine.prototype.initialize = function()
 	scene.add( this.particleMesh );
 }
 
-ParticleEngine.prototype.update = function(dt, angle)
+ParticleEngine.prototype.update = function(dt, movingX)
 {
 	var recycleIndices = [];
 	
@@ -389,8 +393,8 @@ ParticleEngine.prototype.update = function(dt, angle)
 		}		
 	}
 	
-	if (angle != null) // tornado
-		this.positionBase = new THREE.Vector3( angle, -80, 0 );
+	if (movingX != null) // tornado
+		this.positionBase = new THREE.Vector3( this.xyz.x + movingX, this.xyz.y, this.xyz.z );
 
 	// check if particle emitter is still running
 	if ( !this.emitterAlive ) return;
@@ -422,7 +426,7 @@ ParticleEngine.prototype.update = function(dt, angle)
 	if ( this.emitterAge > this.emitterDeathAge )  this.emitterAlive = false;
 }
 
-ParticleEngine.prototype.destroy = function()
+ParticleEngine.prototype.destroy = function(scene)
 {
     scene.remove( this.particleMesh );
 }
