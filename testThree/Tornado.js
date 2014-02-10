@@ -79,13 +79,7 @@ this.GC = this.GC || {};
 		}
 		
 		function restartEngine() {
-			resetCamera();
-			
-			cloudEngine.destroy(scene);
-			cloudEngine = new ParticleEngine();
-			cloudEngine.setValues(Effects.couds);
-			cloudEngine.initialize(scene);
-			
+			resetCamera();			
 			tornadoEngine.destroy(scene);
 			tornadoEngine = new ParticleEngine();
 			tornadoEngine.setValues(Effects.tornado);
@@ -107,7 +101,10 @@ this.GC = this.GC || {};
 		function update() {
 			var dt = clock.getDelta() * 0.5;
 			cloudEngine.update(dt);	
-			tornadoEngine.update(dt, movingX);	
+			tornadoEngine.update(dt, movingX);
+
+			if (!tornadoEngine.emitterAlive)
+				setTimeout(restartEngine, 3000);
 		}
 
 		function render() {

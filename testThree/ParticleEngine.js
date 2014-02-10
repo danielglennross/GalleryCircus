@@ -204,6 +204,7 @@ function ParticleEngine()
 	this.emitterAge      = 0.0;
 	this.emitterAlive    = true;
 	this.emitterDeathAge = 60; // time (seconds) at which to stop creating particles.
+	this.useEmitter      = true;
 	
 	// How many particles could be active at any time?
 	this.particleCount = this.particlesPerSecond * Math.min( this.particleDeathAge, this.emitterDeathAge );
@@ -423,7 +424,7 @@ ParticleEngine.prototype.update = function(dt, movingX)
 
 	// stop emitter?
 	this.emitterAge += dt;
-	if ( this.emitterAge > this.emitterDeathAge )  this.emitterAlive = false;
+	if ( this.useEmitter && this.emitterAge > this.emitterDeathAge )  this.emitterAlive = false;
 }
 
 ParticleEngine.prototype.destroy = function(scene)

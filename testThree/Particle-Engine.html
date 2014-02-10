@@ -30,22 +30,33 @@
 	#foreGround {
 		z-index:100; 
 		position:absolute;
+		/*
 		background-image:url('ForeGround.png'); no-repeat center center fixed;
 		background-size:cover;
+		*/
 		height:100%;
 		width:100%;
+		left:0px; 
+		top:0px;
+	}
+	
+	#foreGround img {
+		width: 100%;
+		height: 100%;
 	}
 
 	#container {
 		position:absolute; 
 		left:0px; 
-		top:0px
+		top:0px;
 	}
 </style>
 
 <body>
 	<div id="container"></div>
-	<div id="foreGround"></div>
+	<div id="foreGround">
+		<img src="ForeGround.gif" />
+	</div>
 
 	<script>
 		this.GC = this.GC || {};

@@ -63,7 +63,7 @@ Effects =
 	{
 		positionStyle    : Type.CUBE,
 		//positionBase     : new THREE.Vector3( 200, -210, 0 ), // x = 0, y = 0 // 200 -80 0
-		xyz              : { x:200, y:-210, z:0 },
+		xyz              : { x:200, y:-80, z:0 }, // 200 -210 0
 		
 		positionSpread   : new THREE.Vector3( 10, 0, 10 ), // 10 0 10
 
@@ -83,11 +83,12 @@ Effects =
 		//opacityTween : new Tween( [0.8, 2], [0.5, 0] ),
 		colorTween   : new Tween( [0.4, 1], [ new THREE.Vector3(0,0,0.2), new THREE.Vector3(0, 0, 0.5) ] ),
 
-		particlesPerSecond : 500, // 200
-		particleDeathAge   : 2.0, // 2		
-		emitterDeathAge    : 60 // 60
+		particlesPerSecond : 300, // 200
+		particleDeathAge   : 1.5, // 2		
+		emitterDeathAge    : 20, // 60
+		useEmitter         : true,
 		
-		,opacityTween : new Tween( [0.2, 0.7, 2.5], [0.75, 1, 0] )
+		opacityTween : new Tween( [0.2, 0.7, 2.5], [0.75, 1, 0] )
 	},
 	
 	clouds :
@@ -112,6 +113,7 @@ Effects =
 
 		particlesPerSecond : 800, //50 // 500
 		particleDeathAge   : 10.0,		
-		emitterDeathAge    : 60
+		emitterDeathAge    : 60,
+		useEmitter		   : false
 	}
 }
