@@ -1,6 +1,97 @@
 this.GC = this.GC || {};
 
 (function($) {
+
+	"use strict";
+
+	function Preloader(o) {
+	
+		var assets = o || new Object();
+		
+		var images = assets.images;
+		var audios = assets.audios;
+		
+		var imagesToLoad, imagesLoaded, audio, isAudioLoaded, isImagesLoaded, poller;
+		
+		this.load = function() {
+			if (images.length == 0) return;
+			
+			isAudioLoaded = false;
+			isImagesLoaded = false;
+			
+			fireImages();
+			fireAudio();
+			
+			poller = setInterval(poll, 50);
+		}
+		
+		function poll() {
+			if (isAudioLoaded && isImagesLoaded) {
+				document.body.style.display = "block";
+				audio.play();
+				clearInterval(poller);
+			}
+		}
+		
+		function fireImages() {
+			imagesToLoad = images.length;
+			imagesLoaded = 0;
+			for (var i = 0; i < imagesToLoad; i++) {
+				preloadImg(images[i].containerId, images[i].imgUrl, images[i].imageId);
+			}
+		}
+		
+		function fireAudio() {
+			audio = document.createElement('audio');
+			for (var i = 0; i < audios.length; i++) {
+				preLoadAudio(audio, audios[i].audioSrc, audios[i].audioType);
+			}
+			audio.preload = "auto";
+			audio.volume = 1;
+			audio.addEventListener('ended', function(){
+				audio.pause();
+				audio.currentTime = 0;
+				audio.play();
+			});
+			audio.addEventListener('canplaythrough', function(){
+				isAudioLoaded = true;
+			});
+			document.body.appendChild(audio);
+		}
+		
+		function preLoadAudio(audio, audioSrc, audioType) {			
+			var source = document.createElement('source');
+			if (audioType == "ogg" && audio.canPlayType('audio/ogg;')) {
+				source.type= 'audio/ogg';
+				source.src= audioSrc;
+			} else if (audioType == "wav" && audio.canPlayType('audio/x-wav')) {
+				source.type= 'audio/x-wav';
+				source.src= audioSrc;
+			}
+			audio.appendChild(source);
+		}
+		
+		function preloadImg(containerId, imgUrl, imageId) {
+			var i = document.createElement('img');
+			i.id = imageId;
+			i.onload = function() {
+				var container = document.getElementById(containerId);
+				container.appendChild(this);
+				++imagesLoaded;
+				if (imagesLoaded == imagesToLoad)
+					isImagesLoaded = true;
+			};
+			i.src = imgUrl;
+		}
+	}
+	
+	GC.Preloader = Preloader;
+	
+})(jQuery);
+
+/*************************/
+
+(function($) {
 	
 	"use strict";
 	
