@@ -11,7 +11,7 @@ this.GC = this.GC || {};
 		var images = assets.images;
 		var audios = assets.audios;
 		
-		var imagesToLoad, imagesLoaded, audio, isAudioLoaded, isImagesLoaded, poller;
+		var imagesToLoad, imagesLoaded, audio1, audio2, isAudioLoaded, isImagesLoaded, poller;
 		
 		this.load = function() {
 			if (images.length == 0) return;
@@ -27,8 +27,10 @@ this.GC = this.GC || {};
 		
 		function poll() {
 			if (isAudioLoaded && isImagesLoaded) {
-				document.body.style.display = "block";
-				audio.play();
+				$(document.body).animate({opacity:1}, 1000);
+				$("#splash").fadeOut();
+				$("#galleryCircus").fadeIn();
+				audio1.play();
 				clearInterval(poller);
 			}
 		}
@@ -42,21 +44,38 @@ this.GC = this.GC || {};
 		}
 		
 		function fireAudio() {
-			audio = document.createElement('audio');
+			// isAudioLoaded only true when audio1 is loaded - audio2 should have loaded by the time it's fired
+			audio1 = document.createElement('audio');
+			audio2 = document.createElement('audio');
+			audioHandler(audio1, audio2, true);
+			audioHandler(audio2, audio1);			
+		}
+		
+		function audioHandler(audioOne, audioTwo, init) {
 			for (var i = 0; i < audios.length; i++) {
-				preLoadAudio(audio, audios[i].audioSrc, audios[i].audioType);
+				preLoadAudio(audioOne, audios[i].audioSrc, audios[i].audioType);
 			}
-			audio.preload = "auto";
-			audio.volume = 1;
-			audio.addEventListener('ended', function(){
-				audio.pause();
-				audio.currentTime = 0;
-				audio.play();
+			audioOne.preload = "auto";
+			audioOne.volume = 1;
+			audioOne.addEventListener('timeupdate', function(){
+				if (this.readyState) {
+					var time = this.currentTime.toFixed(2);
+					var duration = this.duration.toFixed(2);
+					if (time >= duration - 2) 						
+						audioTwo.play();
+				}
 			});
-			audio.addEventListener('canplaythrough', function(){
-				isAudioLoaded = true;
+			audioOne.addEventListener('ended', function(){
+				audioOne.pause();
+				audioOne.currentTime = 0;
 			});
-			document.body.appendChild(audio);
+			
+			if (init === true) {
+				audioOne.addEventListener('canplaythrough', function(){
+					isAudioLoaded = true;
+				});
+			}
+			document.body.appendChild(audioOne);
 		}
 		
 		function preLoadAudio(audio, audioSrc, audioType) {			

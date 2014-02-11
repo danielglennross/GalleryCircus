@@ -25,6 +25,26 @@
 		background-size:cover;
 		background-color:#cccccc;
 		overflow:hidden;
+		
+		/* reveal via preloader */
+		opacity:0.2;
+	}
+	
+	#splash {
+		z-index:100; 
+		position:absolute;
+		height:100%;
+		width:100%;
+		left:0px; 
+		top:0px;
+		
+		color:#fff;
+		font-size:20vmin;
+		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		text-align:center;
+	}
+	
+	#galleryCircus {
 		/* reveal via preloader */
 		display:none;
 	}
@@ -32,10 +52,6 @@
 	#foreGround {
 		z-index:100; 
 		position:absolute;
-		/*
-		background-image:url('ForeGround.png'); no-repeat center center fixed;
-		background-size:cover;
-		*/
 		height:100%;
 		width:100%;
 		left:0px; 
@@ -55,8 +71,11 @@
 </style>
 
 <body>
-	<div id="container"></div>
-	<div id="foreGround"></div>
+	<div id="splash"><p>LOADING...</p></div>
+	<div id="galleryCircus">
+		<div id="container"></div>
+		<div id="foreGround"></div>
+	</div>
 
 	<script>
 		this.GC = this.GC || {};
@@ -66,7 +85,7 @@
 			GalleryCircusMegaTornado.init();
 			GalleryCircusMegaTornado.animate();	
 			
-			var Preloader = new GC.Preloader({images:[{containerId:"foreGround", imgUrl:"ForeGround.png", imageId:"foreGroundImg"}], audios:[{audioSrc:"tornado.ogg", audioType:"ogg"},{audioSrc:"tornado.wav", audioType:"wav"}]});
+			var Preloader = new GC.Preloader({images:[{containerId:"foreGround", imgUrl:"ForeGround.png", imageId:"foreGroundImg"}], audios:[{audioSrc:"newTornado.wav", audioType:"wav"}]});
 			Preloader.load();
 		});
 		
