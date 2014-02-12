@@ -475,7 +475,7 @@
 							<li class="linkElement"><a id="linkShows" href="#Supercell" class="shakeable">supercell</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
 							<li class="linkElement"><a id="linkMedia" href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">shows</a></li>
-							<li class="linkElement"><a id="linkTornado" href="Supercell/Tornado" class="shakeable" target="_blank">Tornado</a></li>
+							<li class="linkElement"><a id="linkTornado" href="Storm/Tornado" class="shakeable" target="_blank">Tornado</a></li>
 							<li class="linkElement"><a id="linkContact" href="#Contact" class="shakeable">contact</a></li>
 						</ul>
 					</div>
