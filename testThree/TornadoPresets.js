@@ -1,5 +1,5 @@
 /* 
-	Particle Engine options:
+	options: 
 	
 	positionBase   : new THREE.Vector3(),
 	positionStyle : Type.CUBE or Type.SPHERE,

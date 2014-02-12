@@ -1,5 +1,6 @@
 /**
 * @author Lee Stemkoski   http://www.adelphi.edu/~stemkoski/
+* Modified by Gallery Circus
 */
 
 ///////////////////////////////////////////////////////////////////////////////

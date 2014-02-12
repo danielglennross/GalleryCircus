@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Gallery Circus</title>
+	<title>Gallery Circus - Supercell</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	
@@ -11,8 +11,8 @@
 	<script src="Three.js"></script>
 	<script src="Detector.js"></script>
 
-	<script src="ParticleEngine.js"></script>
-	<script src="ParticleEngineExample.js"></script>
+	<script src="TornadoEngine.js"></script>
+	<script src="TornadoPresets.js"></script>
 	<script src="Tornado.js"></script>
 </head>
 
@@ -35,8 +35,6 @@
 		position:absolute;
 		height:100%;
 		width:100%;
-		left:0px; 
-		top:0px;
 		
 		color:#fff;
 		font-size:20vmin;
@@ -85,10 +83,12 @@
 			GalleryCircusMegaTornado.init();
 			GalleryCircusMegaTornado.animate();	
 			
-			var Preloader = new GC.Preloader({images:[{containerId:"foreGround", imgUrl:"ForeGround.png", imageId:"foreGroundImg"}], audios:[{audioSrc:"newTornado.wav", audioType:"wav"}]});
+			var Preloader = new GC.Preloader({images:[{containerId:"foreGround", imgUrl:"ForeGround.png", imageId:"foreGroundImg"}], 
+			                                  audios:[{audioSrc:"newTornado.wav", audioType:"wav"}
+											         ,{audioSrc:"newTornado.ogg", audioType:"ogg"}]
+										    });
 			Preloader.load();
-		});
-		
+		});		
 	</script>
 </body>
 </html>
