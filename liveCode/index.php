@@ -424,7 +424,7 @@
 
 			#pageLinks {
 				float:right;
-				width:680px; /*640px;*/
+				width:720px; /*640px;*/
 				
 				font-size:28px;
 				text-transform:uppercase;
@@ -446,7 +446,9 @@
 			@media only screen 
 			and (min-device-width : 320px) 
 			and (max-device-width : 480px) {
-				
+				#pageLinks {
+					width:785px;
+				}
 			}
 
 			/* iPads (portrait and landscape) ----------- */
