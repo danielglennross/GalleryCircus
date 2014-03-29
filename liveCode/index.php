@@ -97,7 +97,7 @@
 				position: absolute;
 				margin: 0 auto;
 				width: 100%;
-				top: 40px;
+				top: 15px;
 				color: rgb(255, 0, 0);
 				font-size: 23px;
 				text-align: center;
@@ -547,7 +547,8 @@
 							<tr><td>Fri 24 May</td><td>Evo Emerging / Dot to Dot</td></tr>
 							<tr><td>Fri 25 May</td><td>Dot to Dot</td></tr>
 							<tr><td>Fri 12 Jun</td><td>Isle Of Wight</td></tr>
-							<tr><td>Fri 20 Jun</td><td>Willow Man</td></tr>
+							<tr><td>Thu 20 Jun</td><td>Willow Man</td></tr>
+							<tr><td>Fri 01 Aug</td><td>Kendal Calling</td></tr>
 						</tbody>
 					</table>
 					
