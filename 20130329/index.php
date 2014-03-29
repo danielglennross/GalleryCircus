@@ -1,7 +1,6 @@
 <?php
-//start of file - Gallery Circus  - copyright 2014
+//start of file - Gallery Circus  - copyright 2013
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -80,7 +79,7 @@
 				float:right;
 			}
 			
-			#shows{
+			#vidz{
 				width:654px; /*720*/
 				height:500px;
 				
@@ -91,19 +90,6 @@
 				padding-bottom: 40px; /* will override bottom padding of .media*/
 				
 				float:left;
-			}
-			
-			#shows table{
-				position: absolute;
-				margin: 0 auto;
-				width: 100%;
-				top: 40px;
-				color: rgb(255, 0, 0);
-				font-size: 23px;
-				text-align: center;
-				font-weight: bold;
-				left: 30px;
-				;
 			}
 			
 			.tileBorder {
@@ -153,7 +139,7 @@
 				-ms-transform: rotate(-3deg);
 			}
 			
-			#shows:before { 
+			#vidz:before { 
 				content: '';
 				display: block;
 				position: absolute;
@@ -246,9 +232,9 @@
 			}
 			
 			.blur {
-				filter: grayscale(30%);
-				-webkit-filter: grayscale(30%);
-				-moz-filter: grayscale(30%);
+				filter: grayscale(70%);
+				-webkit-filter: grayscale(70%);
+				-moz-filter: grayscale(70%);
 				
 				transition: 0.5s all ease-in;
 				-webkit-transition: 0.5s all ease-in;
@@ -490,7 +476,7 @@
 						<ul>
 							<li class="linkElement"><a id="linkShows" href="#Supercell" class="shakeable">supercell</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
-							<li class="linkElement"><a id="linkMedia" href="#shows" class="shakeable">shows</a></li>
+							<li class="linkElement"><a id="linkMedia" href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">shows</a></li>
 							<li class="linkElement"><a id="linkTornado" href="Storm/Tornado" class="shakeable" target="_blank">Tornado</a></li>
 							<li class="linkElement"><a id="linkContact" href="#Contact" class="shakeable">contact</a></li>
 						</ul>
@@ -529,27 +515,11 @@
 			<div id="main">
 			
 				<!-- video -->
-				<div id="shows" class="media polaroidFade blur">
-					<video id="supercellCover" loop="" autoplay="" width="654" height="480" muted=""> 
+				<div id="vidz" class="media polaroidFade">
+					<video id="supercellCover" loop="" autoplay="" width="654" height="480" muted="" class="blur"> 
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
 					</video>
-					
-					<table>
-						<tbody>
-							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>
-							<tr><td>Fri 09 May</td><td>The Great Escape</td></tr>							
-							<tr><td>Fri 02 May</td><td>Sound City</td></tr>
-							<tr><td>Sat 03 May</td><td>Live At Leeds</td></tr>
-							<tr><td>Sun 04 May</td><td>Stockton Sunday Live</td></tr>						
-							<tr><td>Tue 13 May</td><td>Huw Stephens Showcase</td></tr>
-							<tr><td>Fri 23 May</td><td>Dot to Dot</td></tr>
-							<tr><td>Fri 24 May</td><td>Evo Emerging / Dot to Dot</td></tr>
-							<tr><td>Fri 25 May</td><td>Dot to Dot</td></tr>
-							<tr><td>Fri 12 Jun</td><td>Isle Of Wight</td></tr>
-							<tr><td>Fri 20 Jun</td><td>Willow Man</td></tr>
-						</tbody>
-					</table>
 					
 					<div style="margin: 0 auto; width: 410px; padding-top:8px; font-size: 20px;">
 						<a href="http://www.amazon.co.uk/s/ref=ntt_srch_drd_B005WRXK3U?ie=UTF8&field-keywords=Gallery%20Circus&index=digital-music&search-type=ss" class="shakeable" target="_blank">Amazon</a>&nbsp;|
@@ -1308,11 +1278,11 @@
 					tweet();
 				});
 				
-				$(document.body).on("mouseover", "#shows", function() {
+				$(document.body).on("mouseover", "#vidz", function() {
 					$(this).find("video").prop("muted", false);
 				});
 				
-				$(document.body).on("mouseleave", "#shows", function() {
+				$(document.body).on("mouseleave", "#vidz", function() {
 					$(this).find("video").prop("muted", true);
 				});
 				
