@@ -99,11 +99,15 @@
 				width: 100%;
 				top: 15px;
 				color: rgb(255, 0, 0);
-				font-size: 23px;
+				font-size: 21px;
 				text-align: center;
 				font-weight: bold;
 				left: 30px;
 				;
+			}
+			
+			#supercellCover {
+				opacity:0.5;
 			}
 			
 			.tileBorder {
@@ -537,15 +541,16 @@
 					
 					<table>
 						<tbody>
-							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>
-							<tr><td>Fri 09 May</td><td>The Great Escape</td></tr>							
+							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
 							<tr><td>Fri 02 May</td><td>Sound City</td></tr>
+							<tr><td>Fri 09 May</td><td>The Great Escape</td></tr>
 							<tr><td>Sat 03 May</td><td>Live At Leeds</td></tr>
 							<tr><td>Sun 04 May</td><td>Stockton Sunday Live</td></tr>						
 							<tr><td>Tue 13 May</td><td>Huw Stephens Showcase</td></tr>
-							<tr><td>Fri 23 May</td><td>Dot to Dot</td></tr>
-							<tr><td>Fri 24 May</td><td>Evo Emerging / Dot to Dot</td></tr>
-							<tr><td>Fri 25 May</td><td>Dot to Dot</td></tr>
+							<tr><td>Wed 14 May</td><td>Ace Hotel, Shoreditch</td></tr>
+							<tr><td>Fri 23 May</td><td>Dot to Dot, Manchester</td></tr>
+							<tr><td>Sat 24 May</td><td>Evo Emerging / Dot to Dot, Bristol</td></tr>
+							<tr><td>Sun 25 May</td><td>Dot to Dot, Nottingham</td></tr>
 							<tr><td>Fri 12 Jun</td><td>Isle Of Wight</td></tr>
 							<tr><td>Thu 20 Jun</td><td>Willow Man</td></tr>
 							<tr><td>Fri 01 Aug</td><td>Kendal Calling</td></tr>
