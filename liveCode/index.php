@@ -543,6 +543,7 @@
 						<tbody>
 							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
 							<tr><td>Fri 02 May</td><td>Sound City</td></tr>
+							<tr><td>Thu 08 May</td><td>The Cluny (Young Rebel Set)</td></tr>
 							<tr><td>Sat 03 May</td><td>Live At Leeds</td></tr>
 							<tr><td>Sun 04 May</td><td>Stockton Sunday Live</td></tr>						
 							<tr><td>Fri 09 May</td><td>The Great Escape</td></tr>
