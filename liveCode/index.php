@@ -88,10 +88,32 @@
 				position:relative;
 				
 				margin-top: 30px;
-				padding-bottom: 40px; /* will override bottom padding of .media*/
+				/*padding-bottom: 40px; will override bottom padding of .media*/
 				
 				float:left;
 			}
+
+			.glasto {
+			    width:600px;
+			    height:500px;
+
+                margin:0px auto;
+                position:relative;
+
+                margin-top: 30px;
+                padding-bottom: 40px; /* will override bottom padding of .media*/
+
+                float:left;
+                margin-bottom:70px;
+			}
+
+			#glastoOne {
+			    float:left;
+			}
+
+			#glastoTwo {
+                float:right;
+            }
 			
 			#shows table{
 				position: absolute;
@@ -99,11 +121,13 @@
 				width: 100%;
 				top: 15px;
 				color: rgb(255, 0, 0);
-				font-size: 18px;
 				text-align: center;
 				font-weight: bold;
 				left: 30px;
-				;
+				
+				/* adjust when more gigs */
+				top: 10px;
+				font-size: 22px;
 			}
 			
 			#supercellCover {
@@ -157,7 +181,7 @@
 				-ms-transform: rotate(-3deg);
 			}
 			
-			#shows:before { 
+			#shows:before, .glasto:before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -173,6 +197,23 @@
 				-o-transform: rotate(-3deg);
 				-ms-transform: rotate(-3deg);
 			}
+
+		    .glasto:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left:235px; /*postion from the left side of the frame (positive value move the tape right, negative moves it left)*/
+                top: -22px; /*position from the top of the frame (positive move it above the frame, negative below)*/
+                width: 200px; /*width of the tape*/
+                height: 40px; /*height of the tape*/
+                background-color: rgba(222,220,198,0.7); /*colour of the tape, use rgba to make it slightly transparent*/
+
+                /*rotate the tape degrees anti-clockwise*/
+                -webkit-transform: rotate(-3deg);
+                -moz-transform: rotate(-3deg);
+                -o-transform: rotate(-3deg);
+                -ms-transform: rotate(-3deg);
+            }
 
 			.wrapper {
 				min-height: 100%;
@@ -495,7 +536,7 @@
 							<li class="linkElement"><a id="linkShows" href="#Supercell" class="shakeable">supercell</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
 							<li class="linkElement"><a id="linkMedia" href="#shows" class="shakeable">shows</a></li>
-							<li class="linkElement"><a id="linkTornado" href="Storm/Tornado" class="shakeable" target="_blank">Tornado</a></li>
+							<li class="linkElement"><a id="linkTornado" href="#glastonbury" class="shakeable">Watch</a></li>
 							<li class="linkElement"><a id="linkContact" href="#Contact" class="shakeable">contact</a></li>
 						</ul>
 					</div>
@@ -541,7 +582,7 @@
 					
 					<table>
 						<tbody>
-							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
+							<!--<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
 							<tr><td>Fri 02 May</td><td>Sound City</td></tr>
 							<tr><td>Sat 03 May</td><td>Live At Leeds</td></tr>
 							<tr><td>Sun 04 May</td><td>Stockton Sunday Live</td></tr>						
@@ -553,9 +594,23 @@
 							<tr><td>Fri 23 May</td><td>Dot to Dot, Manchester</td></tr>
 							<tr><td>Sat 24 May</td><td>Evo Emerging / Dot to Dot, Bristol</td></tr>
 							<tr><td>Sun 25 May</td><td>Dot to Dot, Nottingham</td></tr>
-							<tr><td>Fri 12 Jun</td><td>Isle Of Wight</td></tr>
-							<tr><td>Thu 20 Jun</td><td>Willow Man</td></tr>
-							<tr><td>Fri 01 Aug</td><td>Kendal Calling</td></tr>
+							<tr><td>Thu 05 Jun</td><td>Oslo, Hackney</td></tr>
+							<tr><td>Fri 20 Jun</td><td>Willow Man</td></tr>
+							<tr><td>Sat 21 Jun</td><td>Amphitheatre, South Shields</td></tr>-->
+							
+							<tr><td>Sun 29 Jun</td><td>Glastonbury Festival</td></tr>
+							<tr><td>Sat 26 Jul</td><td>Stockton Weekender</td></tr>
+							<tr><td>Sat 09 Aug</td><td>Split Festival</td></tr>							
+							<tr><td>Fri 01 Aug</td><td>Think Tank, Newcastle</td></tr>
+							<tr><td>Sat 02 Aug</td><td>Kendal Calling</td></tr>
+							<tr><td>Thu 14 Aug</td><td>The Menagerie, Belfast</td></tr>
+							<tr><td>Sat 1 Nov</td><td>Cockpit 2, Leeds</td></tr>
+							<tr><td>Sun 2 Nov</td><td>King Tuts, Glasgow</td></tr>
+							<tr><td>Mon 3 Nov</td><td>Oslo, Shoreditch</td></tr>
+							<tr><td>Tue 4 Nov</td><td>Komedia, Bath</td></tr>
+							<tr><td>Wed 5 Nov</td><td>Academy 3, Birmingham</td></tr>
+							<tr><td>Thu 6 Nov</td><td>Ruby Lounge, Manchester</td></tr>
+							<tr><td>Fri 7 Nov</td><td>TBA</td></tr>
 						</tbody>
 					</table>
 					
@@ -565,10 +620,13 @@
 						<a class="shakeable" target="_blank" href="http://www.soundcloud.com/gallerycircus">SoundCloud</a>&nbsp;|
 						<a class="shakeable" target="_blank" href="http://www.vimeo.com/gallerycircus">Vimeo</a>
 					</div>
+					<div style="margin: 0 auto; width: 220px; padding-top:8px; font-size: 20px;">
+						<a href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
+					</div>
 				</div>
 				<!-- video -->
 				
-				<div style="clear:both; margin-bottom:100px;"></div>
+				<div style="clear:both; margin-bottom:85px;"></div>
 				
 				<div id="TrackTheStorm">
 				
@@ -609,13 +667,33 @@
 						</div>
 						<!-- end song controls -->
 						
-						<div id="txtLine1" style="width:275px; height:50px;position:absolute; bottom:-16px; left:15px; text-align: center">Try putting the video back together</div>
-						<div id="txtLine2" style="width:275px; height:50px;position:absolute; bottom:144px; left:330px; text-align: center">Drag a tile one space at a time - no diagonals!</div>
+						<div id="txtLine1" style="width:275px; height:50px;position:absolute; bottom:-3px; left:15px; text-align: center">Try putting the video back together</div>
+						<div id="txtLine2" style="width:275px; height:50px;position:absolute; bottom:160px; left:330px; text-align: center">Drag a tile one space at a time - no diagonals!</div>
 					</div>
 					
-					<div style="clear:both; margin-bottom:20px;"></div>
+					<div style="clear:both; margin-bottom:10px;"></div>
 					
-				</div>	
+				</div>
+
+				<!-- video glasto -->
+				<div id="glastonbury">
+					<div id="glastoOne" class="media polaroidFade glasto">
+						<iframe width="600" height="500" src="//www.youtube.com/embed/2jywFlBU6yA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+
+						<div style="margin: 0 auto; width: 460px; padding-top:12px; font-size: 20px; vertical-align:middle;">
+							<a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vs1z">Hands Up For The Hipsters - Glastonbury 2014</a>
+						</div>
+					</div>
+
+					<div id="glastoTwo" class="media polaroidFade glasto">
+						<iframe width="600" height="500" src="//www.youtube.com/embed/bCPjqivy7Rg?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+
+						<div style="margin: 0 auto; width: 460px; padding-top:12px; font-size: 20px; vertical-align:middle;">
+						   <a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vrnj">Don't Think This Through - Glastonbury 2014</a>
+						</div>
+					</div>
+				</div>
+                <!-- video glasto -->
 				
 				<!-- new -->
 				<div id="polaroidsTop">
@@ -639,6 +717,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		
 		<script>
+		
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
