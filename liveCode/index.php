@@ -360,7 +360,7 @@
 			#socialTab{
 				float:right;
 				height:40px;
-				margin-right: 20px;
+				width:270px; /*margin-right: 20px;*/ 
 			}
 
 			.socialLink {
@@ -498,6 +498,19 @@
 				display: inline; 
 				margin-right: 10px;
 			}
+			
+			.fb-like-button {
+				position: relative;
+				left: 145px;
+				top: -49px;
+			}
+			
+			.twitter-follow-button {
+				position: relative;
+				top: -49px;
+				left: 120px;
+				vertical-align: middle;
+			}
 
 			/* Media Queries */
 
@@ -546,8 +559,12 @@
 					<div id="socialTab">
 						<a class="socialLink" alt="Gallery Circus on Facebook" target="_blank" href="http://www.facebook.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Facebook.png"></a>
 						<a class="socialLink" alt="Gallery Circus on Twitter" target="_blank" href="http://www.twitter.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Twitter.png"></a>
-						<a class="socialLink" alt="Gallery Circus on YouTube" target="_blank" href="http://www.youtube.com/gallerycircusvideos"><img class="socialIcon shakeable" src="/img/Youtube.png"></a>
-						<a class="socialLink" alt="Gallery Circus on Tumblr" target="_blank" href="http://sanfrancircus.tumblr.com"><img class="socialIcon shakeable" src="/img/Tumblr.png"></a>
+						
+						<div class="fb-like-button"><div class="fb-like" data-href="https://www.facebook.com/gallerycircus" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></div>
+						<a href="https://twitter.com/gallerycircus" class="twitter-follow-button" data-show-count="false">Follow @gallerycircus</a>
+						
+						<!--<a class="socialLink" alt="Gallery Circus on YouTube" target="_blank" href="http://www.youtube.com/gallerycircusvideos"><img class="socialIcon shakeable" src="/img/Youtube.png"></a>
+						<a class="socialLink" alt="Gallery Circus on Tumblr" target="_blank" href="http://sanfrancircus.tumblr.com"><img class="socialIcon shakeable" src="/img/Tumblr.png"></a>-->
 					</div>
 				</div>
 				
@@ -614,14 +631,14 @@
 						</tbody>
 					</table>
 					
+					<div style="margin: 0 auto; width: 220px; padding-top:8px; font-size: 20px;">
+						<a href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
+					</div>
 					<div style="margin: 0 auto; width: 410px; padding-top:8px; font-size: 20px;">
 						<a href="http://www.amazon.co.uk/s/ref=ntt_srch_drd_B005WRXK3U?ie=UTF8&field-keywords=Gallery%20Circus&index=digital-music&search-type=ss" class="shakeable" target="_blank">Amazon</a>&nbsp;|
 						<a href="http://gallerycircus.bandcamp.com/" class="shakeable" target="_blank">Bandcamp</a>&nbsp;|
 						<a class="shakeable" target="_blank" href="http://www.soundcloud.com/gallerycircus">SoundCloud</a>&nbsp;|
 						<a class="shakeable" target="_blank" href="http://www.vimeo.com/gallerycircus">Vimeo</a>
-					</div>
-					<div style="margin: 0 auto; width: 220px; padding-top:8px; font-size: 20px;">
-						<a href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
 					</div>
 				</div>
 				<!-- video -->
@@ -716,8 +733,8 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		
+		<!-- google analytics -->
 		<script>
-		
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -725,8 +742,27 @@
 
 			ga('create', 'UA-46145247-1', 'gallerycircus.co.uk');
 			ga('send', 'pageview');
-
 		</script>
+		<!-- google analytics -->
+		
+		<!-- facebook SDK -->
+		<div id="fb-root"></div>
+		<script>
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=399120618695&version=v2.0";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<!-- facebook SDK -->
+		
+		<!-- twitter SDK -->
+		<script>
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
+		<!-- twitter SDK -->
 		
 		<script type="text/javascript">
 			
