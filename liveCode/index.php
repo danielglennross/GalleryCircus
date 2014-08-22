@@ -127,7 +127,7 @@
 				
 				/* adjust when more gigs */
 				top: 10px;
-				font-size: 22px;
+				font-size: 19px;
 			}
 			
 			#supercellCover {
@@ -621,6 +621,8 @@
 							<tr><td>Fri 01 Aug</td><td>Think Tank, Newcastle</td></tr>
 							<tr><td>Sat 02 Aug</td><td>Kendal Calling</td></tr>
 							<tr><td>Thu 14 Aug</td><td>The Menagerie, Belfast</td></tr>
+							<tr><td>Wed 20 Aug</td><td>The 100 Club, London</td></tr>
+							<tr><td>Sun 24 Aug</td><td>Independent, Sunderland</td></tr>
 							<tr><td>Sat 1 Nov</td><td>Cockpit 2, Leeds</td></tr>
 							<tr><td>Sun 2 Nov</td><td>King Tuts, Glasgow</td></tr>
 							<tr><td>Mon 3 Nov</td><td>Oslo, Shoreditch</td></tr>
