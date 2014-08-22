@@ -616,10 +616,10 @@
 							<tr><td>Sat 21 Jun</td><td>Amphitheatre, South Shields</td></tr>-->
 							
 							<tr><td>Sun 29 Jun</td><td>Glastonbury Festival</td></tr>
-							<tr><td>Sat 26 Jul</td><td>Stockton Weekender</td></tr>
-							<tr><td>Sat 09 Aug</td><td>Split Festival</td></tr>							
+							<tr><td>Sat 26 Jul</td><td>Stockton Weekender</td></tr>						
 							<tr><td>Fri 01 Aug</td><td>Think Tank, Newcastle</td></tr>
 							<tr><td>Sat 02 Aug</td><td>Kendal Calling</td></tr>
+							<tr><td>Sat 09 Aug</td><td>Split Festival</td></tr>	
 							<tr><td>Thu 14 Aug</td><td>The Menagerie, Belfast</td></tr>
 							<tr><td>Wed 20 Aug</td><td>The 100 Club, London</td></tr>
 							<tr><td>Sun 24 Aug</td><td>Independent, Sunderland</td></tr>
