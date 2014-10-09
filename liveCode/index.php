@@ -122,12 +122,12 @@
 				top: 15px;
 				color: rgb(255, 0, 0);
 				text-align: center;
-				font-weight: bold;
 				left: 30px;
 				
 				/* adjust when more gigs */
+				/* font-weight: bold; */
 				top: 10px;
-				font-size: 19px;
+				font-size: 15px;
 			}
 			
 			#supercellCover {
@@ -613,8 +613,7 @@
 							<tr><td>Sun 25 May</td><td>Dot to Dot, Nottingham</td></tr>
 							<tr><td>Thu 05 Jun</td><td>Oslo, Hackney</td></tr>
 							<tr><td>Fri 20 Jun</td><td>Willow Man</td></tr>
-							<tr><td>Sat 21 Jun</td><td>Amphitheatre, South Shields</td></tr>-->
-							
+							<tr><td>Sat 21 Jun</td><td>Amphitheatre, South Shields</td></tr>
 							<tr><td>Sun 29 Jun</td><td>Glastonbury Festival</td></tr>
 							<tr><td>Sat 26 Jul</td><td>Stockton Weekender</td></tr>						
 							<tr><td>Fri 01 Aug</td><td>Think Tank, Newcastle</td></tr>
@@ -629,7 +628,26 @@
 							<tr><td>Tue 4 Nov</td><td>Komedia, Bath</td></tr>
 							<tr><td>Wed 5 Nov</td><td>Academy 3, Birmingham</td></tr>
 							<tr><td>Thu 6 Nov</td><td>Ruby Lounge, Manchester</td></tr>
-							<tr><td>Fri 7 Nov</td><td>TBA</td></tr>
+							<tr><td>Fri 7 Nov</td><td>TBA</td></tr>-->
+							
+							<tr><td>Fri 17 Oct</td><td>Think Tank, Newcastle</td></tr>				
+							<tr><td>Tue 21 Oct</td><td>Slade Rooms, Wolverhampton</td></tr>
+							<tr><td>Wed 22 Oct</td><td>Leadmill, Sheffield</td></tr>
+							<tr><td>Thu 23 Oct</td><td>Liquid Rooms, Edinburgh</td></tr>
+							<tr><td>Fri 24 Oct</td><td>Uni Stylus, Leeds</td></tr>
+							<tr><td>Sat 25 Oct</td><td>Empire, Middlesbrough</td></tr>
+							<tr><td>Mon 27 Oct</td><td>53 Degrees, Preston</td></tr>
+							<tr><td>Tue 28 Oct</td><td>02 Academy, Liverpool</td></tr>
+							<tr><td>Wed 29 Oct</td><td>Sugarmill, Stoke</td></tr>
+							<tr><td>Thu 30 Oct</td><td>Waterfront, Norwich</td></tr>
+							<tr><td>Fri 31 Oct</td><td>Concorde 2, Brighton</td></tr>					
+							<tr><td>Sat 01 Nov</td><td>Key Club, Leeds</td></tr>
+							<tr><td>Sun 02 Nov</td><td>Glasgow, King Tuts</td></tr>
+							<tr><td>Mon 03 Nov</td><td>London, Oslo</td></tr>
+							<tr><td>Tue 04 Nov</td><td>Komedia, Bath</td></tr>
+							<tr><td>Wed 05 Nov</td><td>02 Academy, Birmingham</td></tr>
+							<tr><td>Thu 06 Nov</td><td>The Ruby Lounge, Manchester</td></tr>
+							<tr><td>Sat 08 Nov</td><td>Open, Norwich</td></tr>					
 						</tbody>
 					</table>
 					
