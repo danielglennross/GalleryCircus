@@ -718,7 +718,7 @@
 					<div id="glastoOne" class="media polaroidFade glasto">
 						<iframe width="600" height="500" src="//www.youtube.com/embed/2jywFlBU6yA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 
-						<div style="margin: 0 auto; width: 460px; padding-top:12px; font-size: 20px; vertical-align:middle;">
+						<div style="margin: 0 auto; width: 462px; padding-top:12px; font-size: 20px; vertical-align:middle;">
 							<a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vs1z">Hands Up For The Hipsters - Glastonbury 2014</a>
 						</div>
 					</div>
@@ -726,7 +726,7 @@
 					<div id="glastoTwo" class="media polaroidFade glasto">
 						<iframe width="600" height="500" src="//www.youtube.com/embed/bCPjqivy7Rg?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 
-						<div style="margin: 0 auto; width: 460px; padding-top:12px; font-size: 20px; vertical-align:middle;">
+						<div style="margin: 0 auto; width: 462px; padding-top:12px; font-size: 20px; vertical-align:middle;">
 						   <a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vrnj">Don't Think This Through - Glastonbury 2014</a>
 						</div>
 					</div>
