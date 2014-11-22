@@ -12,7 +12,7 @@
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-		<meta name="description" content="A unique and abrasive blues-rock outlet, Gallery Circus have quickly gained a strong reputation for delivering breathtakingly powerful live shows. Hailing from South Tyneside, Gallery Circus consists of 22 year-old identical twins Daniel (lead vocalist, guitar and piano) and Graeme Ross (drums and backing vocals).
+		<meta name="description" content="A unique and abrasive rock outlet, Gallery Circus have quickly gained a strong reputation for delivering breathtakingly powerful live shows. Hailing from South Tyneside, Gallery Circus consists of 22 year-old identical twins Daniel (lead vocalist, guitar and piano) and Graeme Ross (drums and backing vocals).
 		Having played in bands from the tender age of five, Gallery Circus began to take on its current form when the brothers relocated to Chicagos hipster haven Wicker Park two years ago, in a bid to write new music, and thrash together something extraordinary. The brothers became known for throwing DIY gigs around the city and quickly built up a buzz. 
 		Helping to spark an anti-garage/ street pop scene with several like-minded bands - Daniel and Graeme took to playing upon rooftops, illegal make-shift venues and public landmarks amongst the usual routine spots. Despite having no instruments of their own (not to mention getting evicted from their apartment after two months, due to their penchant for parties), 
 		the pair managed to scrape together equipment from like-minded musicians and acquired quite a following in the iconic city. Having soaked up their new-found Americana influences, Gallery Circus returned to the UK last year, and with their white-hot, screeching blues, and reinforced their reputation as one of the most entertaining and fearsome live performers on the circuit.
@@ -127,7 +127,7 @@
 				/* adjust when more gigs */
 				/* font-weight: bold; */
 				top: 10px;
-				font-size: 15px;
+				font-size: 14px;
 			}
 			
 			#supercellCover {
@@ -630,7 +630,8 @@
 							<tr><td>Thu 6 Nov</td><td>Ruby Lounge, Manchester</td></tr>
 							<tr><td>Fri 7 Nov</td><td>TBA</td></tr>-->
 							
-							<tr><td>Fri 17 Oct</td><td>Think Tank, Newcastle</td></tr>				
+							<tr><td>Fri 17 Oct</td><td>Think Tank, Newcastle</td></tr>
+							<tr><td>Mon 20 Oct</td><td>Boston Music Room, London</td></tr>							
 							<tr><td>Tue 21 Oct</td><td>Slade Rooms, Wolverhampton</td></tr>
 							<tr><td>Wed 22 Oct</td><td>Leadmill, Sheffield</td></tr>
 							<tr><td>Thu 23 Oct</td><td>Liquid Rooms, Edinburgh</td></tr>
