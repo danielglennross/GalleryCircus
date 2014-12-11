@@ -126,8 +126,12 @@
     font-family: 'Black Ops One', cursive;
     color: #FFF;
 }
-
 .gc .comingSoonText {
+    opacity: 0;
+}
+.gc .gcTrailer, .gc .gcSuper {
+    position: absolute;
+    top:0; left: 0;
     opacity: 0;
 }
 
@@ -156,6 +160,12 @@
         <div class="logo"></div>
         <div class="newEPText">NEW EP</div>
         <div class="comingSoonText">COMING SOON</div>
+        <video class="gcTrailer" width="800px" height="800px" preload="auto" muted loop>
+            <source src="http://gallerycircus.co.uk/videos/GCTrailer.mp4" type="video/mp4">
+        </video>
+        <video class="gcSuper" width="800px" height="800px" preload="auto" muted loop>
+            <source src="http://gallerycircus.co.uk/videos/bgSuperCell.mp4" type="video/mp4">
+        </video>
         </div>
     </div>
 </div>
@@ -178,8 +188,19 @@
          */
         function Driver() {
 
-            var oa = new GC.OpeningAnimation();
+            var masterPromises = [];
+            var oa = new GC.OpeningAnimation(masterPromises);
             oa.play();
+
+            var vm = new GC.VideoManager(masterPromises);
+            var videoTrailer = vm.getVideoTrailer();
+            var videoSuper = vm.getVideoSuper();
+
+            $.when.apply(null, masterPromises).done(function() {
+                var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
+            }).fail(function() {
+                console.log('preload error');
+            });
 
         }
 
@@ -192,9 +213,49 @@
         "use strict";
 
         /**
+         * Video Manager
+         */
+        function VideoManager(masterPromises) {
+
+            var videoTrailer = $('.gc .gcTrailer')[0];
+            var videoSetup = $.Deferred();
+
+            var videoSuper = $('.gc .gcSuper')[0];
+            var videoSetupVideo = $.Deferred();
+
+            masterPromises.push(videoSetup);
+            masterPromises.push(videoSetupVideo);
+
+            videoTrailer.onloadeddata = function() {
+                videoSetup.resolve();
+            }
+
+            videoSuper.onloadeddata = function() {
+                videoSetupVideo.resolve();
+            }
+
+            this.getVideoTrailer = function() {
+                return videoTrailer;
+            }
+
+            this.getVideoSuper = function() {
+                return videoSuper;
+            }
+
+        }
+
+        GC.VideoManager = VideoManager;
+
+    }());
+
+    (function(){
+
+        "use strict";
+
+        /**
          * OpeningAnimation
          */
-        function OpeningAnimation() {
+        function OpeningAnimation(masterPromises) {
 
              var textMessage = $('.gc .newEPText'),
                  comingSoonMessage = $('.gc .comingSoonText'),
@@ -203,8 +264,12 @@
 
             textMessage.html(textMessage.text().replace(/./g, "<span>$&</span>"));
 
+            var opening = $.Deferred();
+
+            masterPromises.push(opening);
+
             this.play = function() {
-                var timeline = new TimelineMax();
+                var timeline = new TimelineMax({onComplete: resolveOpeningPromise});
                 timeline.add(logoDisplay(), "displayLogo");
                 timeline.add(epTextDisplay(), "displayEPText");
                 timeline.add(removeLogo(), "displayEPText");
@@ -248,9 +313,39 @@
                 return timeline;
             }
 
+            function resolveOpeningPromise() {
+                opening.resolve();
+            }
+
         }
 
         GC.OpeningAnimation = OpeningAnimation;
+
+    }());
+
+    (function(){
+
+        "use strict";
+
+        /**
+         * Video Flickr
+         */
+        function VideoFlicker(videoTrailer, videoSuper) {
+
+            var timeline = new TimelineMax({ onStart:playVideos});
+                timeline.fromTo(videoTrailer, 1, {opacity:0, top:"100%"}, {opacity:0.9, top:"20%"},0);
+                timeline.fromTo(videoTrailer, 5, {opacity:0.9}, {opacity:0},1);
+                timeline.fromTo(videoSuper, 1, {opacity:0, top:"-100%"}, {opacity:0.7, top:"-45%"},0);
+                timeline.fromTo(videoSuper, 4, {opacity:0.7}, {opacity:0},1);
+            return timeline;
+
+            function playVideos() {
+                videoTrailer.play();
+                videoSuper.play();
+            }
+        }
+
+        GC.VideoFlicker = VideoFlicker;
 
     }());
 
