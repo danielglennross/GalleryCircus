@@ -135,6 +135,99 @@
     opacity: 0;
 }
 
+/* animated graphics */
+.gc .gc-upperWindow {
+    background: url("upperWindow.png") no-repeat;
+    width: 14px;
+    height: 28px;
+    position: absolute;
+    top: 258px;
+    left: 465px;
+
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+
+    opacity: 0; /* 1 */
+}
+
+.gc .gc-rightWindow {
+    background: url("rightWindow.png") no-repeat;
+    width: 23px;
+    height: 31px;
+    position: absolute;
+    top: 318px;
+    left: 685px;
+    opacity: 0; /* 0.4 */
+}
+
+.gc .gc-bottomWindow {
+    background: url("bottomWindow.png") no-repeat;
+    width: 65px;
+    height: 40px;
+    position: absolute;
+    top: 600px;
+    left: 527px;
+    opacity: 0; /* 0.4 */
+}
+
+.gc .gc-windowGuy, .gc .gc-windowGuy2 {
+    background: url("windowGuy.png") no-repeat;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 442px;
+    left: 82px;
+    opacity: 0; /* 0.2 */
+}
+
+.gc .gc-windowGuy2 {
+    top: 332px;
+    left: 633px;
+}
+
+.gc .gc-lightningOne {
+    background: url("lightningBoltOne.png") no-repeat;
+    width: 50px;
+    height: 150px;
+    position: absolute;
+    top: 180px;
+    left: 180px;
+    opacity: 0; /* 0.7 */
+}
+
+.gc .gc-lightningTwo {
+    background: url("lightningBoltTwo.png") no-repeat;
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    opacity: 0; /* 0.6 */
+}
+
+.gc .gc-lightningThree {
+    background: url("lightningBoltThree.png") no-repeat;
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    top: 170px;
+    left: 600px;
+    opacity: 0; /* 0.8 */
+}
+
+.gc .gc-logoHighlight {
+    background: url("logoHighlight.png") no-repeat;
+    width: 195px;
+    height: 151px;
+    position: absolute;
+    top: 62px;
+    left: 63px;
+    opacity: 0; /* 0.8 */
+}
+
 /* Retina Display */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -156,6 +249,15 @@
         <div class="gc-bg">
         <div class="gc-bg-img">
             <div class="gc-bg-gradient"></div>
+            <div class="gc-upperWindow"></div>
+            <div class="gc-rightWindow"></div>
+            <div class="gc-bottomWindow"></div>
+            <div class="gc-windowGuy"></div>
+            <div class="gc-windowGuy2"></div>
+            <div class="gc-lightningOne"></div>
+            <div class="gc-lightningTwo"></div>
+            <div class="gc-lightningThree"></div>
+            <div class="gc-logoHighlight"></div>
         </div>
         <div class="logo"></div>
         <div class="newEPText">NEW EP</div>
@@ -197,7 +299,8 @@
             var videoSuper = vm.getVideoSuper();
 
             $.when.apply(null, masterPromises).done(function() {
-                var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
+                //var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
+                var sa = new GC.SceneAnimate();
             }).fail(function() {
                 console.log('preload error');
             });
@@ -346,6 +449,186 @@
         }
 
         GC.VideoFlicker = VideoFlicker;
+
+    }());
+
+    (function(){
+
+        "use strict";
+
+        /**
+         * Scene animate
+         */
+        function SceneAnimate() {
+
+            var upperWindow = $('.gc .gc-upperWindow'),
+                rightWindow = $('.gc .gc-rightWindow'),
+                bottomWindow = $('.gc .gc-bottomWindow'),
+                windowGuy = $('.gc .gc-windowGuy'),
+                windowGuy2 = $('.gc .gc-windowGuy2'),
+                lightningOne = $('.gc .gc-lightningOne'),
+                lightningTwo = $('.gc .gc-lightningTwo'),
+                lightningThree = $('.gc .gc-lightningThree'),
+                logoHighlight = $('.gc .gc-logoHighlight');
+
+            var timeline = new TimelineMax({repeat:-1, yoyo:true});
+
+                timeline.add(upperWindowOpen(),0.5, "upperWindowOpen");
+                timeline.add(lightningOneAnimate,1.5, "lightningOne");
+                timeline.add(upperWindowClose(),2, "upperWindowClose");
+                timeline.add(rightWindowOpen(),3, "upperWindowOpen");
+                timeline.add(lightningTwoAnimate(),3.5, "lightningTwo");
+                timeline.add(rightWindowClose(),4, "upperWindowClose");
+                timeline.add(upperWindowOpen(),5, "upperWindowOpen");
+                timeline.add(bottomWindowOpen(),5.5, "bottomWindowOpen");
+                timeline.add(upperWindowClose(),6, "upperWindowClose");
+                timeline.add(windowGuyShow2(),6.5, "windowGuyShow2");
+                timeline.add(bottomWindowClose(),7, "bottomWindowClose");
+                timeline.add(windowGuyShow(),7.5, "windowGuyShow");
+                timeline.add(lightningThreeAnimate,7.5, "lightningThree");
+                timeline.add(windowGuyHide2(),8, "windowGuyHide2");
+                timeline.add(windowGuyHide(),8.5, "windowGuyHide");
+
+            timeline.play();
+
+            var logoTimeline = new TimelineMax({repeat:-1});
+                logoTimeline.add(logoHighlightAnimate(),0.5, "logo");
+            logoTimeline.play();
+
+            function logoHighlightAnimate() {
+                var timeline = new TimelineMax();
+                    timeline.to(logoHighlight, 1 ,{opacity:0.2});
+                    timeline.to(logoHighlight, 0.25 ,{opacity:0.2});
+                    timeline.to(logoHighlight, 0.5 ,{opacity:0.1});
+                    timeline.to(logoHighlight, 1 ,{opacity:0.4});
+                    timeline.to(logoHighlight, 2 ,{opacity:0.3});
+                    timeline.to(logoHighlight, 1 ,{opacity:0.1});
+                    timeline.to(logoHighlight, 1 ,{opacity:0.2});
+                    timeline.to(logoHighlight, 1 ,{opacity:0.4});
+                    timeline.to(logoHighlight, 2 ,{opacity:0.3});
+                    timeline.to(logoHighlight, 2 ,{opacity:0});
+                return timeline;
+            }
+
+            function upperWindowOpen() {
+                var timeline = new TimelineMax({});
+                    timeline.to(upperWindow, 0.2 ,{opacity:1}); /* upper window on */
+                    timeline.to(upperWindow, 0.1 ,{opacity:0.5});
+                    timeline.to(upperWindow, 0.2 ,{opacity:1});
+                return timeline;
+            }
+
+            function rightWindowOpen() {
+                var timeline = new TimelineMax({});
+                    timeline.to(rightWindow, 0.2 ,{opacity:0.4}); /* right window on */
+                    timeline.to(rightWindow, 0.1 ,{opacity:0.2});
+                    timeline.to(rightWindow, 0.2 ,{opacity:0.3});
+                return timeline;
+            }
+
+            function bottomWindowOpen() {
+                var timeline = new TimelineMax({});
+                timeline.to(bottomWindow, 0.2 ,{opacity:0.4}); /* bottom window on */
+                timeline.to(bottomWindow, 0.1 ,{opacity:0.2});
+                timeline.to(bottomWindow, 0.2 ,{opacity:0.2});
+                return timeline;
+            }
+
+            function upperWindowClose() {
+                var timeline = new TimelineMax({});
+                    timeline.to(upperWindow, 1 ,{opacity:0}); /* upper window off */
+                return timeline;
+            }
+
+            function rightWindowClose() {
+                var timeline = new TimelineMax({});
+                    timeline.to(rightWindow, 1 ,{opacity:0}); /* right window off */
+                return timeline;
+            }
+
+            function bottomWindowClose() {
+                var timeline = new TimelineMax({});
+                    timeline.to(bottomWindow, 0.75 ,{opacity:0}); /* bottom window off */
+                return timeline;
+            }
+
+            function windowGuyShow() {
+                var timeline = new TimelineMax({});
+                    timeline.to(windowGuy, 1 ,{opacity:0.4}); /* right window off */
+                return timeline;
+            }
+
+            function windowGuyHide() {
+                var timeline = new TimelineMax({});
+                timeline.to(windowGuy, 1 ,{opacity:0}); /* right window off */
+                return timeline;
+            }
+
+            function windowGuyShow2() {
+                var timeline = new TimelineMax({});
+                timeline.to(windowGuy2, 0.5 ,{opacity:0.5}); /* right window off */
+                return timeline;
+            }
+
+            function windowGuyHide2() {
+                var timeline = new TimelineMax({});
+                timeline.to(windowGuy2, 0.5 ,{opacity:0}); /* right window off */
+                return timeline;
+            }
+
+            function lightningOneAnimate() {
+                var timeline = new TimelineMax({});
+                    timeline.to(lightningOne, 0.2 ,{opacity:0.2, top:"+=1px"}); /* lightning one */
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.1, top:"-=1px"});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.2, left:"+=1px"});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.1, left:"-=1px"});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.2, top:"+=1px"});
+                    timeline.to(lightningOne, 0.2 ,{opacity:0.7, top:"-=1px"});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.5});
+                    timeline.to(lightningOne, 0.2 ,{opacity:0.7});
+                    timeline.to(lightningOne, 0.2 ,{delay:0.3, opacity:0.5});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.2, right:"+=1px"});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0.1, right:"-=1px"});
+                    timeline.to(lightningOne, 0.1 ,{opacity:0});
+                return timeline;
+            }
+
+            function lightningTwoAnimate() {
+                var timeline = new TimelineMax({});
+                    timeline.to(lightningTwo, 0.2 ,{opacity:0.1, top:"+=1px"}); /* lightning one */
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.2, top:"-=1px"});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.3});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.1, left:"-=1px"});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.3, left:"+=1px"});
+                    timeline.to(lightningTwo, 0.2 ,{opacity:0.4});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.3, right:"+=1px"});
+                    timeline.to(lightningTwo, 0.2 ,{opacity:0.6, right:"-=1px"});
+                    timeline.to(lightningTwo, 0.2 ,{delay:0.5, opacity:0.4});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.2, top:"+=1px"});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0.1, top:"-=1px"});
+                    timeline.to(lightningTwo, 0.1 ,{opacity:0});
+                return timeline;
+            }
+
+            function lightningThreeAnimate() {
+                var timeline = new TimelineMax({});
+                    timeline.to(lightningThree, 0.2 ,{opacity:0.1, top:"+=1px"}); /* lightning three */
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.2, top:"-=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.4, top:"-=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.1, top:"+=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.3});
+                    timeline.to(lightningThree, 0.2 ,{opacity:0.5, left:"+=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.4});
+                    timeline.to(lightningThree, 0.2 ,{opacity:0.6});
+                    timeline.to(lightningThree, 0.2 ,{delay:0.3, opacity:0.5, left:"-=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.5, right:"+=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0.3, right:"-=1px"});
+                    timeline.to(lightningThree, 0.1 ,{opacity:0});
+                return timeline;
+            }
+        }
+
+        GC.SceneAnimate = SceneAnimate;
 
     }());
 
