@@ -109,7 +109,7 @@
     height: 100%;
     opacity: 0;
 }
-.gc .newEPText, .gc .comingSoonText {
+.gc .newEPText, .gc .comingSoonText, .gc .killerTracksText, .gc .killerTracksText2 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -122,11 +122,11 @@
     margin-left: auto;
 
     text-align: center;
-    font-size: 100px;
-    font-family: 'Black Ops One', cursive;
+    font-size: 60px;
+    font-family: 'Cabin Sketch', cursive;
     color: #FFF;
 }
-.gc .comingSoonText {
+.gc .comingSoonText, .gc .killerTracksText2 {
     opacity: 0;
 }
 .gc .gcTrailer, .gc .gcSuper {
@@ -257,7 +257,7 @@
 }
 
 </style>
-<link href='http://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -280,8 +280,10 @@
             <canvas id="canvasTrailer" class="canvasTrailer"></canvas>
         </div>
         <div class="logo"></div>
-        <div class="newEPText">NEW EP</div>
-        <div class="comingSoonText">COMING SOON</div>
+        <div class="newEPText">THE LITTLE GUN EP</div>
+        <div class="comingSoonText">COMING EARLY 2015</div>
+        <div class="killerTracksText">4 TORNADIC</div>
+        <div class="killerTracksText2">TRACKS</div>
         <video class="gcTrailer" style="display: none;" width="800px" height="800px" preload="auto" muted loop>
             <source src="http://gallerycircus.co.uk/videos/GCTrailer.mp4" type="video/mp4">
         </video>
@@ -382,10 +384,13 @@
 
              var textMessage = $('.gc .newEPText'),
                  comingSoonMessage = $('.gc .comingSoonText'),
+                 killerTracksMessage = $('.gc .killerTracksText'),
+                 killerTracksMessage2 = $('.gc .killerTracksText2'),
                  logo = $('.gc .logo'),
                  mainImage = $('.gc .gc-bg-img');
 
             textMessage.html(textMessage.text().replace(/./g, "<span>$&</span>"));
+            killerTracksMessage.html(killerTracksMessage.text().replace(/./g, "<span>$&</span>"));
 
             var opening = $.Deferred();
 
@@ -396,6 +401,7 @@
                 timeline.add(logoDisplay(), "displayLogo");
                 timeline.add(epTextDisplay(), "displayEPText");
                 timeline.add(removeLogo(), "displayEPText");
+                timeline.add(killerTracksDisplay(), "killerTracksDisplay");
                 timeline.add(comingSoonDisplay(), "displayComingSoon");
                 timeline.add(mainImageDisplay(), "displayComingSoon");
                 timeline.play();
@@ -422,17 +428,28 @@
                 return timeline;
             }
 
+            function killerTracksDisplay() {
+                var timeline = new TimelineMax();
+                    timeline.staggerFromTo(killerTracksMessage.find("span"), 0.5, {opacity:0}, {opacity:1},0.1);
+                    timeline.to(killerTracksMessage, 0.5, {top:"+=200px"},0.25);
+                    timeline.to(textMessage, 0.3, {rotationY:"360deg", opacity:0.1},0.25);
+                    timeline.to(textMessage, 0.3, {opacity:"0", skewX:"25%"},"-=0.25");
+                    timeline.to(killerTracksMessage2, 0.5,{top:"+=300px", rotationY:"360deg", opacity:1});
+                    timeline.to(killerTracksMessage, 0.5,{delay:0.5, opacity:0});
+                    timeline.to(killerTracksMessage2, 0.5,{delay:0.5, opacity:0}, "-=0.75");
+                return timeline;
+            }
+
             function comingSoonDisplay() {
                 var timeline = new TimelineMax();
-                    timeline.fromTo(comingSoonMessage, 0.3, {opacity:0, top:"300px", skewX:"25%"}, {opacity:1, top:"300px",skewX:"0%", ease:SlowMo.easeOut},0.5);
-                    timeline.to(textMessage, 0.3, {delay:0.3, opacity:"0", skewX:"25%"},"-=0.5");
+                    timeline.fromTo(comingSoonMessage, 0.3, {opacity:0, top:"300px", skewX:"25%"}, {opacity:1, top:"300px",skewX:"0%", ease:SlowMo.easeOut});
                     timeline.to(comingSoonMessage, 0.3, {opacity:"0", rotationY:"90deg"},"+=0.7");
                 return timeline;
             }
 
             function mainImageDisplay() {
                 var timeline = new TimelineMax();
-                    timeline.fromTo(mainImage, 0.5, {opacity:0}, {opacity:1}, "1.75");
+                    timeline.fromTo(mainImage, 0.5, {opacity:0}, {opacity:1}, "1");
                 return timeline;
             }
 
