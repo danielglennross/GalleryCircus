@@ -26,8 +26,10 @@
       <file leaf-file-name="GC.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GC.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="475" column="71" selection-start="12447" selection-end="12447" vertical-scroll-proportion="0.30454546" vertical-offset="7807" max-vertical-offset="10965">
-              <folding />
+            <state line="480" column="34" selection-start="12260" selection-end="12260" vertical-scroll-proportion="0.6522727" vertical-offset="7586" max-vertical-offset="11747">
+              <folding>
+                <element signature="n#style#0;n#video#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,7 +113,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Animations/Christmas2014/Christmas2014Black.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Animations/Arabic/Anger.html" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -208,10 +210,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Animations/BooHiss/Bum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="279" column="16" selection-start="8952" selection-end="9194" vertical-scroll-proportion="-41.192307" vertical-offset="3672" max-vertical-offset="9248">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Animations/Arabic/Anger.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="13" selection-start="4699" selection-end="4970" vertical-scroll-proportion="0.3090909" vertical-offset="2397" max-vertical-offset="4488">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GC.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="475" column="71" selection-start="12447" selection-end="12447" vertical-scroll-proportion="0.30454546" vertical-offset="7807" max-vertical-offset="10965">
-          <folding />
+        <state line="480" column="34" selection-start="12260" selection-end="12260" vertical-scroll-proportion="0.6522727" vertical-offset="7586" max-vertical-offset="11747">
+          <folding>
+            <element signature="n#style#0;n#video#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

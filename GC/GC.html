@@ -228,6 +228,24 @@
     opacity: 0; /* 0.8 */
 }
 
+.gc .canvasTrailer {
+    position: absolute;
+    left:235px;
+    top: 600px;
+
+    -webkit-transform: rotate(16deg);
+    -moz-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    -o-transform: rotate(16deg);
+    transform: rotate(16deg);
+
+    -ms-transform: skew(-40deg,12deg); /* IE 9 */
+    -webkit-transform: skew(-40deg,12deg); /* Chrome, Safari, Opera */
+    transform: skew(-40deg,12deg);
+
+    opacity: 0;
+}
+
 /* Retina Display */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -258,11 +276,13 @@
             <div class="gc-lightningTwo"></div>
             <div class="gc-lightningThree"></div>
             <div class="gc-logoHighlight"></div>
+
+            <canvas id="canvasTrailer" class="canvasTrailer"></canvas>
         </div>
         <div class="logo"></div>
         <div class="newEPText">NEW EP</div>
         <div class="comingSoonText">COMING SOON</div>
-        <video class="gcTrailer" width="800px" height="800px" preload="auto" muted loop>
+        <video class="gcTrailer" style="display: none;" width="800px" height="800px" preload="auto" muted loop>
             <source src="http://gallerycircus.co.uk/videos/GCTrailer.mp4" type="video/mp4">
         </video>
         <video class="gcSuper" width="800px" height="800px" preload="auto" muted loop>
@@ -299,7 +319,7 @@
             var videoSuper = vm.getVideoSuper();
 
             $.when.apply(null, masterPromises).done(function() {
-                //var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
+                var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
                 var sa = new GC.SceneAnimate();
             }).fail(function() {
                 console.log('preload error');
@@ -435,17 +455,43 @@
          */
         function VideoFlicker(videoTrailer, videoSuper) {
 
+            var v = videoTrailer;
+            var canvas = document.getElementById('canvasTrailer');
+            var context = canvas.getContext('2d');
+
+            var width = 220,
+                height = 85;
+            $(canvas).css({
+                width : width,
+                height : height
+            });
+
+            var cw = width;
+            var ch = height;
+            canvas.width = cw;
+            canvas.height = ch;
+
+            v.addEventListener('play', function(){
+                draw(this,context,cw,ch);
+            },false);
+
+            function draw(v,c,w,h) {
+                if(v.paused || v.ended) return false;
+                c.drawImage(v,0,0,w,h);
+                setTimeout(draw,34,v,c,w,h);
+            }
+
             var timeline = new TimelineMax({ onStart:playVideos});
-                timeline.fromTo(videoTrailer, 1, {opacity:0, top:"100%"}, {opacity:0.9, top:"20%"},0);
-                timeline.fromTo(videoTrailer, 5, {opacity:0.9}, {opacity:0},1);
-                timeline.fromTo(videoSuper, 1, {opacity:0, top:"-100%"}, {opacity:0.7, top:"-45%"},0);
-                timeline.fromTo(videoSuper, 4, {opacity:0.7}, {opacity:0},1);
+            timeline.fromTo(canvas, 5, {opacity:0}, {opacity:0.5});
+            timeline.fromTo(canvas, 5, {opacity:0.5}, {opacity:0});
             return timeline;
 
             function playVideos() {
                 videoTrailer.play();
-                videoSuper.play();
+                //videoSuper.play();
             }
+
+
         }
 
         GC.VideoFlicker = VideoFlicker;
@@ -474,20 +520,20 @@
             var timeline = new TimelineMax({repeat:-1, yoyo:true});
 
                 timeline.add(upperWindowOpen(),0.5, "upperWindowOpen");
-                timeline.add(lightningOneAnimate,1.5, "lightningOne");
+                timeline.add(lightningOneAnimate,1, "lightningOne");
                 timeline.add(upperWindowClose(),2, "upperWindowClose");
-                timeline.add(rightWindowOpen(),3, "upperWindowOpen");
-                timeline.add(lightningTwoAnimate(),3.5, "lightningTwo");
-                timeline.add(rightWindowClose(),4, "upperWindowClose");
-                timeline.add(upperWindowOpen(),5, "upperWindowOpen");
-                timeline.add(bottomWindowOpen(),5.5, "bottomWindowOpen");
-                timeline.add(upperWindowClose(),6, "upperWindowClose");
-                timeline.add(windowGuyShow2(),6.5, "windowGuyShow2");
-                timeline.add(bottomWindowClose(),7, "bottomWindowClose");
-                timeline.add(windowGuyShow(),7.5, "windowGuyShow");
-                timeline.add(lightningThreeAnimate,7.5, "lightningThree");
-                timeline.add(windowGuyHide2(),8, "windowGuyHide2");
-                timeline.add(windowGuyHide(),8.5, "windowGuyHide");
+                timeline.add(rightWindowOpen(),2.5, "upperWindowOpen");
+                timeline.add(lightningTwoAnimate(),3, "lightningTwo");
+                timeline.add(rightWindowClose(),3.5, "upperWindowClose");
+                timeline.add(upperWindowOpen(),4, "upperWindowOpen");
+                timeline.add(bottomWindowOpen(),4.5, "bottomWindowOpen");
+                timeline.add(upperWindowClose(),4.5, "upperWindowClose");
+                timeline.add(windowGuyShow2(),5, "windowGuyShow2");
+                timeline.add(bottomWindowClose(),5.5, "bottomWindowClose");
+                timeline.add(windowGuyShow(),6, "windowGuyShow");
+                timeline.add(lightningThreeAnimate,6.25, "lightningThree");
+                timeline.add(windowGuyHide2(),7, "windowGuyHide2");
+                timeline.add(windowGuyHide(),7.5, "windowGuyHide");
 
             timeline.play();
 
