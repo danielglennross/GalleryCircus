@@ -39,7 +39,17 @@
     height: 100%;
     opacity: 0;
 }
-.gc .gc-bg-img .gc-bg-gradient {
+.gc .gc-bg-img-front {
+    position: absolute;
+    left:0;
+    top:0;
+    background: url("Back-Cover.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+.gc .gc-bg-img .gc-bg-gradient, .gc .gc-bg-img-front .gc-bg-gradient {
     /* left & right, top & bottom */
     background-image: -webkit-linear-gradient(left,
     rgba(0,0,0,1) 5%,
@@ -228,10 +238,13 @@
     opacity: 0; /* 0.8 */
 }
 
-.gc .canvasTrailer {
+.gc .gc-trailer {
+    background: url("GCTrailer.gif") no-repeat;
     position: absolute;
     left:235px;
     top: 600px;
+    width:220px;
+    height: 85px;
 
     -webkit-transform: rotate(16deg);
     -moz-transform: rotate(16deg);
@@ -240,8 +253,44 @@
     transform: rotate(16deg);
 
     -ms-transform: skew(-40deg,12deg); /* IE 9 */
-    -webkit-transform: skew(-40deg,12deg); /* Chrome, Safari, Opera */
-    transform: skew(-40deg,12deg);
+    -webkit-transform: skew(-35deg,12deg); /* Chrome, Safari, Opera */
+    transform: skew(-35deg,12deg);
+
+    opacity: 0;
+}
+
+.gc .gc-glasto {
+    background: url("Glasto.gif") no-repeat;
+    position: absolute;
+    left:223px;
+    top: 290px;
+    width:120px;
+    height: 67px;
+
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(16deg);
+    -ms-transform: rotate(16deg);
+    -o-transform: rotate(16deg);
+    transform: rotate(-3deg);
+
+    -ms-transform: skew(45deg,0deg);
+    -webkit-transform: skew(45deg,0deg);
+    transform: skew(45deg,0deg);
+
+    opacity: 0;
+}
+
+.gc .gc-glasto2 {
+    background: url("Glasto2.gif") no-repeat;
+    position: absolute;
+    left:583px;
+    top: 255px;
+    width:130px;
+    height: 47px;
+
+    -ms-transform: skew(31deg,0deg);
+    -webkit-transform: skew(31deg,0deg);
+    transform: skew(31deg,0deg);
 
     opacity: 0;
 }
@@ -272,6 +321,9 @@
 <div class="wrapper">
     <div class="gc">
         <div class="gc-bg">
+        <div class="gc-bg-img-front">
+            <div class="gc-bg-gradient"></div>
+        </div>
         <div class="gc-bg-img">
             <div class="gc-bg-gradient"></div>
             <div class="gc-upperWindow"></div>
@@ -283,20 +335,15 @@
             <div class="gc-lightningTwo"></div>
             <div class="gc-lightningThree"></div>
             <div class="gc-logoHighlight"></div>
-
-            <canvas id="canvasTrailer" class="canvasTrailer"></canvas>
+            <div class="gc-trailer"></div>
+            <div class="gc-glasto"></div>
+            <div class="gc-glasto2"></div>
         </div>
         <div class="logo"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
         <div class="comingSoonText">COMING EARLY 2015</div>
         <div class="killerTracksText">4 TORNADIC</div>
         <div class="killerTracksText2">TRACKS</div>
-        <video class="gcTrailer" style="display: none;" width="800px" height="800px" preload="auto" muted loop>
-            <source src="http://gallerycircus.co.uk/videos/GCTrailer.mp4" type="video/mp4">
-        </video>
-        <video class="gcSuper" width="800px" height="800px" preload="auto" muted loop>
-            <source src="http://gallerycircus.co.uk/videos/bgSuperCell.mp4" type="video/mp4">
-        </video>
         </div>
     </div>
 </div>
@@ -324,15 +371,11 @@
             oa.play();
 
             var mm = new GC.MediaManager(masterPromises);
-            var videoTrailer = mm.getVideoTrailer();
-            var videoSuper = mm.getVideoSuper();
 			var epSampler = mm.getEpSampler();
 
             $.when.apply(null, masterPromises).done(function() {
                 var am = new GC.AudioManager(epSampler);
 				am.PlayEpSampler();
-				
-				var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
                 var sa = new GC.SceneAnimate();
             }).fail(function() {
                 console.log('preload error');
@@ -353,39 +396,15 @@
          */
         function MediaManager(masterPromises) {
 
-            var videoTrailer = $('.gc .gcTrailer')[0];
-            var videoSetup = $.Deferred();
-
-            var videoSuper = $('.gc .gcSuper')[0];
-            var videoSetupVideo = $.Deferred();
-			
 			var epSampler = $('.EPSampler')[0];
 			var epSamplerSetup = $.Deferred();
 
-            masterPromises.push(videoSetup);
-            masterPromises.push(videoSetupVideo);
 			masterPromises.push(epSamplerSetup);
-
-            videoTrailer.onloadeddata = function() {
-                videoSetup.resolve();
-            }
-
-            videoSuper.onloadeddata = function() {
-                videoSetupVideo.resolve();
-            }
 			
 			epSampler.onloadeddata = function() {
 				epSamplerSetup.resolve();
 			}
 
-            this.getVideoTrailer = function() {
-                return videoTrailer;
-            }
-
-            this.getVideoSuper = function() {
-                return videoSuper;
-            }
-			
 			this.getEpSampler = function() {
 				return epSampler;
 			}
@@ -409,7 +428,8 @@
                  killerTracksMessage = $('.gc .killerTracksText'),
                  killerTracksMessage2 = $('.gc .killerTracksText2'),
                  logo = $('.gc .logo'),
-                 mainImage = $('.gc .gc-bg-img');
+                 mainImage = $('.gc .gc-bg-img'),
+                 backCover = $('.gc .gc-bg-img-front');
 
             textMessage.html(textMessage.text().replace(/./g, "<span>$&</span>"));
             killerTracksMessage.html(killerTracksMessage.text().replace(/./g, "<span>$&</span>"));
@@ -427,6 +447,27 @@
                 timeline.add(comingSoonDisplay(), "displayComingSoon");
                 timeline.add(mainImageDisplay(), "displayComingSoon");
                 timeline.play();
+
+                var timelineFlicker = new TimelineMax({});
+                    timelineFlicker.add(flickerBackCover(), "displayEPText");
+                timelineFlicker.play();
+            }
+
+            function flickerBackCover() {
+                var timeline = new TimelineMax({repeat:2});
+                    timeline.to(backCover, 0.2 ,{opacity:0.2, skewX:"+=1deg", rotationY:"+=1deg"}); /* back cover  */
+                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"-=2deg", rotationY:"-=1deg"});
+                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"+=1deg"});
+                    timeline.to(backCover, 0.1 ,{opacity:0.2});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"-=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.2});
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"+=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.3});
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
+                    timeline.to(backCover, 0.1 ,{opacity:0.2});
+                    timeline.to(backCover, 0.1 ,{opacity:0});
+                return timeline;
             }
 
             function logoDisplay() {
@@ -485,58 +526,6 @@
 
     }());
 
-    (function(){
-
-        "use strict";
-
-        /**
-         * Video Flickr
-         */
-        function VideoFlicker(videoTrailer, videoSuper) {
-
-            var v = videoTrailer;
-            var canvas = document.getElementById('canvasTrailer');
-            var context = canvas.getContext('2d');
-
-            var width = 220,
-                height = 85;
-            $(canvas).css({
-                width : width,
-                height : height
-            });
-
-            var cw = width;
-            var ch = height;
-            canvas.width = cw;
-            canvas.height = ch;
-
-            v.addEventListener('play', function(){
-                draw(this,context,cw,ch);
-            },false);
-
-            function draw(v,c,w,h) {
-                if(v.paused || v.ended) return false;
-                c.drawImage(v,0,0,w,h);
-                setTimeout(draw,34,v,c,w,h);
-            }
-
-            var timeline = new TimelineMax({ onStart:playVideos});
-            timeline.fromTo(canvas, 5, {opacity:0}, {opacity:0.5});
-            timeline.fromTo(canvas, 5, {opacity:0.5}, {opacity:0});
-            return timeline;
-
-            function playVideos() {
-                videoTrailer.play();
-                //videoSuper.play();
-            }
-
-
-        }
-
-        GC.VideoFlicker = VideoFlicker;
-
-    }());
-	
 	(function(){
 
         "use strict";
@@ -574,7 +563,11 @@
                 lightningOne = $('.gc .gc-lightningOne'),
                 lightningTwo = $('.gc .gc-lightningTwo'),
                 lightningThree = $('.gc .gc-lightningThree'),
-                logoHighlight = $('.gc .gc-logoHighlight');
+                logoHighlight = $('.gc .gc-logoHighlight'),
+                backCover = $('.gc .gc-bg-img-front'),
+                gcTrailer = $('.gc .gc-trailer'),
+                gcGlasto = $('.gc .gc-glasto'),
+                gcGlasto2 = $('.gc .gc-glasto2');
 
             var timeline = new TimelineMax({repeat:-1, yoyo:true});
 
@@ -596,9 +589,30 @@
 
             timeline.play();
 
-            var logoTimeline = new TimelineMax({repeat:-1});
-                logoTimeline.add(logoHighlightAnimate(),0.5, "logo");
-            logoTimeline.play();
+            var AddTimeline = new TimelineMax({repeat:-1, yoyo:true});
+                AddTimeline.add(logoHighlightAnimate(),0.5, "logo");
+                AddTimeline.add(flickerBackCover(),15, "backCover");
+                AddTimeline.add(gcGlastoAnimate(),5, "trailer");
+                AddTimeline.add(gcGlasto2Animate(),25, "trailer");
+                AddTimeline.add(gcTrailerAnimate(),20, "trailer");
+            AddTimeline.play();
+
+            function flickerBackCover() {
+                var timeline = new TimelineMax({repeat:2});
+                    timeline.to(backCover, 0.2 ,{opacity:0.5}); /* back cover  */
+                    timeline.to(backCover, 0.1 ,{opacity:0.4});
+                    timeline.to(backCover, 0.1 ,{opacity:0.8});
+                    timeline.to(backCover, 0.1 ,{opacity:0.7});
+                    timeline.to(backCover, 0.2 ,{opacity:0.9});
+                    timeline.to(backCover, 0.5 ,{opacity:1});
+                    timeline.to(backCover, 0.1 ,{opacity:0.9});
+                    timeline.to(backCover, 0.2 ,{opacity:1});
+                    timeline.to(backCover, 0.2 ,{opacity:0.8});
+                    timeline.to(backCover, 0.1 ,{opacity:0.6});
+                    timeline.to(backCover, 0.1 ,{opacity:0.3});
+                    timeline.to(backCover, 0.1 ,{opacity:0});
+                return timeline;
+            }
 
             function logoHighlightAnimate() {
                 var timeline = new TimelineMax();
@@ -612,6 +626,30 @@
                     timeline.to(logoHighlight, 1 ,{opacity:0.4});
                     timeline.to(logoHighlight, 2 ,{opacity:0.3});
                     timeline.to(logoHighlight, 2 ,{opacity:0});
+                return timeline;
+            }
+
+            function gcTrailerAnimate() {
+                var timeline = new TimelineMax({});
+                    timeline.to(gcTrailer, 2 ,{opacity:0.3});
+                    timeline.to(gcTrailer, 4 ,{opacity:0.5});
+                    timeline.to(gcTrailer, 2 ,{opacity:0});
+                return timeline;
+            }
+
+            function gcGlastoAnimate() {
+                var timeline = new TimelineMax({});
+                timeline.to(gcGlasto, 2 ,{opacity:0.5});
+                timeline.to(gcGlasto, 6 ,{opacity:0.8});
+                timeline.to(gcGlasto, 2 ,{opacity:0});
+                return timeline;
+            }
+
+            function gcGlasto2Animate() {
+                var timeline = new TimelineMax({});
+                timeline.to(gcGlasto2, 2 ,{opacity:0.5});
+                timeline.to(gcGlasto2, 6 ,{opacity:0.8});
+                timeline.to(gcGlasto2, 3 ,{opacity:0});
                 return timeline;
             }
 
