@@ -262,6 +262,13 @@
 </head>
 <body>
 
+<div>
+	<audio class="EPSampler" loop>
+		<source src="EPSampler.mp3" type="audio/ogg">
+		<source src="EPSampler.ogg" type="audio/mpeg">
+	</audio>
+</div>
+
 <div class="wrapper">
     <div class="gc">
         <div class="gc-bg">
@@ -316,12 +323,16 @@
             var oa = new GC.OpeningAnimation(masterPromises);
             oa.play();
 
-            var vm = new GC.VideoManager(masterPromises);
-            var videoTrailer = vm.getVideoTrailer();
-            var videoSuper = vm.getVideoSuper();
+            var mm = new GC.MediaManager(masterPromises);
+            var videoTrailer = mm.getVideoTrailer();
+            var videoSuper = mm.getVideoSuper();
+			var epSampler = mm.getEpSampler();
 
             $.when.apply(null, masterPromises).done(function() {
-                var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
+                var am = new GC.AudioManager(epSampler);
+				am.PlayEpSampler();
+				
+				var vf = new GC.VideoFlicker(videoTrailer, videoSuper);
                 var sa = new GC.SceneAnimate();
             }).fail(function() {
                 console.log('preload error');
@@ -340,16 +351,20 @@
         /**
          * Video Manager
          */
-        function VideoManager(masterPromises) {
+        function MediaManager(masterPromises) {
 
             var videoTrailer = $('.gc .gcTrailer')[0];
             var videoSetup = $.Deferred();
 
             var videoSuper = $('.gc .gcSuper')[0];
             var videoSetupVideo = $.Deferred();
+			
+			var epSampler = $('.EPSampler')[0];
+			var epSamplerSetup = $.Deferred();
 
             masterPromises.push(videoSetup);
             masterPromises.push(videoSetupVideo);
+			masterPromises.push(epSamplerSetup);
 
             videoTrailer.onloadeddata = function() {
                 videoSetup.resolve();
@@ -358,6 +373,10 @@
             videoSuper.onloadeddata = function() {
                 videoSetupVideo.resolve();
             }
+			
+			epSampler.onloadeddata = function() {
+				epSamplerSetup.resolve();
+			}
 
             this.getVideoTrailer = function() {
                 return videoTrailer;
@@ -366,10 +385,13 @@
             this.getVideoSuper = function() {
                 return videoSuper;
             }
-
+			
+			this.getEpSampler = function() {
+				return epSampler;
+			}
         }
 
-        GC.VideoManager = VideoManager;
+        GC.MediaManager = MediaManager;
 
     }());
 
@@ -512,6 +534,26 @@
         }
 
         GC.VideoFlicker = VideoFlicker;
+
+    }());
+	
+	(function(){
+
+        "use strict";
+
+        /**
+         * Audio Manager
+         */
+        function AudioManager(epSampler) {
+
+            var epAudio = epSampler;
+			
+			this.PlayEpSampler = function() {
+				epAudio.play();
+			}
+        }
+
+        GC.AudioManager = AudioManager;
 
     }());
 
