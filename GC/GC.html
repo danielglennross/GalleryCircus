@@ -305,42 +305,42 @@
 }
 
 .gc .gc-trailer {
-    background: url("GCTrailerBig.gif") no-repeat;
+    /*background: url("GCTrailerBig.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
     width:800px;
-    height: 410px;
+    height: 200%;
     opacity: 0;
 }
 
 .gc .gc-glasto {
-    background: url("GlastoBig.gif") no-repeat;
+    /*background: url("GlastoBig.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
     width:800px;
-    height: 410px;
+    height: 200%;
     opacity: 0;
 }
 
 .gc .gc-glasto2 {
-    background: url("GlastoBig2.gif") no-repeat;
+    /*background: url("GlastoBig2.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
     width:800px;
-    height: 410px;
+    height: 200%;
     opacity: 0;
 }
 
 .gc .gc-supercell {
-    background: url("supercell.gif") no-repeat;
+    /*background: url("supercell.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
     width:800px;
-    height: 410px;
+    height: 200%;
     opacity: 0;
 }
 
@@ -382,6 +382,10 @@
 	<audio class="EPSampler" preload="auto">
 		<source src="EPSampler.mp3" type="audio/ogg">
 		<source src="EPSampler.ogg" type="audio/mpeg">
+	</audio>
+	<audio class="Siren" preload="auto">
+		<source src="Siren.mp3" type="audio/ogg">
+		<source src="Siren.ogg" type="audio/mpeg">
 	</audio>
 </div>
 
@@ -451,6 +455,7 @@
 
             var mm = new GC.MediaManager(masterPromises);
 			var epSampler = mm.getEpSampler();
+			var siren = mm.getSiren();
 
             registerEventListeners();
 
@@ -463,6 +468,7 @@
                     $('.gc .killerTracksText').css('opacity','1');
                     $('.gc .newEPText').css('opacity','1');
                     oa.play();
+					siren.play();
                 });
             }
 
@@ -542,6 +548,8 @@
          */
         function MediaManager(masterPromises) {
 
+			var siren = $('.Siren')[0];
+		
 			var epSampler = $('.EPSampler')[0];
 			var epSamplerSetup = $.Deferred();
 
@@ -553,6 +561,10 @@
 
 			this.getEpSampler = function() {
 				return epSampler;
+			}
+			
+			this.getSiren = function() {
+				return siren;
 			}
         }
 
