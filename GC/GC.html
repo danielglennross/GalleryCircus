@@ -174,8 +174,8 @@
 .gc .visitSite {
     top: 585px;
     text-decoration: none;
-    font-size: 25px;
-    width: 200px;
+    font-size: 40px;
+    width: 300px;
 }
 
 /* animated graphics */
@@ -593,7 +593,7 @@
 
             function logoDisplay() {
                 var timeline = new TimelineMax();
-                    timeline.fromTo(logo, 0.3 ,{opacity:0, scale:"0"}, {opacity:1, scale:"0.8", rotationY:"+=360deg"});
+                    timeline.fromTo(logo, 0.3 ,{opacity:0}, {opacity:1, rotationY:"+=360deg"});
                 return timeline;
             }
 
@@ -601,7 +601,7 @@
                 var timeline = new TimelineMax();
                     timeline.staggerFromTo(textMessage.find("span"), 0.5, {opacity:0}, {opacity:1, top:"+=100px"}, 0.1,0);
                     timeline.fromTo(textMessage, 0.5, {top:"0px"} , {top:"+=100px"},0);
-                    timeline.fromTo(logo, 0.5 ,{scale:"0.8"}, {scale:"0.5"},0);
+                    timeline.fromTo(logo, 0.5 ,{scale:"0.5"}, {scale:"0.5"},0);
                 return timeline;
             }
 
