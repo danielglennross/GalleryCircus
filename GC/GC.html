@@ -418,8 +418,8 @@
         <div class="logo logoScale"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
         <div class="comingSoonText">COMING EARLY 2015</div>
-        <div class="killerTracksText">4 TORNADIC</div>
-        <div class="killerTracksText2">TRACKS</div>
+        <div class="killerTracksText">HERE'S A QUICK TASTE</div>
+        <div class="killerTracksText2">STAY TUNED</div>
         <div class="epTrailer">PLAY EP TRAILER</div>
         <a href="http://www.gallerycircus.co.uk" class="visitSite">VISIT SITE</a>
         <div class="songName"></div>
@@ -547,7 +547,7 @@
 
 			masterPromises.push(epSamplerSetup);
 			
-			epSampler.onloadeddata = function() {
+			epSampler.oncanplay = function() {
 				epSamplerSetup.resolve();
 			}
 
@@ -601,14 +601,14 @@
 
             function flickerBackCover() {
                 var timeline = new TimelineMax({repeat:2});
-                    timeline.to(backCover, 0.2 ,{opacity:0.2, skewX:"+=1deg", rotationY:"+=1deg"}); /* back cover  */
-                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"-=2deg", rotationY:"-=1deg"});
-                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"+=1deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.2}); /* back cover  */
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
                     timeline.to(backCover, 0.1 ,{opacity:0.2});
-                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"-=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1});
                     timeline.to(backCover, 0.2 ,{opacity:0.2});
                     timeline.to(backCover, 0.1 ,{opacity:0.1});
-                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"+=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1});
                     timeline.to(backCover, 0.2 ,{opacity:0.3});
                     timeline.to(backCover, 0.1 ,{opacity:0.1});
                     timeline.to(backCover, 0.1 ,{opacity:0.2});
