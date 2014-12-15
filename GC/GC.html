@@ -117,8 +117,17 @@
     background: url("logo.png") no-repeat;
     width: 100%;
     height: 100%;
-    opacity: 0;
+    opacity: 1;
+    z-index: 2;
+    cursor: hand;
 }
+
+.gc .logoScale {
+    -ms-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
 .gc .newEPText, .gc .comingSoonText, .gc .killerTracksText, .gc .killerTracksText2 {
     position: absolute;
     width: 100%;
@@ -133,16 +142,40 @@
 
     text-align: center;
     font-size: 60px;
-    font-family: 'Cabin Sketch', cursive;
+    /*font-family: 'Cabin Sketch', cursive;*/
+    font-family: 'Finger Paint', cursive;
     color: #FFF;
+
+    opacity: 0;
 }
 .gc .comingSoonText, .gc .killerTracksText2 {
     opacity: 0;
 }
-.gc .gcTrailer, .gc .gcSuper {
+
+.gc .epTrailer, .gc .visitSite {
     position: absolute;
-    top:0; left: 0;
-    opacity: 0;
+    height: 80px;
+    top: 150px;
+    left: 0;
+    right: 0;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+    font-size: 50px;
+    /*font-family: 'Cabin Sketch', cursive;*/
+    font-family: 'Finger Paint', cursive;
+    color: #FFF;
+    z-index: 2;
+    cursor: hand;
+}
+
+.gc .visitSite {
+    top: 585px;
+    text-decoration: none;
+    font-size: 25px;
+    width: 200px;
 }
 
 /* animated graphics */
@@ -295,6 +328,23 @@
     opacity: 0;
 }
 
+.gc .songName {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+    font-size: 25px;
+    /*font-family: 'Cabin Sketch', cursive;*/
+    font-family: 'Finger Paint', cursive;
+    color: #FFF;
+    opacity: 0;
+}
+
 /* Retina Display */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -307,12 +357,13 @@
 
 </style>
 <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
 <div>
-	<audio class="EPSampler" loop>
+	<audio class="EPSampler">
 		<source src="EPSampler.mp3" type="audio/ogg">
 		<source src="EPSampler.ogg" type="audio/mpeg">
 	</audio>
@@ -339,11 +390,14 @@
             <div class="gc-glasto"></div>
             <div class="gc-glasto2"></div>
         </div>
-        <div class="logo"></div>
+        <div class="logo logoScale"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
         <div class="comingSoonText">COMING EARLY 2015</div>
         <div class="killerTracksText">4 TORNADIC</div>
         <div class="killerTracksText2">TRACKS</div>
+        <div class="epTrailer">PLAY EP TRAILER</div>
+        <a href="http://www.gallerycircus.co.uk" class="visitSite">VISIT SITE</a>
+        <div class="songName"></div>
         </div>
     </div>
 </div>
@@ -367,11 +421,25 @@
         function Driver() {
 
             var masterPromises = [];
+            var tm = new GC.TitleManager();
             var oa = new GC.OpeningAnimation(masterPromises);
-            oa.play();
 
             var mm = new GC.MediaManager(masterPromises);
 			var epSampler = mm.getEpSampler();
+
+            registerEventListeners();
+
+            function registerEventListeners() {
+                $('.gc .epTrailer, .gc .logo').click(function() {
+                    $('.gc .epTrailer, .gc .logo').unbind("click");
+                    $('.gc .logo').removeClass("logoScale").css('opacity','0');
+                    $('.gc .epTrailer, .gc .visitSite').fadeOut('slow');
+                    $('.gc .epTrailer').remove();
+                    $('.gc .killerTracksText').css('opacity','1');
+                    $('.gc .newEPText').css('opacity','1');
+                    oa.play();
+                });
+            }
 
             $.when.apply(null, masterPromises).done(function() {
                 var am = new GC.AudioManager(epSampler);
@@ -384,6 +452,59 @@
         }
 
         GC.Driver = Driver;
+
+    }());
+
+    (function(){
+
+        "use strict";
+
+        /**
+         * Title Manager
+         */
+        function TitleManager() {
+
+            var textMessage = $('.gc .epTrailer');
+            textMessage.html(textMessage.text().replace(/./g, "<span>$&</span>"));
+
+            var visitSite = $('.gc .visitSite');
+            visitSite.html(visitSite.text().replace(/./g, "<span>$&</span>"));
+
+            var logo = $('.gc .logo');
+
+            var staggerTimeline = new TimelineMax();
+            staggerTimeline.add(animate(textMessage, "#990000"), "display");
+            staggerTimeline.add(flash(textMessage, "#990000"), "flashAndReverse");
+            staggerTimeline.add(animate(visitSite, "#993333"),1, "display");
+            staggerTimeline.add(flash(visitSite, "#993333"), "flashAndReverse");
+
+            var pulse = new TimelineMax();
+            pulse.add(pulseLogo(), "pulseLogo");
+
+            function animate(value, color) {
+                var tl = new TimelineMax();
+                    tl.staggerFromTo( value.find("span"), 0.5, {opacity:0, color:"white", scale:0, top:"-10px"}, {opacity:1, color:color, scale:1, top:"0px"}, 0.1,0);
+                    tl.fromTo( value, 0.5, {rotationX:"+=90deg"}, {rotationX:"0deg"},0);
+
+                return tl;
+            }
+
+            function flash(value, color) {
+                var tl = new TimelineMax({repeat:-1});
+                    tl.staggerFromTo(value.find("span"), 0.5, {color:color}, {delay:2,color:"#fff"}, 0.1);
+                    tl.staggerFromTo(value.find("span"), 0.5, {delay:2,color:"#fff"}, {color:color}, 0.1);
+                return tl;
+            }
+
+            function pulseLogo() {
+                var tl = new TimelineMax({repeat:-1});
+                    tl.to( logo, 0.3, {delay: 3, rotationY:"+=360deg"});
+                return tl;
+            }
+
+        }
+
+        GC.TitleManager = TitleManager;
 
     }());
 
@@ -536,13 +657,80 @@
         function AudioManager(epSampler) {
 
             var epAudio = epSampler;
-			
+            var self = this;
+
+            epAudio.addEventListener('ended', function() {
+                self.PlayEpSampler();
+            });
+
 			this.PlayEpSampler = function() {
+                epAudio.pause();
+                epAudio.currentTime = 0;
 				epAudio.play();
+                var sn = new GC.SongName();
+                sn.songNameDisplay();
 			}
         }
 
         GC.AudioManager = AudioManager;
+
+    }());
+
+    (function(){
+
+        "use strict";
+
+        /**
+         * SongName Manager
+         */
+        function SongName() {
+
+           var songNames = ["THE MIDDLE ROOM", "HOLLYWOOD DRIP", "HOLLAND ON FIRE", "21 PARTIES", "CLUBHOUSE KILLER"];
+
+           this.songNameDisplay =  function() {
+
+               setTimeout(function(){
+                    displayInfo(songNames[0]);
+               }, 1000);
+
+               setTimeout(function(){
+                   displayInfo(songNames[1]);
+               }, 55000);
+
+               setTimeout(function(){
+                   displayInfo(songNames[2]);
+               }, 116000);
+
+               setTimeout(function(){
+                   displayInfo(songNames[3]);
+               }, 163000);
+
+               setTimeout(function(){
+                   displayInfo(songNames[4]);
+               }, 220000);
+           }
+
+           function displayInfo(songname) {
+               var songDisplay = $('.gc .songName');
+               songDisplay.html(songname.replace(/./g, "<span>$&</span>")).css('opacity','1');
+
+               var staggerTimeline = new TimelineMax();
+               staggerTimeline.add(animate(songDisplay, "#fff"), "display");
+               staggerTimeline.play();
+
+               var bezierTimeline = new TimelineMax({yoyo:true, repeat:-1});
+                   bezierTimeline.to(songDisplay, 20, {bezier:{type:"cubic", values:[{x:-100, y:650}, {x:0, y:600}, {x:0, y:700}, {x:100, y:700}], autoRotate:["x","y","rotation", 0, true]}, ease:Power1.easeInOut});
+               bezierTimeline.play();
+           }
+
+            function animate(value, color) {
+                var tl = new TimelineMax();
+                    tl.staggerFromTo( value.find("span"), 5, {opacity:0, color:"#990000"}, {opacity:0.2, color:color}, 0.2,0);
+                return tl;
+            }
+        }
+
+        GC.SongName = SongName;
 
     }());
 
@@ -567,7 +755,8 @@
                 backCover = $('.gc .gc-bg-img-front'),
                 gcTrailer = $('.gc .gc-trailer'),
                 gcGlasto = $('.gc .gc-glasto'),
-                gcGlasto2 = $('.gc .gc-glasto2');
+                gcGlasto2 = $('.gc .gc-glasto2'),
+                visitSite = $('.gc .visitSite');
 
             var timeline = new TimelineMax({repeat:-1, yoyo:true});
 
@@ -596,6 +785,18 @@
                 AddTimeline.add(gcGlasto2Animate(),25, "trailer");
                 AddTimeline.add(gcTrailerAnimate(),20, "trailer");
             AddTimeline.play();
+
+           visitSiteAnimation();
+
+            function visitSiteAnimation() {
+                var timeline = new TimelineMax({onComplete:showVisitSite});
+                    timeline.to(visitSite, 0.1 ,{top:"60px", opacity:0});
+                    timeline.to(visitSite, 0.1 ,{opacity:1});
+
+                function showVisitSite() {
+                    visitSite.show();
+                }
+            }
 
             function flickerBackCover() {
                 var timeline = new TimelineMax({repeat:2});
@@ -779,5 +980,6 @@
 </script>
 <!-- Greensock framework used for animation -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.2/TweenMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/plugins/BezierPlugin.min.js"></script>
 
 </body>
