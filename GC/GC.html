@@ -522,7 +522,7 @@
 
 			masterPromises.push(epSamplerSetup);
 			
-			epSampler.onloadeddata = function() {
+			epSampler.oncanplay = function() {
 				epSamplerSetup.resolve();
 			}
 
@@ -576,14 +576,14 @@
 
             function flickerBackCover() {
                 var timeline = new TimelineMax({repeat:2});
-                    timeline.to(backCover, 0.2 ,{opacity:0.2, skewX:"+=1deg", rotationY:"+=1deg"}); /* back cover  */
-                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"-=2deg", rotationY:"-=1deg"});
-                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"+=1deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.2}); /* back cover  */
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
                     timeline.to(backCover, 0.1 ,{opacity:0.2});
-                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"-=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1});
                     timeline.to(backCover, 0.2 ,{opacity:0.2});
                     timeline.to(backCover, 0.1 ,{opacity:0.1});
-                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"+=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1});
                     timeline.to(backCover, 0.2 ,{opacity:0.3});
                     timeline.to(backCover, 0.1 ,{opacity:0.1});
                     timeline.to(backCover, 0.1 ,{opacity:0.2});
