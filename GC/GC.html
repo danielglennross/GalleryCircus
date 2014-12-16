@@ -356,7 +356,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top:0;
+    top:650px;
 
     margin-right: auto;
     margin-left: auto;
@@ -812,14 +812,25 @@
                staggerTimeline.add(animate(songDisplay, "#fff"), "display");
                staggerTimeline.play();
 
-               var bezierTimeline = new TimelineMax({yoyo:true, repeat:-1});
-                   bezierTimeline.to(songDisplay, 20, {bezier:{type:"cubic", values:[{x:-100, y:650}, {x:0, y:600}, {x:0, y:700}, {x:100, y:700}], autoRotate:["x","y","rotation", 0, true]}, ease:Power1.easeInOut});
-               bezierTimeline.play();
+               var pulseTimeline = new TimelineMax({repeat:-1});
+                    pulseTimeline.add(pulse(songDisplay), "pulseName");
+               pulseTimeline.play();
            }
 
             function animate(value, color) {
                 var tl = new TimelineMax();
                     tl.staggerFromTo( value.find("span"), 5, {opacity:0, color:"#990000"}, {opacity:0.2, color:color}, 0.2,0);
+                return tl;
+            }
+
+            function pulse(value) {
+                var tl = new TimelineMax();
+                    tl.to(value, 0.1, {delay:2, opacity:0.7});
+                    tl.to(value, 0.1, {opacity:0.9});
+                    tl.to(value, 0.1, {opacity:0.8});
+                    tl.to(value, 0.1, {opacity:0.6});
+                    tl.to(value, 0.1, {opacity:1});
+                    tl.to(value, 0.1, {opacity:0.6});
                 return tl;
             }
         }
