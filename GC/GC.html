@@ -631,37 +631,37 @@
             masterPromises.push(videoGlasto3Setup);
             masterPromises.push(videoGlasto4Setup);
 
-			epSampler.oncanplay = function() {
+			//epSampler.onloadedmetadata = function() {
 				epSamplerSetup.resolve();
-			}
+			//}
 
-            videoTrailer.onloadeddata = function() {
+            //videoTrailer.onloadedmetadata = function() {
                 videoSetup.resolve();
-            }
+            //}
 
-            videoSuper.onloadeddata = function() {
+            //videoSuper.onloadedmetadata = function() {
                 videoSetupVideo.resolve();
-            }
+            //}
 
-            videoGlasto.onloadeddata = function() {
+            //videoGlasto.onloadedmetadata = function() {
                 videoGlastoSetup.resolve();
-            }
+            //}
 
-            videoGlasto2.onloadeddata = function() {
+            //videoGlasto2.onloadedmetadata = function() {
                 videoGlasto2Setup.resolve();
-            }
+            //}
 
-            videoLondon.onloadeddata = function() {
+            //videoLondon.onloadedmetadata = function() {
                 videoLondonSetup.resolve();
-            }
+            //}
 
-            videoGlasto3.onloadeddata = function() {
+            //videoGlasto3.onloadedmetadata = function() {
                 videoGlasto3Setup.resolve();
-            }
+            //}
 
-            videoGlasto4.onloadeddata = function() {
+            //videoGlasto4.onloadedmetadata = function() {
                 videoGlasto4Setup.resolve();
-            }
+            //}
 
             this.getVideoTrailer = function() {
                 return videoTrailer;
