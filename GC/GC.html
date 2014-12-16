@@ -832,24 +832,24 @@
 
             function gcTrailerAnimate() {
                 var timeline = new TimelineMax({});
-                    timeline.to(gcTrailer, 2 ,{opacity:0.3});
-                    timeline.to(gcTrailer, 4 ,{opacity:0.5});
+                    timeline.to(gcTrailer, 2 ,{opacity:0.1});
+                    timeline.to(gcTrailer, 4 ,{opacity:0.3});
                     timeline.to(gcTrailer, 2 ,{opacity:0});
                 return timeline;
             }
 
             function gcGlastoAnimate() {
                 var timeline = new TimelineMax({});
-                timeline.to(gcGlasto, 2 ,{opacity:0.5});
-                timeline.to(gcGlasto, 6 ,{opacity:0.8});
+                timeline.to(gcGlasto, 2 ,{opacity:0.3});
+                timeline.to(gcGlasto, 6 ,{opacity:0.5});
                 timeline.to(gcGlasto, 2 ,{opacity:0});
                 return timeline;
             }
 
             function gcGlasto2Animate() {
                 var timeline = new TimelineMax({});
-                timeline.to(gcGlasto2, 2 ,{opacity:0.5});
-                timeline.to(gcGlasto2, 6 ,{opacity:0.8});
+                timeline.to(gcGlasto2, 2 ,{opacity:0.2});
+                timeline.to(gcGlasto2, 6 ,{opacity:0.5});
                 timeline.to(gcGlasto2, 3 ,{opacity:0});
                 return timeline;
             }
