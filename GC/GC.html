@@ -160,7 +160,7 @@
     height: 100%;
     opacity: 1;
     z-index: 2;
-    cursor: hand;
+    cursor: pointer;
 }
 
 .gc .logoScale {
@@ -209,7 +209,7 @@
     font-family: 'Finger Paint', cursive;
     color: #FFF;
     z-index: 2;
-    cursor: hand;
+    cursor: pointer;
 }
 
 .gc .visitSite {
@@ -313,7 +313,6 @@
 }
 
 .gc .gc-trailer {
-    /*background: url("GCTrailerBig.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
@@ -323,7 +322,6 @@
 }
 
 .gc .gc-glasto {
-    /*background: url("GlastoBig.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
@@ -333,7 +331,6 @@
 }
 
 .gc .gc-glasto2 {
-    /*background: url("GlastoBig2.gif") no-repeat;*/
     position: absolute;
     left:0px;
     top: 195px;
@@ -343,7 +340,33 @@
 }
 
 .gc .gc-supercell {
-    /*background: url("supercell.gif") no-repeat;*/
+    position: absolute;
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 410px;
+    opacity: 0;
+}
+
+.gc .gc-london {
+    position: absolute;
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 410px;
+    opacity: 0;
+}
+
+.gc .gc-glasto3 {
+    position: absolute;
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 410px;
+    opacity: 0;
+}
+
+.gc .gc-glasto4 {
     position: absolute;
     left:0px;
     top: 195px;
@@ -427,6 +450,15 @@
             <video class="gc-supercell" width="800px" height="410px" preload="auto" muted loop>
                 <source src="supercellMov.mp4" type="video/mp4"> <div class="grad"></div>
             </video>
+            <video class="gc-london" width="800px" height="410px" preload="auto" muted loop>
+                <source src="london.mp4" type="video/mp4"> <div class="grad"></div>
+            </video>
+            <video class="gc-glasto3" width="800px" height="410px" preload="auto" muted loop>
+                <source src="Glasto3.mp4" type="video/mp4"> <div class="grad"></div>
+            </video>
+            <video class="gc-glasto4" width="800px" height="410px" preload="auto" muted loop>
+                <source src="Glasto4.mp4" type="video/mp4"> <div class="grad"></div>
+            </video>
         </div>
         <div class="logo logoScale"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
@@ -469,6 +501,9 @@
             var supercell = mm.getVideoSuper();
             var glasto = mm.getVideoGlasto();
             var glasto2 = mm.getVideoGlasto2();
+            var london = mm.getVideoLondon();
+            var glasto3 = mm.getVideoGlasto3();
+            var glasto4 = mm.getVideoGlasto4();
 
             registerEventListeners();
 
@@ -488,7 +523,7 @@
             $.when.apply(null, masterPromises).done(function() {
                 var am = new GC.AudioManager(epSampler);
 				am.PlayEpSampler();
-                var sa = new GC.SceneAnimate(trailer,supercell,glasto,glasto2);
+                var sa = new GC.SceneAnimate(trailer,supercell,glasto,glasto2,london,glasto3,glasto4);
             }).fail(function() {
                 console.log('preload error');
             });
@@ -578,12 +613,24 @@
             var videoGlasto2 = $('.gc .gc-glasto2')[0];
             var videoGlasto2Setup = $.Deferred();
 
+            var videoLondon = $('.gc .gc-london')[0];
+            var videoLondonSetup = $.Deferred();
+
+            var videoGlasto3 = $('.gc .gc-glasto3')[0];
+            var videoGlasto3Setup = $.Deferred();
+
+            var videoGlasto4 = $('.gc .gc-glasto4')[0];
+            var videoGlasto4Setup = $.Deferred();
+
             masterPromises.push(videoSetup);
             masterPromises.push(videoSetupVideo);
             masterPromises.push(epSamplerSetup);
             masterPromises.push(videoGlastoSetup);
             masterPromises.push(videoGlasto2Setup);
-			
+            masterPromises.push(videoLondonSetup);
+            masterPromises.push(videoGlasto3Setup);
+            masterPromises.push(videoGlasto4Setup);
+
 			epSampler.oncanplay = function() {
 				epSamplerSetup.resolve();
 			}
@@ -591,6 +638,7 @@
             videoTrailer.onloadeddata = function() {
                 videoSetup.resolve();
             }
+
             videoSuper.onloadeddata = function() {
                 videoSetupVideo.resolve();
             }
@@ -598,13 +646,27 @@
             videoGlasto.onloadeddata = function() {
                 videoGlastoSetup.resolve();
             }
+
             videoGlasto2.onloadeddata = function() {
                 videoGlasto2Setup.resolve();
+            }
+
+            videoLondon.onloadeddata = function() {
+                videoLondonSetup.resolve();
+            }
+
+            videoGlasto3.onloadeddata = function() {
+                videoGlasto3Setup.resolve();
+            }
+
+            videoGlasto4.onloadeddata = function() {
+                videoGlasto4Setup.resolve();
             }
 
             this.getVideoTrailer = function() {
                 return videoTrailer;
             }
+
             this.getVideoSuper = function() {
                 return videoSuper;
             }
@@ -612,11 +674,24 @@
             this.getVideoGlasto = function() {
                 return videoGlasto;
             }
+
             this.getVideoGlasto2 = function() {
                 return videoGlasto2;
             }
 
-			this.getEpSampler = function() {
+            this.getVideoLondon = function() {
+                return videoLondon;
+            }
+
+            this.getVideoGlasto3 = function() {
+                return videoGlasto3;
+            }
+
+            this.getVideoGlasto4 = function() {
+                return videoGlasto4;
+            }
+
+            this.getEpSampler = function() {
 				return epSampler;
 			}
 			
@@ -846,7 +921,7 @@
         /**
          * Scene animate
          */
-        function SceneAnimate(trailer,supercell,glasto,glasto2) {
+        function SceneAnimate(trailer,supercell,glasto,glasto2,london,glasto3,glasto4) {
 
             var upperWindow = $('.gc .gc-upperWindow'),
                 rightWindow = $('.gc .gc-rightWindow'),
@@ -862,6 +937,9 @@
                 gcGlasto = $('.gc .gc-glasto'),
                 gcGlasto2 = $('.gc .gc-glasto2'),
                 gcSuper = $('.gc .gc-supercell'),
+                gcLondon = $('.gc .gc-london'),
+                gcGlasto3 = $('.gc .gc-glasto3'),
+                gcGlasto4 = $('.gc .gc-glasto4'),
                 visitSite = $('.gc .visitSite'),
                 gcGrad = $('.gc .grad');
 
@@ -887,12 +965,20 @@
 
             var AddTimeline = new TimelineMax({repeat:-1, yoyo:true});
                 AddTimeline.add(logoHighlightAnimate(),0.5, "logo");
+                AddTimeline.add(gcTrailerAnimate(),5, "trailer");
                 AddTimeline.add(flickerBackCover(),15, "backCover");
+                AddTimeline.add(gcSupercellAnimate(),22, "trailer");
+                AddTimeline.add(gcGlasto2Animate(),22, "trailer");
                 AddTimeline.add(gcGlastoAnimate(),35, "trailer");
                 AddTimeline.add(gcTrailerAnimate(),35, "trailer");
-                AddTimeline.add(gcSupercellAnimate(),20, "trailer");
-                AddTimeline.add(gcGlasto2Animate(),20, "trailer");
-                AddTimeline.add(gcTrailerAnimate(),5, "trailer");
+                AddTimeline.add(gcLondonAnimate(),45, "trailer");
+                AddTimeline.add(gcSupercellAnimate(),53, "trailer");
+                AddTimeline.add(flickerBackCover(),63, "backCover");
+                AddTimeline.add(gcGlasto3Animate(),73, "trailer");
+                AddTimeline.add(gcGlasto2Animate(),83, "trailer");
+                AddTimeline.add(gcTrailerAnimate(),83, "trailer");
+                AddTimeline.add(gcGlasto4Animate(),93, "trailer");
+                AddTimeline.add(flickerBackCover(),100, "backCover");
             AddTimeline.play();
 
            visitSiteAnimation();
@@ -912,6 +998,18 @@
             function playGlasto2Video() {
                 glasto2.play();
                 glasto2.addEventListener('ended', function() { return restartVideo(glasto2) }, false);
+            }
+            function playLondonVideo() {
+                london.play();
+                london.addEventListener('ended', function() { return restartVideo(london) }, false);
+            }
+            function playGlasto3Video() {
+                glasto3.play();
+                glasto3.addEventListener('ended', function() { return restartVideo(glasto3) }, false);
+            }
+            function playGlasto4Video() {
+                glasto4.play();
+                glasto4.addEventListener('ended', function() { return restartVideo(glasto4) }, false);
             }
 
             function restartVideo(vid){
@@ -972,9 +1070,9 @@
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.7});
                     timeline.to(gcTrailer, 0.5,{opacity:0.5});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
-                    timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
-                    timeline.to(gcTrailer, 0.5 ,{opacity:0.3});
-                    timeline.to(gcTrailer, 0.5 ,{opacity:0});
+                    timeline.to(gcTrailer, 0.25 ,{opacity:0.9});
+                    timeline.to(gcTrailer, 0.25 ,{opacity:0.3});
+                    timeline.to(gcTrailer, 0.1 ,{opacity:0});
                     timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
@@ -985,6 +1083,18 @@
                 timeline.to(gcSuper, 1 ,{opacity:0.3});
                 timeline.to(gcSuper, 4 ,{opacity:0.5});
                 timeline.to(gcSuper, 1 ,{opacity:0});
+                timeline.to(gcGrad,0.2, {opacity:0});
+                return timeline;
+            }
+
+            function gcLondonAnimate() {
+                var timeline = new TimelineMax({onStart:playLondonVideo});
+                timeline.to(gcGrad,0.1, {opacity:1});
+                timeline.to(gcLondon,0.5, {opacity:0.5});
+                timeline.to(gcLondon, 1 ,{opacity:0.8});
+                timeline.to(gcLondon, 2 ,{opacity:0.9});
+                timeline.to(gcLondon, 2 ,{opacity:0.7});
+                timeline.to(gcLondon,1, {opacity:0});
                 timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
@@ -1013,6 +1123,30 @@
                 timeline.to(gcGlasto2, 1 ,{opacity:0.2});
                 timeline.to(gcGlasto2, 3 ,{opacity:0.5});
                 timeline.to(gcGlasto2, 1 ,{opacity:0});
+                timeline.to(gcGrad,0.2, {opacity:0});
+                return timeline;
+            }
+
+            function gcGlasto3Animate() {
+                var timeline = new TimelineMax({onStart:playGlasto3Video});
+                timeline.to(gcGrad,0.1, {opacity:1});
+                timeline.to(gcGlasto3,0.5, {opacity:0.5});
+                timeline.to(gcGlasto3, 1 ,{opacity:0.8});
+                timeline.to(gcGlasto3, 2 ,{opacity:0.9});
+                timeline.to(gcGlasto3, 2 ,{opacity:0.7});
+                timeline.to(gcGlasto3,0.5, {opacity:0});
+                timeline.to(gcGrad,0.2, {opacity:0});
+                return timeline;
+            }
+
+            function gcGlasto4Animate() {
+                var timeline = new TimelineMax({onStart:playGlasto4Video});
+                timeline.to(gcGrad,0.1, {opacity:1});
+                timeline.to(gcGlasto4,0.5, {opacity:0.5});
+                timeline.to(gcGlasto4, 1 ,{opacity:0.8});
+                timeline.to(gcGlasto4, 2 ,{opacity:0.9});
+                timeline.to(gcGlasto4, 2 ,{opacity:0.7});
+                timeline.to(gcGlasto4,0.5, {opacity:0});
                 timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
