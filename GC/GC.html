@@ -51,6 +51,14 @@
 }
 
 .gc .grad {
+    width:800px;
+    height: 410px;
+    position: absolute;
+    top:195px;
+    left:0px;
+    z-index: 2;
+    opacity: 0;
+
     background-image: -webkit-linear-gradient(left,
     rgba(0,0,0,1) 5%,
     rgba(0,0,0,0) 30%,
@@ -310,7 +318,7 @@
     left:0px;
     top: 195px;
     width:800px;
-    height: 200%;
+    height: 410px;
     opacity: 0;
 }
 
@@ -320,7 +328,7 @@
     left:0px;
     top: 195px;
     width:800px;
-    height: 200%;
+    height: 410px;
     opacity: 0;
 }
 
@@ -330,7 +338,7 @@
     left:0px;
     top: 195px;
     width:800px;
-    height: 200%;
+    height: 410px;
     opacity: 0;
 }
 
@@ -340,7 +348,7 @@
     left:0px;
     top: 195px;
     width:800px;
-    height: 200%;
+    height: 410px;
     opacity: 0;
 }
 
@@ -406,7 +414,20 @@
             <div class="gc-lightningTwo"></div>
             <div class="gc-lightningThree"></div>
             <div class="gc-logoHighlight"></div>
-            <div class="gc-trailer">
+            <div class="grad"></div>
+            <video class="gc-trailer" width="800px" height="410px" preload="auto" muted loop>
+                <source src="GCTrailerBigMov.mp4" type="video/mp4">
+            </video>
+            <video class="gc-glasto" width="800px" height="410px" preload="auto" muted loop>
+                <source src="GlastoBigMov.mp4" type="video/mp4"> <div class="grad"></div>
+            </video>
+            <video class="gc-glasto2" width="800px" height="410px" preload="auto" muted loop>
+                <source src="GlastoBig2Mov.mp4" type="video/mp4"> <div class="grad"></div>
+            </video>
+            <video class="gc-supercell" width="800px" height="410px" preload="auto" muted loop>
+                <source src="supercellMov.mp4" type="video/mp4"> <div class="grad"></div>
+            </video>
+           <!-- <div class="gc-trailer">
                 <div class="grad"></div>
             </div>
             <div class="gc-glasto">
@@ -417,7 +438,7 @@
             </div>
             <div class="gc-supercell">
                 <div class="grad"></div>
-            </div>
+            </div> -->
         </div>
         <div class="logo logoScale"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
@@ -456,6 +477,10 @@
             var mm = new GC.MediaManager(masterPromises);
 			var epSampler = mm.getEpSampler();
 			var siren = mm.getSiren();
+            var trailer = mm.getVideoTrailer();
+            var supercell = mm.getVideoSuper();
+            var glasto = mm.getVideoGlasto();
+            var glasto2 = mm.getVideoGlasto2();
 
             registerEventListeners();
 
@@ -475,7 +500,7 @@
             $.when.apply(null, masterPromises).done(function() {
                 var am = new GC.AudioManager(epSampler);
 				am.PlayEpSampler();
-                var sa = new GC.SceneAnimate();
+                var sa = new GC.SceneAnimate(trailer,supercell,glasto,glasto2);
             }).fail(function() {
                 console.log('preload error');
             });
@@ -553,11 +578,55 @@
 			var epSampler = $('.EPSampler')[0];
 			var epSamplerSetup = $.Deferred();
 
-			masterPromises.push(epSamplerSetup);
+            var videoTrailer = $('.gc .gc-trailer')[0];
+            var videoSetup = $.Deferred();
+
+            var videoSuper = $('.gc .gc-supercell')[0];
+            var videoSetupVideo = $.Deferred();
+
+            var videoGlasto = $('.gc .gc-glasto')[0];
+            var videoGlastoSetup = $.Deferred();
+
+            var videoGlasto2 = $('.gc .gc-glasto2')[0];
+            var videoGlasto2Setup = $.Deferred();
+
+            masterPromises.push(videoSetup);
+            masterPromises.push(videoSetupVideo);
+            masterPromises.push(epSamplerSetup);
+            masterPromises.push(videoGlastoSetup);
+            masterPromises.push(videoGlasto2Setup);
 			
 			epSampler.oncanplay = function() {
 				epSamplerSetup.resolve();
 			}
+
+            videoTrailer.onloadeddata = function() {
+                videoSetup.resolve();
+            }
+            videoSuper.onloadeddata = function() {
+                videoSetupVideo.resolve();
+            }
+
+            videoGlasto.onloadeddata = function() {
+                videoGlastoSetup.resolve();
+            }
+            videoGlasto2.onloadeddata = function() {
+                videoGlasto2Setup.resolve();
+            }
+
+            this.getVideoTrailer = function() {
+                return videoTrailer;
+            }
+            this.getVideoSuper = function() {
+                return videoSuper;
+            }
+
+            this.getVideoGlasto = function() {
+                return videoGlasto;
+            }
+            this.getVideoGlasto2 = function() {
+                return videoGlasto2;
+            }
 
 			this.getEpSampler = function() {
 				return epSampler;
@@ -778,7 +847,7 @@
         /**
          * Scene animate
          */
-        function SceneAnimate() {
+        function SceneAnimate(trailer,supercell,glasto,glasto2) {
 
             var upperWindow = $('.gc .gc-upperWindow'),
                 rightWindow = $('.gc .gc-rightWindow'),
@@ -794,7 +863,8 @@
                 gcGlasto = $('.gc .gc-glasto'),
                 gcGlasto2 = $('.gc .gc-glasto2'),
                 gcSuper = $('.gc .gc-supercell'),
-                visitSite = $('.gc .visitSite');
+                visitSite = $('.gc .visitSite'),
+                gcGrad = $('.gc .grad');
 
             var timeline = new TimelineMax({repeat:-1, yoyo:true});
 
@@ -827,6 +897,19 @@
             AddTimeline.play();
 
            visitSiteAnimation();
+
+            function playTrailerVideo() {
+                trailer.play();
+            }
+            function playSupercellVideo() {
+                supercell.play();
+            }
+            function playGlastoVideo() {
+                glasto.play();
+            }
+            function playGlasto2Video() {
+                glasto2.play();
+            }
 
             function visitSiteAnimation() {
                 var timeline = new TimelineMax({onComplete:showVisitSite});
@@ -871,50 +954,58 @@
             }
 
             function gcTrailerAnimate() {
-                var timeline = new TimelineMax({});
+                var timeline = new TimelineMax({onStart:playTrailerVideo});
+                    timeline.to(gcGrad,0.1, {opacity:1});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.5});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
-                    timeline.to(gcTrailer, 4 ,{opacity:0.7});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.7});
                     timeline.to(gcTrailer, 0.5,{opacity:0.5});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0.3});
                     timeline.to(gcTrailer, 0.5 ,{opacity:0});
+                    timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
 
             function gcSupercellAnimate() {
-                var timeline = new TimelineMax({});
-                timeline.to(gcSuper, 2 ,{opacity:0.3});
+                var timeline = new TimelineMax({onStart:playSupercellVideo});
+                timeline.to(gcGrad,0.1, {opacity:1});
+                timeline.to(gcSuper, 1 ,{opacity:0.3});
                 timeline.to(gcSuper, 4 ,{opacity:0.5});
-                timeline.to(gcSuper, 2 ,{opacity:0});
+                timeline.to(gcSuper, 1 ,{opacity:0});
+                timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
 
             function gcGlastoAnimate() {
-                var timeline = new TimelineMax({});
+                var timeline = new TimelineMax({onStart:playGlastoVideo});
+                timeline.to(gcGrad,0.1, {opacity:1});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.5});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.1});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.9});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.1});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.9});
-                timeline.to(gcGlasto, 4 ,{opacity:0.7});
+                timeline.to(gcGlasto, 1 ,{opacity:0.7});
                 timeline.to(gcGlasto, 0.5,{opacity:0.5});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.1});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.9});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0.3});
                 timeline.to(gcGlasto, 0.5 ,{opacity:0});
+                timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
 
             function gcGlasto2Animate() {
-                var timeline = new TimelineMax({});
-                timeline.to(gcGlasto2, 2 ,{opacity:0.2});
-                timeline.to(gcGlasto2, 6 ,{opacity:0.5});
-                timeline.to(gcGlasto2, 3 ,{opacity:0});
+                var timeline = new TimelineMax({onStart:playGlasto2Video});
+                timeline.to(gcGrad,0.1, {opacity:1});
+                timeline.to(gcGlasto2, 1 ,{opacity:0.2});
+                timeline.to(gcGlasto2, 3 ,{opacity:0.5});
+                timeline.to(gcGlasto2, 1 ,{opacity:0});
+                timeline.to(gcGrad,0.2, {opacity:0});
                 return timeline;
             }
 
