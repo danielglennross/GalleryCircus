@@ -427,18 +427,6 @@
             <video class="gc-supercell" width="800px" height="410px" preload="auto" muted loop>
                 <source src="supercellMov.mp4" type="video/mp4"> <div class="grad"></div>
             </video>
-           <!-- <div class="gc-trailer">
-                <div class="grad"></div>
-            </div>
-            <div class="gc-glasto">
-                <div class="grad"></div>
-            </div>
-            <div class="gc-glasto2">
-                <div class="grad"></div>
-            </div>
-            <div class="gc-supercell">
-                <div class="grad"></div>
-            </div> -->
         </div>
         <div class="logo logoScale"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
@@ -900,15 +888,24 @@
 
             function playTrailerVideo() {
                 trailer.play();
+                trailer.addEventListener('ended', function() { return restartVideo(trailer) }, false);
             }
             function playSupercellVideo() {
                 supercell.play();
+                supercell.addEventListener('ended', function() { return restartVideo(supercell) }, false);
             }
             function playGlastoVideo() {
                 glasto.play();
+                glasto.addEventListener('ended', function() { return restartVideo(glasto) }, false);
             }
             function playGlasto2Video() {
                 glasto2.play();
+                glasto2.addEventListener('ended', function() { return restartVideo(glasto2) }, false);
+            }
+
+            function restartVideo(vid){
+                vid.currentTime = 0.1;
+                vid.play();
             }
 
             function visitSiteAnimation() {
