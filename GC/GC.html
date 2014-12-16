@@ -631,37 +631,45 @@
             masterPromises.push(videoGlasto3Setup);
             masterPromises.push(videoGlasto4Setup);
 
-			//epSampler.onloadedmetadata = function() {
+			epSampler.onloadedmetadata = function() {
 				epSamplerSetup.resolve();
-			//}
+			}
+			if (epSampler.readyState > 3) epSamplerSetup.resolve(); // if media is in the cache of the browser, the event above will have probs been triggered before the event was registered - so resolve now if readystate is valid
 
-            //videoTrailer.onloadedmetadata = function() {
+            videoTrailer.onloadedmetadata = function() {
                 videoSetup.resolve();
-            //}
+            }
+			if (videoTrailer.readyState > 3) videoSetup.resolve();
 
-            //videoSuper.onloadedmetadata = function() {
+            videoSuper.onloadedmetadata = function() {
                 videoSetupVideo.resolve();
-            //}
+            }
+			if (videoSuper.readyState > 3) videoSetupVideo.resolve();
 
-            //videoGlasto.onloadedmetadata = function() {
+            videoGlasto.onloadedmetadata = function() {
                 videoGlastoSetup.resolve();
-            //}
+            }
+			if (videoGlasto.readyState > 3) videoGlastoSetup.resolve();
 
-            //videoGlasto2.onloadedmetadata = function() {
+            videoGlasto2.onloadedmetadata = function() {
                 videoGlasto2Setup.resolve();
-            //}
+            }
+			if (videoGlasto2.readyState > 3) videoGlasto2Setup.resolve();
 
-            //videoLondon.onloadedmetadata = function() {
+            videoLondon.onloadedmetadata = function() {
                 videoLondonSetup.resolve();
-            //}
+            }
+			if (videoLondon.readyState > 3) videoLondonSetup.resolve();
 
-            //videoGlasto3.onloadedmetadata = function() {
+            videoGlasto3.onloadedmetadata = function() {
                 videoGlasto3Setup.resolve();
-            //}
+            }
+			if (videoGlasto3.readyState > 3) videoGlasto3Setup.resolve();
 
-            //videoGlasto4.onloadedmetadata = function() {
+            videoGlasto4.onloadedmetadata = function() {
                 videoGlasto4Setup.resolve();
-            //}
+            }
+			if (videoGlasto4.readyState > 3) videoGlasto4Setup.resolve();
 
             this.getVideoTrailer = function() {
                 return videoTrailer;
