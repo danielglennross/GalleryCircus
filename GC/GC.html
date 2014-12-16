@@ -49,6 +49,39 @@
     opacity: 0;
     z-index: 2;
 }
+
+.gc .grad {
+    background-image: -webkit-linear-gradient(left,
+    rgba(0,0,0,1) 5%,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,1) 95%);
+
+    background-image: -moz-linear-gradient(left,
+    rgba(0,0,0,1) 5%,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,1) 95%);
+
+    background-image: -ms-linear-gradient(left,
+    rgba(0,0,0,1) 5%,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,1) 95%);
+
+    background-image: -o-linear-gradient(left,
+    rgba(0,0,0,1) 5%,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,1) 95%);
+
+    background-image: linear-gradient(left,
+    rgba(0,0,0,1) 5%,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,1) 95%);
+}
+
 .gc .gc-bg-img .gc-bg-gradient, .gc .gc-bg-img-front .gc-bg-gradient {
     /* left & right, top & bottom */
     background-image: -webkit-linear-gradient(left,
@@ -272,59 +305,42 @@
 }
 
 .gc .gc-trailer {
-    background: url("GCTrailer.gif") no-repeat;
+    /*background: url("GCTrailerBig.gif") no-repeat;*/
     position: absolute;
-    left:235px;
-    top: 600px;
-    width:220px;
-    height: 85px;
-
-    -webkit-transform: rotate(16deg);
-    -moz-transform: rotate(16deg);
-    -ms-transform: rotate(16deg);
-    -o-transform: rotate(16deg);
-    transform: rotate(16deg);
-
-    -ms-transform: skew(-40deg,12deg); /* IE 9 */
-    -webkit-transform: skew(-35deg,12deg); /* Chrome, Safari, Opera */
-    transform: skew(-35deg,12deg);
-
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 200%;
     opacity: 0;
 }
 
 .gc .gc-glasto {
-    background: url("Glasto.gif") no-repeat;
+    /*background: url("GlastoBig.gif") no-repeat;*/
     position: absolute;
-    left:223px;
-    top: 290px;
-    width:120px;
-    height: 67px;
-
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(16deg);
-    -ms-transform: rotate(16deg);
-    -o-transform: rotate(16deg);
-    transform: rotate(-3deg);
-
-    -ms-transform: skew(45deg,0deg);
-    -webkit-transform: skew(45deg,0deg);
-    transform: skew(45deg,0deg);
-
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 200%;
     opacity: 0;
 }
 
 .gc .gc-glasto2 {
-    background: url("Glasto2.gif") no-repeat;
+    /*background: url("GlastoBig2.gif") no-repeat;*/
     position: absolute;
-    left:583px;
-    top: 255px;
-    width:130px;
-    height: 47px;
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 200%;
+    opacity: 0;
+}
 
-    -ms-transform: skew(31deg,0deg);
-    -webkit-transform: skew(31deg,0deg);
-    transform: skew(31deg,0deg);
-
+.gc .gc-supercell {
+    /*background: url("supercell.gif") no-repeat;*/
+    position: absolute;
+    left:0px;
+    top: 195px;
+    width:800px;
+    height: 200%;
     opacity: 0;
 }
 
@@ -363,9 +379,13 @@
 <body>
 
 <div>
-	<audio class="EPSampler">
+	<audio class="EPSampler" preload="auto">
 		<source src="EPSampler.mp3" type="audio/ogg">
 		<source src="EPSampler.ogg" type="audio/mpeg">
+	</audio>
+	<audio class="Siren" preload="auto">
+		<source src="Siren.mp3" type="audio/ogg">
+		<source src="Siren.ogg" type="audio/mpeg">
 	</audio>
 </div>
 
@@ -386,15 +406,24 @@
             <div class="gc-lightningTwo"></div>
             <div class="gc-lightningThree"></div>
             <div class="gc-logoHighlight"></div>
-            <div class="gc-trailer"></div>
-            <div class="gc-glasto"></div>
-            <div class="gc-glasto2"></div>
+            <div class="gc-trailer">
+                <div class="grad"></div>
+            </div>
+            <div class="gc-glasto">
+                <div class="grad"></div>
+            </div>
+            <div class="gc-glasto2">
+                <div class="grad"></div>
+            </div>
+            <div class="gc-supercell">
+                <div class="grad"></div>
+            </div>
         </div>
         <div class="logo logoScale"></div>
         <div class="newEPText">THE LITTLE GUN EP</div>
-        <div class="comingSoonText">COMING EARLY 2015</div>
-        <div class="killerTracksText">4 TORNADIC</div>
-        <div class="killerTracksText2">TRACKS</div>
+        <div class="comingSoonText">BRACE YOURSELF FOR 2015</div>
+        <div class="killerTracksText">START THE SIREN</div>
+        <div class="killerTracksText2">RIDE OUT THE STORM</div>
         <div class="epTrailer">PLAY EP TRAILER</div>
         <a href="http://www.gallerycircus.co.uk" class="visitSite">VISIT SITE</a>
         <div class="songName"></div>
@@ -426,6 +455,7 @@
 
             var mm = new GC.MediaManager(masterPromises);
 			var epSampler = mm.getEpSampler();
+			var siren = mm.getSiren();
 
             registerEventListeners();
 
@@ -438,6 +468,7 @@
                     $('.gc .killerTracksText').css('opacity','1');
                     $('.gc .newEPText').css('opacity','1');
                     oa.play();
+					siren.play();
                 });
             }
 
@@ -517,17 +548,23 @@
          */
         function MediaManager(masterPromises) {
 
+			var siren = $('.Siren')[0];
+		
 			var epSampler = $('.EPSampler')[0];
 			var epSamplerSetup = $.Deferred();
 
 			masterPromises.push(epSamplerSetup);
 			
-			epSampler.onloadeddata = function() {
+			epSampler.oncanplay = function() {
 				epSamplerSetup.resolve();
 			}
 
 			this.getEpSampler = function() {
 				return epSampler;
+			}
+			
+			this.getSiren = function() {
+				return siren;
 			}
         }
 
@@ -576,14 +613,14 @@
 
             function flickerBackCover() {
                 var timeline = new TimelineMax({repeat:2});
-                    timeline.to(backCover, 0.2 ,{opacity:0.2, skewX:"+=1deg", rotationY:"+=1deg"}); /* back cover  */
-                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"-=2deg", rotationY:"-=1deg"});
-                    timeline.to(backCover, 0.1 ,{opacity:0.1, skewX:"+=1deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.2}); /* back cover  */
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
+                    timeline.to(backCover, 0.1 ,{opacity:0.1});
                     timeline.to(backCover, 0.1 ,{opacity:0.2});
-                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"-=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1});
                     timeline.to(backCover, 0.2 ,{opacity:0.2});
                     timeline.to(backCover, 0.1 ,{opacity:0.1});
-                    timeline.to(backCover, 0.2 ,{opacity:0.1, skewX:"+=2deg"});
+                    timeline.to(backCover, 0.2 ,{opacity:0.1});
                     timeline.to(backCover, 0.2 ,{opacity:0.3});
                     timeline.to(backCover, 0.1 ,{opacity:0.1});
                     timeline.to(backCover, 0.1 ,{opacity:0.2});
@@ -756,6 +793,7 @@
                 gcTrailer = $('.gc .gc-trailer'),
                 gcGlasto = $('.gc .gc-glasto'),
                 gcGlasto2 = $('.gc .gc-glasto2'),
+                gcSuper = $('.gc .gc-supercell'),
                 visitSite = $('.gc .visitSite');
 
             var timeline = new TimelineMax({repeat:-1, yoyo:true});
@@ -781,9 +819,11 @@
             var AddTimeline = new TimelineMax({repeat:-1, yoyo:true});
                 AddTimeline.add(logoHighlightAnimate(),0.5, "logo");
                 AddTimeline.add(flickerBackCover(),15, "backCover");
-                AddTimeline.add(gcGlastoAnimate(),5, "trailer");
-                AddTimeline.add(gcGlasto2Animate(),25, "trailer");
-                AddTimeline.add(gcTrailerAnimate(),20, "trailer");
+                AddTimeline.add(gcGlastoAnimate(),35, "trailer");
+                AddTimeline.add(gcTrailerAnimate(),35, "trailer");
+                AddTimeline.add(gcSupercellAnimate(),20, "trailer");
+                AddTimeline.add(gcGlasto2Animate(),20, "trailer");
+                AddTimeline.add(gcTrailerAnimate(),5, "trailer");
             AddTimeline.play();
 
            visitSiteAnimation();
@@ -832,17 +872,41 @@
 
             function gcTrailerAnimate() {
                 var timeline = new TimelineMax({});
-                    timeline.to(gcTrailer, 2 ,{opacity:0.1});
-                    timeline.to(gcTrailer, 4 ,{opacity:0.3});
-                    timeline.to(gcTrailer, 2 ,{opacity:0});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.5});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
+                    timeline.to(gcTrailer, 4 ,{opacity:0.7});
+                    timeline.to(gcTrailer, 0.5,{opacity:0.5});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.1});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.9});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0.3});
+                    timeline.to(gcTrailer, 0.5 ,{opacity:0});
+                return timeline;
+            }
+
+            function gcSupercellAnimate() {
+                var timeline = new TimelineMax({});
+                timeline.to(gcSuper, 2 ,{opacity:0.3});
+                timeline.to(gcSuper, 4 ,{opacity:0.5});
+                timeline.to(gcSuper, 2 ,{opacity:0});
                 return timeline;
             }
 
             function gcGlastoAnimate() {
                 var timeline = new TimelineMax({});
-                timeline.to(gcGlasto, 2 ,{opacity:0.3});
-                timeline.to(gcGlasto, 6 ,{opacity:0.5});
-                timeline.to(gcGlasto, 2 ,{opacity:0});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.5});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.1});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.9});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.1});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.9});
+                timeline.to(gcGlasto, 4 ,{opacity:0.7});
+                timeline.to(gcGlasto, 0.5,{opacity:0.5});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.1});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.9});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0.3});
+                timeline.to(gcGlasto, 0.5 ,{opacity:0});
                 return timeline;
             }
 
