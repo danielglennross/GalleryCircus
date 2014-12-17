@@ -480,6 +480,23 @@
     $(document).ready(function() {
         new GC.Driver();
     });
+	
+	(function() {
+		
+		"use strict";
+
+        /**
+         * DeviceDetection
+         */
+        function DeviceDetection() {
+			this.IsMobile = function() {
+				return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+			}
+		}
+		
+		GC.DeviceDetection = DeviceDetection;
+
+    }());
 
     (function(){
 
@@ -490,11 +507,12 @@
          */
         function Driver() {
 
+			var deviceDetection = new GC.DeviceDetection();
             var masterPromises = [];
             var tm = new GC.TitleManager();
             var oa = new GC.OpeningAnimation(masterPromises);
 
-            var mm = new GC.MediaManager(masterPromises);
+            var mm = new GC.MediaManager(masterPromises, deviceDetection);
 			var epSampler = mm.getEpSampler();
 			var siren = mm.getSiren();
             var trailer = mm.getVideoTrailer();
@@ -509,17 +527,39 @@
 
             function registerEventListeners() {
                 $('.gc .epTrailer, .gc .logo').click(function() {
-                    $('.gc .epTrailer, .gc .logo').unbind("click");
-                    $('.gc .logo').removeClass("logoScale").css('opacity','0');
-                    $('.gc .epTrailer, .gc .visitSite').fadeOut('slow');
-                    $('.gc .epTrailer').remove();
-                    $('.gc .killerTracksText').css('opacity','1');
-                    $('.gc .newEPText').css('opacity','1');
-                    oa.play();
+					initTeasrer();
+					oa.play();
 					siren.play();
                 });
             }
-
+			
+			function initTeasrer() {
+				$('.gc .epTrailer, .gc .logo').unbind("click");
+				$('.gc .logo').removeClass("logoScale").css('opacity','0');
+				$('.gc .epTrailer, .gc .visitSite').fadeOut('slow');
+				$('.gc .epTrailer').remove();
+				$('.gc .killerTracksText').css('opacity','1');
+				$('.gc .newEPText').css('opacity','1');
+				
+				if (!deviceDetection.IsMobile()) 
+					return;
+					
+				preloadMobileMedia(epSampler);
+				preloadMobileMedia(siren);
+				preloadMobileMedia(trailer);
+				preloadMobileMedia(supercell);
+				preloadMobileMedia(glasto);
+				preloadMobileMedia(glasto2);
+				preloadMobileMedia(london);
+				preloadMobileMedia(glasto3);
+				preloadMobileMedia(glasto4);				
+			}
+			
+			function preloadMobileMedia(media) {
+				media.play();
+				media.stop();
+			}
+			
             $.when.apply(null, masterPromises).done(function() {
                 var am = new GC.AudioManager(epSampler);
 				am.PlayEpSampler();
@@ -594,7 +634,7 @@
         /**
          * Video Manager
          */
-        function MediaManager(masterPromises) {
+        function MediaManager(masterPromises, deviceDetection) {
 
 			var siren = $('.Siren')[0];
 		
@@ -630,46 +670,71 @@
             masterPromises.push(videoLondonSetup);
             masterPromises.push(videoGlasto3Setup);
             masterPromises.push(videoGlasto4Setup);
-
-			epSampler.onloadedmetadata = function() {
-				epSamplerSetup.resolve();
+			
+			if (deviceDetection.IsMobile()) epSamplerSetup.resolve();
+			else {
+				epSampler.onloadedmetadata = function() {
+					epSamplerSetup.resolve();
+				}
+				if (epSampler.readyState > 3) 
+				epSamplerSetup.resolve(); // if media is in the cache of the browser, the event above will have probs been triggered before the event was registered - so resolve now if readystate is valid
 			}
-			if (epSampler.readyState > 3) epSamplerSetup.resolve(); // if media is in the cache of the browser, the event above will have probs been triggered before the event was registered - so resolve now if readystate is valid
 
-            videoTrailer.onloadedmetadata = function() {
-                videoSetup.resolve();
-            }
-			if (videoTrailer.readyState > 3) videoSetup.resolve();
+			if (deviceDetection.IsMobile()) videoSetup.resolve();
+			else {
+				videoTrailer.onloadedmetadata = function() {
+					videoSetup.resolve();
+				}
+				if (videoTrailer.readyState > 3) videoSetup.resolve();
+			}
 
-            videoSuper.onloadedmetadata = function() {
-                videoSetupVideo.resolve();
-            }
-			if (videoSuper.readyState > 3) videoSetupVideo.resolve();
+			if (deviceDetection.IsMobile()) videoSetupVideo.resolve();
+			else {
+				videoSuper.onloadedmetadata = function() {
+					videoSetupVideo.resolve();
+				}
+				if (videoSuper.readyState > 3) videoSetupVideo.resolve();
+			}
 
-            videoGlasto.onloadedmetadata = function() {
-                videoGlastoSetup.resolve();
-            }
-			if (videoGlasto.readyState > 3) videoGlastoSetup.resolve();
+			if (deviceDetection.IsMobile()) videoGlastoSetup.resolve();
+			else {
+				videoGlasto.onloadedmetadata = function() {
+					videoGlastoSetup.resolve();
+				}
+				if (videoGlasto.readyState > 3) videoGlastoSetup.resolve();
+			}
 
-            videoGlasto2.onloadedmetadata = function() {
-                videoGlasto2Setup.resolve();
-            }
-			if (videoGlasto2.readyState > 3) videoGlasto2Setup.resolve();
+			if (deviceDetection.IsMobile()) videoGlasto2Setup.resolve();
+			else {
+				videoGlasto2.onloadedmetadata = function() {
+					videoGlasto2Setup.resolve();
+				}
+				if (videoGlasto2.readyState > 3) videoGlasto2Setup.resolve();
+			}
 
-            videoLondon.onloadedmetadata = function() {
-                videoLondonSetup.resolve();
-            }
-			if (videoLondon.readyState > 3) videoLondonSetup.resolve();
+			if (deviceDetection.IsMobile()) videoLondonSetup.resolve();
+			else {
+				videoLondon.onloadedmetadata = function() {
+					videoLondonSetup.resolve();
+				}
+				if (videoLondon.readyState > 3) videoLondonSetup.resolve();
+			}
 
-            videoGlasto3.onloadedmetadata = function() {
-                videoGlasto3Setup.resolve();
-            }
-			if (videoGlasto3.readyState > 3) videoGlasto3Setup.resolve();
+			if (deviceDetection.IsMobile()) videoGlasto3Setup.resolve();
+			else {
+				videoGlasto3.onloadedmetadata = function() {
+					videoGlasto3Setup.resolve();
+				}
+				if (videoGlasto3.readyState > 3) videoGlasto3Setup.resolve();
+			}
 
-            videoGlasto4.onloadedmetadata = function() {
-                videoGlasto4Setup.resolve();
-            }
-			if (videoGlasto4.readyState > 3) videoGlasto4Setup.resolve();
+			if (deviceDetection.IsMobile()) videoGlasto4Setup.resolve();
+			else {
+				videoGlasto4.onloadedmetadata = function() {
+					videoGlasto4Setup.resolve();
+				}
+				if (videoGlasto4.readyState > 3) videoGlasto4Setup.resolve();
+			}
 
             this.getVideoTrailer = function() {
                 return videoTrailer;
