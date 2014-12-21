@@ -54,7 +54,8 @@
 				box-shadow: inset 0 0 50px #000000;
 				*/
 				
-				background: url("/img/supercellBG.png") no-repeat center center fixed;
+				/*background: url("/img/supercellBG.png") no-repeat center center fixed;*/ 
+				background-color:#303030;
 				-webkit-background-size: cover;
 				  -moz-background-size: cover;
 				  -o-background-size: cover;
@@ -224,12 +225,12 @@
 				padding-top: 75px;
 			}
 			
-			#supercellVideo {
+			.videoEmbed {
 				position:relative; 
 				margin: 0 auto; 
 				width:1280px; 
 				height:720px; 
-				margin-bottom:20px; 
+				margin-bottom:35px; 
 				
 				/*give the Polaroids a small drop shadow*/
 				-webkit-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
@@ -322,7 +323,7 @@
 			}
 			a:hover {
 				text-decoration:none;
-				color: #cc0033;
+				color: #fff;
 			}
 			a:active {
 				text-decoration:none;
@@ -372,15 +373,14 @@
 				width:50px;
 				margin-top:2px;
 				
-				background-color: rgba(233, 234, 230, 0.4);
-
 				/* outline: 0;
 				outline: thin dotted \9;
 				IE6-9 */
 
-				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
+				/*background-color: rgba(233, 234, 230, 0.4);
+				  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
 				   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
-						box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);
+						box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 14px rgba(233, 234, 230, 1);*/
 			}
 
 
@@ -447,7 +447,8 @@
 				z-index: 100;
 				height: 50px;
 				
-				background: url("/img/navSite.jpg") repeat scroll center bottom transparent;
+				/*background: url("/img/navSite.jpg") repeat scroll center bottom transparent;*/
+				background-color:rgb(208,5,18);
 				zoom: 1;
 				filter: alpha(opacity=90);
 				opacity: 0.9;
@@ -485,7 +486,8 @@
 				float:right;
 				width:720px; /*640px;*/
 				
-				font-size:28px;
+				font-size:25px;
+				padding-top:5px;
 				text-transform:uppercase;
 			}
 
@@ -542,14 +544,14 @@
 				
 				<div id="leftNav">
 					<div id="logoTornado">
-						<a href="http://www.gallerycircus.co.uk"><img id="tornadoNew" src="/img/GCLogoRed.png"></a>
+						<a href="http://www.gallerycircus.co.uk"><img id="tornadoNew" src="/img/GCLogoWhite.png"></a>
 					</div>
 					<div id="pageLinks">
 						<ul>
-							<li class="linkElement"><a id="linkShows" href="#Supercell" class="shakeable">supercell</a></li>
+							<li class="linkElement"><a id="linkVideos" href="#HollywoodDrip" class="shakeable">Hollywood Drip</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
-							<li class="linkElement"><a id="linkMedia" href="#shows" class="shakeable">shows</a></li>
-							<li class="linkElement"><a id="linkTornado" href="#glastonbury" class="shakeable">Watch</a></li>
+							<li class="linkElement"><a id="linkShows" href="#shows" class="shakeable">shows</a></li>
+							<li class="linkElement"><a id="linkWatch" href="#glastonbury" class="shakeable">Watch</a></li>
 							<li class="linkElement"><a id="linkContact" href="#Contact" class="shakeable">contact</a></li>
 						</ul>
 					</div>
@@ -573,7 +575,7 @@
 		<!-- end header / nav -->
 	
 		
-		<div id="Supercell" class="wrapper">
+		<div id="HollywoodDrip" class="wrapper">
 		
 			<div style="display:none;">
 				<video id="source-vid" autobuffer preload="auto"> <!--loop (add this attr to make it loops)-->
@@ -584,7 +586,11 @@
 				</video>
 			</div>
 
-			<div id="supercellVideo">
+			<div id="hollywoodVideo" class="videoEmbed">
+				<iframe width="1280" height="720" src="http://www.youtube.com/embed/mSQMpqb-zTA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+			</div>
+			
+			<div id="supercellVideo" class="videoEmbed">
 				<iframe width="1280" height="720" src="http://www.youtube.com/embed/mTdQ99G1n8A?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 			</div>
 
