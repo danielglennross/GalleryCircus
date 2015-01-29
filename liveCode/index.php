@@ -128,7 +128,7 @@
 				/* adjust when more gigs */
 				/* font-weight: bold; */
 				top: 10px;
-				font-size: 14px;
+				font-size: 15px;
 			}
 			
 			#supercellCover {
@@ -628,14 +628,6 @@
 							<tr><td>Thu 14 Aug</td><td>The Menagerie, Belfast</td></tr>
 							<tr><td>Wed 20 Aug</td><td>The 100 Club, London</td></tr>
 							<tr><td>Sun 24 Aug</td><td>Independent, Sunderland</td></tr>
-							<tr><td>Sat 1 Nov</td><td>Cockpit 2, Leeds</td></tr>
-							<tr><td>Sun 2 Nov</td><td>King Tuts, Glasgow</td></tr>
-							<tr><td>Mon 3 Nov</td><td>Oslo, Shoreditch</td></tr>
-							<tr><td>Tue 4 Nov</td><td>Komedia, Bath</td></tr>
-							<tr><td>Wed 5 Nov</td><td>Academy 3, Birmingham</td></tr>
-							<tr><td>Thu 6 Nov</td><td>Ruby Lounge, Manchester</td></tr>
-							<tr><td>Fri 7 Nov</td><td>TBA</td></tr>-->
-							
 							<tr><td>Fri 17 Oct</td><td>Think Tank, Newcastle</td></tr>
 							<tr><td>Mon 20 Oct</td><td>Boston Music Room, London</td></tr>							
 							<tr><td>Tue 21 Oct</td><td>Slade Rooms, Wolverhampton</td></tr>
@@ -654,7 +646,27 @@
 							<tr><td>Tue 04 Nov</td><td>Komedia, Bath</td></tr>
 							<tr><td>Wed 05 Nov</td><td>02 Academy, Birmingham</td></tr>
 							<tr><td>Thu 06 Nov</td><td>The Ruby Lounge, Manchester</td></tr>
-							<tr><td>Sat 08 Nov</td><td>Open, Norwich</td></tr>					
+							<tr><td>Sat 08 Nov</td><td>Open, Norwich</td></tr>-->
+
+							<tr><td>Sun 01 Feb</td><td>Forum, Tunbridge Wells</td></tr>
+							<tr><td>Mon 02 Feb</td><td>Waterfront, Norwich</td></tr>
+							<tr><td>Tue 03 Feb</td><td>Arts Centre, Colchester</td></tr>
+							<tr><td>Wed 04 Feb</td><td>Academy, Oxford</td></tr>
+							<tr><td>Thu 05 Feb</td><td>Sub 89, Reading</td></tr>
+							<tr><td>Fri 06 Feb</td><td>Library, Birmingham</td></tr>
+							<tr><td>Sat 07 Feb</td><td>Sugarmill, Stoke</td></tr>
+							<tr><td>Sun 08 Feb</td><td>Rescue Rooms, Nottingham</td></tr>
+							<tr><td>Mon 09 Feb</td><td>Portland Arms, Cambridge</td></tr>
+							<tr><td>Tue 10 Feb</td><td>Duchess, York</td></tr>
+							<tr><td>Wed 11 Feb</td><td>Live Rooms, Chester</td></tr>
+							<tr><td>Thu 12 Feb</td><td>Wardrobe, Leeds</td></tr>
+							<tr><td>Fri 13 Feb</td><td>Trades Club, Hebden Bridge</td></tr>
+							<tr><td>Sat 14 Feb</td><td>Manchester, Gorilla</td></tr>
+							<tr><td>Thu 19 Feb</td><td>Riverside, Newcastle</td></tr>
+							<tr><td>Fri 20 Feb</td><td>Limelight 2, Belfast</td></tr>
+							<tr><td>Sat 21 Feb</td><td>Academy, Dublin</td></tr>
+							<tr><td>Sat 28 Feb</td><td>Forum, London</td></tr>
+							
 						</tbody>
 					</table>
 					
