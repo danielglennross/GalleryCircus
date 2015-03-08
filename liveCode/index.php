@@ -598,14 +598,15 @@
 			
 				<!-- video -->
 				<div id="shows" class="media polaroidFade blur">
-					<video id="supercellCover" loop="" autoplay="" width="654" height="480" muted=""> 
+					<!--<video id="supercellCover" loop="" autoplay="" width="654" height="480" muted=""> 
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
-					</video>
+					</video>-->
+					<img src="img/tourPoster.png" style="width: 654px; height: 480px;" />
 					
-					<table>
+					<!--<table>
 						<tbody>
-							<!--<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
+							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
 							<tr><td>Fri 02 May</td><td>Sound City</td></tr>
 							<tr><td>Sat 03 May</td><td>Live At Leeds</td></tr>
 							<tr><td>Sun 04 May</td><td>Stockton Sunday Live</td></tr>						
@@ -646,8 +647,7 @@
 							<tr><td>Tue 04 Nov</td><td>Komedia, Bath</td></tr>
 							<tr><td>Wed 05 Nov</td><td>02 Academy, Birmingham</td></tr>
 							<tr><td>Thu 06 Nov</td><td>The Ruby Lounge, Manchester</td></tr>
-							<tr><td>Sat 08 Nov</td><td>Open, Norwich</td></tr>-->
-
+							<tr><td>Sat 08 Nov</td><td>Open, Norwich</td></tr>
 							<tr><td>Sun 01 Feb</td><td>Forum, Tunbridge Wells</td></tr>
 							<tr><td>Mon 02 Feb</td><td>Waterfront, Norwich</td></tr>
 							<tr><td>Tue 03 Feb</td><td>Arts Centre, Colchester</td></tr>
@@ -667,8 +667,44 @@
 							<tr><td>Sat 21 Feb</td><td>Academy, Dublin</td></tr>
 							<tr><td>Sat 28 Feb</td><td>Forum, London</td></tr>
 							
+							<tr><td>Wed 04 Mar</td><td>La Gaîté Lyrique, Paris, France</td></tr>
+							<tr><td>Thu 06 Mar</td><td>Paloma, Nîmes, France</td></tr>
+							<tr><td>Sat 07 Mar</td><td>Le Fil, Saint-Étienne, France</td></tr>
+							<tr><td>Mon 09 Mar</td><td>Stereolux, Nantes, France</td></tr>
+							<tr><td>Tue 10 Mar</td><td>Le Cargo, Caen, France</td></tr>
+							<tr><td>Wed 11 Mar</td><td>La Cartonnerie Cabaret, Reims, France</td></tr>							
+							<tr><td>Fri 13 Mar</td><td>Frannz Club, Berlin, Germany</td></tr>
+							<tr><td>Sat 14 Mar</td><td>Molotow, Hamburg, Germany</td></tr>
+							<tr><td>Mon 16 Mar</td><td>Underground, Cologne, Germany</td></tr>
+							<tr><td>Tue 17 Mar</td><td>Botanique - Orangerie, Brussels, Belgium</td></tr>
+							<tr><td>Fri 20 Mar</td><td>Den Atelier, Luxembourg, Luxembourg</td></tr>
+							<tr><td>Fri 24 Apr</td><td>Corporation, Sheffield</td></tr>
+							<tr><td>Sat 25 Apr</td><td>The Mash House, Edinburgh</td></tr>
+							<tr><td>Sun 26 Apr</td><td>Crauford Arms, Milton Keynes</td></tr>
+							<tr><td>Tue 28 Apr</td><td>Sticky Mikes, Brighton</td></tr>
+							<tr><td>Wed 29 Apr</td><td>Portland Arms, Cambridge</td></tr>
+							<tr><td>Thu 30 Apr</td><td>Colchester Arts Centre, Colchester</td></tr>	
+							
+							<tr><td>Fri 01 May</td><td>The Institute, Birmingham</td></tr>
+							<tr><td>Sun 03 May</td><td>Fibbers, York</td></tr>
+							<tr><td>Tue 05 May</td><td>East Village Arts Centre, Liverpool</td></tr>
+							<tr><td>Thu 07 May</td><td>02 Academy, Oxford</td></tr>
+							<tr><td>Fri 08 May</td><td>Bodega, Nottingham</td></tr>
+							<tr><td>Sat 09 May</td><td>The Deaf Institute, Manchester</td></tr>
+							<tr><td>Sun 10 May</td><td>Think Tank?, Newcastle</td></tr>
+							<tr><td>Tue 12 May</td><td>King Tuts, Glasgow</td></tr>
+							<tr><td>Wed 13 May</td><td>The Live Rooms, Chester</td></tr>
+							<tr><td>Thu 14 May</td><td>Exchange, Bristol</td></tr>
+							<tr><td>Fri 15 May</td><td>Forum, Tumbridge Wells</td></tr>
+							<tr><td>Sun 17 May</td><td>Waterfront, Norwich</td></tr>
+							<tr><td>Tue 19 May</td><td>Cavern Club, Exeter</td></tr>
+							<tr><td>Wed 20 May</td><td>Sub 89, Reading</td></tr>
+							<tr><td>Thu 21 May</td><td>The Boiler Room, Guildford</td></tr>
+							<tr><td>Fri 22 May</td><td>Oslo, London</td></tr>
+							<tr><td>Sat 23 May</td><td>Oslo, London</td></tr>
+							
 						</tbody>
-					</table>
+					</table>-->
 					
 					<div style="margin: 0 auto; width: 220px; padding-top:8px; font-size: 20px;">
 						<a href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
