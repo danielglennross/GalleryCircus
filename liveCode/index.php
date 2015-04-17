@@ -602,7 +602,7 @@
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
 					</video>-->
-					<img src="img/tourPoster.png" style="width: 654px; height: 480px;" />
+					<img src="img/ArcaneTourPosterGCWebsite.png" style="width: 654px; height: 480px;" />
 					
 					<!--<table>
 						<tbody>
