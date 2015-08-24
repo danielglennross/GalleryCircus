@@ -34,6 +34,8 @@
 		<meta http-equiv='pragma' content='no-cache' /> 
 		<meta http-equiv='cache-control' content='no-cache' /> 
 		
+		<meta name="google-site-verification" content="VyRxVZeJkcjz4_-abCkdTWcFO4L0Sri573ME6uVqGLo" />
+		
 		<link rel="icon" type="image/ico" href="/img/favicon.ico" />
 	
 		<style>
@@ -116,19 +118,34 @@
                 float:right;
             }
 			
-			#shows table{
+			#shows table {
+				
+				/* adjust when more gigs */
 				position: absolute;
 				margin: 0 auto;
 				width: 100%;
-				top: 15px;
-				color: rgb(255, 0, 0);
+				color: rgb(0, 0, 0);
 				text-align: center;
-				left: 30px;
+				left: 6px;
+				font-size: 18px;
+				top: 110px;
+				font-weight: bold;
+			}
+			
+			#shows img {
+				width: 654px; 
+				height: 480px; 
+				opacity: 0.8;
 				
-				/* adjust when more gigs */
-				/* font-weight: bold; */
-				top: 10px;
-				font-size: 15px;
+				-webkit-filter: blur(2px);
+			    -moz-filter: blur(2px);
+			    -o-filter: blur(2px);
+			    -ms-filter: blur(2px);
+			    filter: blur(2px);
+				
+				/* for browsers that can only blur by svg*/
+				filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='2'%20/></filter></svg>#blur");
+				filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
 			}
 			
 			#supercellCover {
@@ -508,7 +525,7 @@
 			}
 			
 			.twitter-follow-button {
-				position: relative;
+				position: relative !important;
 				top: -49px;
 				left: 120px;
 				vertical-align: middle;
@@ -602,11 +619,11 @@
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
 					</video>-->
-					<img src="img/ArcaneTourPosterGCWebsite.png" style="width: 654px; height: 480px;" />
+					<img src="img/showBG.png" />
 					
-					<!--<table>
+					<table>
 						<tbody>
-							<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
+							<!--<tr><td>Sat 19 Apr</td><td>Stockton Calling</td></tr>							
 							<tr><td>Fri 02 May</td><td>Sound City</td></tr>
 							<tr><td>Sat 03 May</td><td>Live At Leeds</td></tr>
 							<tr><td>Sun 04 May</td><td>Stockton Sunday Live</td></tr>						
@@ -665,8 +682,7 @@
 							<tr><td>Thu 19 Feb</td><td>Riverside, Newcastle</td></tr>
 							<tr><td>Fri 20 Feb</td><td>Limelight 2, Belfast</td></tr>
 							<tr><td>Sat 21 Feb</td><td>Academy, Dublin</td></tr>
-							<tr><td>Sat 28 Feb</td><td>Forum, London</td></tr>
-							
+							<tr><td>Sat 28 Feb</td><td>Forum, London</td></tr>					
 							<tr><td>Wed 04 Mar</td><td>La Gaîté Lyrique, Paris, France</td></tr>
 							<tr><td>Thu 06 Mar</td><td>Paloma, Nîmes, France</td></tr>
 							<tr><td>Sat 07 Mar</td><td>Le Fil, Saint-Étienne, France</td></tr>
@@ -683,8 +699,7 @@
 							<tr><td>Sun 26 Apr</td><td>Crauford Arms, Milton Keynes</td></tr>
 							<tr><td>Tue 28 Apr</td><td>Sticky Mikes, Brighton</td></tr>
 							<tr><td>Wed 29 Apr</td><td>Portland Arms, Cambridge</td></tr>
-							<tr><td>Thu 30 Apr</td><td>Colchester Arts Centre, Colchester</td></tr>	
-							
+							<tr><td>Thu 30 Apr</td><td>Colchester Arts Centre, Colchester</td></tr>								
 							<tr><td>Fri 01 May</td><td>The Institute, Birmingham</td></tr>
 							<tr><td>Sun 03 May</td><td>Fibbers, York</td></tr>
 							<tr><td>Tue 05 May</td><td>East Village Arts Centre, Liverpool</td></tr>
@@ -701,10 +716,20 @@
 							<tr><td>Wed 20 May</td><td>Sub 89, Reading</td></tr>
 							<tr><td>Thu 21 May</td><td>The Boiler Room, Guildford</td></tr>
 							<tr><td>Fri 22 May</td><td>Oslo, London</td></tr>
-							<tr><td>Sat 23 May</td><td>Oslo, London</td></tr>
+							<tr><td>Sat 23 May</td><td>Oslo, London</td></tr>-->
+							
+							<tr><td>Sun 05 Jul</td><td>The Rafters, Maidstone</td></tr>
+							<tr><td>Thu 09 Jul</td><td>The Playhouse - Mouth Of The Tyne Festival, Whitley Bay</td></tr>
+							<tr><td>Fri 31 Jul</td><td>Think Tank?, Newcastle</td></tr>
+							<tr><td>Fri 01 Aug</td><td>Forgotten Fields, Tunbridge Wells</td></tr>
+							<tr><td>Sat 08 Aug</td><td>Chase Park Festival, Newcastle</td></tr>
+							<tr><td>Sat 22 Aug</td><td>Stadium Of Light, Sunderland</td></tr>
+							<tr><td>Fri 04 Sep</td><td>Bingley Music Live 2015, Bingley</td></tr>
+							<tr><td>Wed 16 Sep</td><td>Scala, London</td></tr>
+							<tr><td>Fri 25 Sep</td><td>Origins Festival, Durham</td></tr>
 							
 						</tbody>
-					</table>-->
+					</table>
 					
 					<div style="margin: 0 auto; width: 220px; padding-top:8px; font-size: 20px;">
 						<a href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
