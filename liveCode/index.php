@@ -128,24 +128,20 @@
 				text-align: center;
 				left: 6px;
 				font-size: 18px;
-				top: 110px;
+				top: 80px;
 				font-weight: bold;
 			}
 			
 			#shows img {
 				width: 654px; 
 				height: 480px; 
-				opacity: 0.8;
+				/*opacity: 0.5;
 				
 				-webkit-filter: blur(2px);
 			    -moz-filter: blur(2px);
 			    -o-filter: blur(2px);
 			    -ms-filter: blur(2px);
-			    filter: blur(2px);
-				
-				/* for browsers that can only blur by svg*/
-				filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='2'%20/></filter></svg>#blur");
-				filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+			    filter: blur(2px);*/
 			}
 			
 			#supercellCover {
@@ -501,7 +497,7 @@
 
 			#pageLinks {
 				float:right;
-				width:720px; /*640px;*/
+				width:610px; /*640px;*/
 				
 				font-size:25px;
 				padding-top:5px;
@@ -565,7 +561,7 @@
 					</div>
 					<div id="pageLinks">
 						<ul>
-							<li class="linkElement"><a id="linkVideos" href="#HollywoodDrip" class="shakeable">Hollywood Drip</a></li>
+							<li class="linkElement"><a id="linkShop" href="http://musicglue.com/gallerycircus/" class="shakeable" target="_blank">Shop</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
 							<li class="linkElement"><a id="linkShows" href="#shows" class="shakeable">shows</a></li>
 							<li class="linkElement"><a id="linkWatch" href="#glastonbury" class="shakeable">Watch</a></li>
@@ -592,7 +588,7 @@
 		<!-- end header / nav -->
 	
 		
-		<div id="HollywoodDrip" class="wrapper">
+		<div id="Container" class="wrapper">
 		
 			<div style="display:none;">
 				<video id="source-vid" autobuffer preload="auto"> <!--loop (add this attr to make it loops)-->
@@ -603,14 +599,18 @@
 				</video>
 			</div>
 
-			<div id="hollywoodVideo" class="videoEmbed">
-				<iframe width="1280" height="720" src="http://www.youtube.com/embed/mSQMpqb-zTA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
-			</div>
-			
-			<div id="supercellVideo" class="videoEmbed">
-				<iframe width="1280" height="720" src="http://www.youtube.com/embed/mTdQ99G1n8A?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+			<div id="thefloodVideo" class="videoEmbed">
+				<iframe width="1280" height="720" src="http://www.youtube.com/embed/aOTsbSlk3Sg?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 			</div>
 
+			<div id="clubHouseKiller" class="videoEmbed">
+				<iframe width="1280" height="720" src="https://www.youtube.com/embed/M1AL0AjZvdI?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			<div id="hollandVideo" class="videoEmbed">
+				<iframe width="1280" height="720" src="https://www.youtube.com/embed/WWR3uGlm2zc?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+			</div>
+			
 			<div id="main">
 			
 				<!-- video -->
@@ -619,7 +619,9 @@
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
 					</video>-->
-					<img src="img/showBG.png" />
+					<a href="http://www.songkick.com/artists/5405348-gallery-circus" target="_blank">
+						<img src="img/showBG.png" />
+					</a>
 					
 					<table>
 						<tbody>
@@ -716,8 +718,7 @@
 							<tr><td>Wed 20 May</td><td>Sub 89, Reading</td></tr>
 							<tr><td>Thu 21 May</td><td>The Boiler Room, Guildford</td></tr>
 							<tr><td>Fri 22 May</td><td>Oslo, London</td></tr>
-							<tr><td>Sat 23 May</td><td>Oslo, London</td></tr>-->
-							
+							<tr><td>Sat 23 May</td><td>Oslo, London</td></tr>
 							<tr><td>Sun 05 Jul</td><td>The Rafters, Maidstone</td></tr>
 							<tr><td>Thu 09 Jul</td><td>The Playhouse - Mouth Of The Tyne Festival, Whitley Bay</td></tr>
 							<tr><td>Fri 31 Jul</td><td>Think Tank?, Newcastle</td></tr>
@@ -727,6 +728,12 @@
 							<tr><td>Fri 04 Sep</td><td>Bingley Music Live 2015, Bingley</td></tr>
 							<tr><td>Wed 16 Sep</td><td>Scala, London</td></tr>
 							<tr><td>Fri 25 Sep</td><td>Origins Festival, Durham</td></tr>
+							<tr><td>Fri 20 May</td><td>The Great Escape (The Mesmerist), Brighton</td></tr>
+							<tr><td>Mon 23 May</td><td>Broadcast, Glasgow</td></tr>
+							<tr><td>Thu 26 May</td><td>Surf Cafe, Tynemouth</td></tr>
+							<tr><td>Sat 28 May</td><td>The Tall Ship Stage: In Partnership with Captain Morgan @ Liverpool Sound City</td></tr>
+							<tr><td>Fri 03 Jun</td><td>Ku Bar, Stockton</td></tr>
+							<tr><td>Thu 09 Jun</td><td>Sneaky Petes, Edinburgh</td></tr>-->
 							
 						</tbody>
 					</table>
@@ -793,7 +800,7 @@
 				</div>
 
 				<!-- video glasto -->
-				<div id="glastonbury">
+				<!--div id="glastonbury">
 					<div id="glastoOne" class="media polaroidFade glasto">
 						<iframe width="600" height="500" src="//www.youtube.com/embed/2jywFlBU6yA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 
@@ -809,8 +816,16 @@
 						   <a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vrnj">Don't Think This Through - Glastonbury 2014</a>
 						</div>
 					</div>
-				</div>
+				</div>-->
                 <!-- video glasto -->
+
+				<div id="supercellVideo" class="videoEmbed">
+					<iframe width="1280" height="720" src="http://www.youtube.com/embed/mTdQ99G1n8A?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				</div>
+			
+				<div id="hollywoodVideo" class="videoEmbed">
+					<iframe width="1280" height="720" src="http://www.youtube.com/embed/mSQMpqb-zTA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				</div>
 				
 				<!-- new -->
 				<div id="polaroidsTop">
