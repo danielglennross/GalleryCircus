@@ -83,7 +83,7 @@
 				float:right;
 			}
 			
-			#shows{
+			#Shows{
 				width:654px; /*720*/
 				height:500px;
 				
@@ -118,7 +118,7 @@
                 float:right;
             }
 			
-			#shows table {
+			#Shows table {
 				
 				/* adjust when more gigs */
 				position: absolute;
@@ -132,7 +132,7 @@
 				font-weight: bold;
 			}
 			
-			#shows img {
+			#Shows img {
 				width: 654px; 
 				height: 480px; 
 				/*opacity: 0.5;
@@ -195,7 +195,7 @@
 				-ms-transform: rotate(-3deg);
 			}
 			
-			#shows:before, .glasto:before {
+			#Shows:before, .glasto:before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -563,8 +563,8 @@
 						<ul>
 							<li class="linkElement"><a id="linkShop" href="http://musicglue.com/gallerycircus/" class="shakeable" target="_blank">Shop</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
-							<li class="linkElement"><a id="linkShows" href="#shows" class="shakeable">shows</a></li>
-							<li class="linkElement"><a id="linkWatch" href="#glastonbury" class="shakeable">Watch</a></li>
+							<li class="linkElement"><a id="linkShows" href="#Shows" class="shakeable">shows</a></li>
+							<li class="linkElement"><a id="linkWatch" href="#Watch" class="shakeable">Watch</a></li>
 							<li class="linkElement"><a id="linkContact" href="#Contact" class="shakeable">contact</a></li>
 						</ul>
 					</div>
@@ -599,22 +599,28 @@
 				</video>
 			</div>
 
-			<div id="thefloodVideo" class="videoEmbed">
-				<iframe width="1280" height="720" src="http://www.youtube.com/embed/aOTsbSlk3Sg?wmode=transparent" frameborder="0" allowfullscreen></iframe>
-			</div>
+			<div id="Watch">
+				<div id="sugarVideo" class="videoEmbed">
+					<iframe width="1280" height="720" src="https://www.youtube.com/embed/OrgkqOf13Hw?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				</div> 
 
-			<div id="clubHouseKiller" class="videoEmbed">
-				<iframe width="1280" height="720" src="https://www.youtube.com/embed/M1AL0AjZvdI?wmode=transparent" frameborder="0" allowfullscreen></iframe>
-			</div>
+				<div id="thefloodVideo" class="videoEmbed">
+					<iframe width="1280" height="720" src="https://www.youtube.com/embed/aOTsbSlk3Sg?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				</div>
 
-			<div id="hollandVideo" class="videoEmbed">
-				<iframe width="1280" height="720" src="https://www.youtube.com/embed/WWR3uGlm2zc?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				<div id="clubHouseKiller" class="videoEmbed">
+					<iframe width="1280" height="720" src="https://www.youtube.com/embed/M1AL0AjZvdI?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				</div>
+
+				<div id="hollandVideo" class="videoEmbed">
+					<iframe width="1280" height="720" src="https://www.youtube.com/embed/WWR3uGlm2zc?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 			
 			<div id="main">
 			
 				<!-- video -->
-				<div id="shows" class="media polaroidFade blur">
+				<div id="Shows" class="media polaroidFade blur">
 					<!--<video id="supercellCover" loop="" autoplay="" width="654" height="480" muted=""> 
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
@@ -1546,11 +1552,11 @@
 					tweet();
 				});
 				
-				$(document.body).on("mouseover", "#shows", function() {
+				$(document.body).on("mouseover", "#Shows", function() {
 					$(this).find("video").prop("muted", false);
 				});
 				
-				$(document.body).on("mouseleave", "#shows", function() {
+				$(document.body).on("mouseleave", "#Shows", function() {
 					$(this).find("video").prop("muted", true);
 				});
 				
