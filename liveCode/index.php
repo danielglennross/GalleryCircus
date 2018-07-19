@@ -27,7 +27,7 @@
         <meta name='revisit-after' content='1 days' />
         <meta name='language' content='en' />
         <meta name='copyright' content="Gallery Circus" />
-        <meta name='alias' content='http://www.gallerycircus.co.uk/' />
+        <meta name='alias' content='https://www.gallerycircus.co.uk/' />
         <meta name='author' content="Gallery Circus" />
 
 		<meta http-equiv='expires' content='0' /> 
@@ -557,11 +557,11 @@
 				
 				<div id="leftNav">
 					<div id="logoTornado">
-						<a href="http://www.gallerycircus.co.uk"><img id="tornadoNew" src="/img/GCLogoWhite.png"></a>
+						<a href="https://www.gallerycircus.co.uk"><img id="tornadoNew" src="/img/GCLogoWhite.png"></a>
 					</div>
 					<div id="pageLinks">
 						<ul>
-							<li class="linkElement"><a id="linkShop" href="http://musicglue.com/gallerycircus/" class="shakeable" target="_blank">Shop</a></li>
+							<li class="linkElement"><a id="linkShop" href="https://musicglue.com/gallerycircus/" class="shakeable" target="_blank">Shop</a></li>
 							<li class="linkElement"><a id="linkPlay" href="#TrackTheStorm" class="shakeable">play</a></li>
 							<li class="linkElement"><a id="linkShows" href="#Shows" class="shakeable">shows</a></li>
 							<li class="linkElement"><a id="linkWatch" href="#Watch" class="shakeable">Watch</a></li>
@@ -572,14 +572,14 @@
 				
 				<div id="rightNav">
 					<div id="socialTab">
-						<a class="socialLink" alt="Gallery Circus on Facebook" target="_blank" href="http://www.facebook.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Facebook.png"></a>
-						<a class="socialLink" alt="Gallery Circus on Twitter" target="_blank" href="http://www.twitter.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Twitter.png"></a>
+						<a class="socialLink" alt="Gallery Circus on Facebook" target="_blank" href="https://www.facebook.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Facebook.png"></a>
+						<a class="socialLink" alt="Gallery Circus on Twitter" target="_blank" href="https://www.twitter.com/gallerycircus"><img class="socialIcon shakeable" src="/img/Twitter.png"></a>
 						
 						<div class="fb-like-button"><div class="fb-like" data-href="https://www.facebook.com/gallerycircus" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div></div>
 						<a href="https://twitter.com/gallerycircus" class="twitter-follow-button" data-show-count="false">Follow @gallerycircus</a>
 						
-						<!--<a class="socialLink" alt="Gallery Circus on YouTube" target="_blank" href="http://www.youtube.com/gallerycircusvideos"><img class="socialIcon shakeable" src="/img/Youtube.png"></a>
-						<a class="socialLink" alt="Gallery Circus on Tumblr" target="_blank" href="http://sanfrancircus.tumblr.com"><img class="socialIcon shakeable" src="/img/Tumblr.png"></a>-->
+						<!--<a class="socialLink" alt="Gallery Circus on YouTube" target="_blank" href="https://www.youtube.com/gallerycircusvideos"><img class="socialIcon shakeable" src="/img/Youtube.png"></a>
+						<a class="socialLink" alt="Gallery Circus on Tumblr" target="_blank" href="https://sanfrancircus.tumblr.com"><img class="socialIcon shakeable" src="/img/Tumblr.png"></a>-->
 					</div>
 				</div>
 				
@@ -625,7 +625,7 @@
 						<source type="video/mp4" src="/videos/bgSuperCell.mp4"> 
 						<source type="video/ogv" src="/videos/bgSuperCell.ogv"> 
 					</video>-->
-					<a href="http://www.songkick.com/artists/5405348-gallery-circus" target="_blank">
+					<a href="https://www.songkick.com/artists/5405348-gallery-circus" target="_blank">
 						<img src="img/showBG.png" />
 					</a>
 					
@@ -745,13 +745,13 @@
 					</table>
 					
 					<div style="margin: 0 auto; width: 220px; padding-top:8px; font-size: 20px;">
-						<a href="http://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
+						<a href="https://www.songkick.com/artists/5405348-gallery-circus" class="shakeable" target="_blank">Buy your tickets here!</a>
 					</div>
 					<div style="margin: 0 auto; width: 410px; padding-top:8px; font-size: 20px;">
-						<a href="http://www.amazon.co.uk/s/ref=ntt_srch_drd_B005WRXK3U?ie=UTF8&field-keywords=Gallery%20Circus&index=digital-music&search-type=ss" class="shakeable" target="_blank">Amazon</a>&nbsp;|
-						<a href="http://gallerycircus.bandcamp.com/" class="shakeable" target="_blank">Bandcamp</a>&nbsp;|
-						<a class="shakeable" target="_blank" href="http://www.soundcloud.com/gallerycircus">SoundCloud</a>&nbsp;|
-						<a class="shakeable" target="_blank" href="http://www.vimeo.com/gallerycircus">Vimeo</a>
+						<a href="https://www.amazon.co.uk/s/ref=ntt_srch_drd_B005WRXK3U?ie=UTF8&field-keywords=Gallery%20Circus&index=digital-music&search-type=ss" class="shakeable" target="_blank">Amazon</a>&nbsp;|
+						<a href="https://gallerycircus.bandcamp.com/" class="shakeable" target="_blank">Bandcamp</a>&nbsp;|
+						<a class="shakeable" target="_blank" href="https://www.soundcloud.com/gallerycircus">SoundCloud</a>&nbsp;|
+						<a class="shakeable" target="_blank" href="https://www.vimeo.com/gallerycircus">Vimeo</a>
 					</div>
 				</div>
 				<!-- video -->
@@ -811,7 +811,7 @@
 						<iframe width="600" height="500" src="//www.youtube.com/embed/2jywFlBU6yA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 
 						<div style="margin: 0 auto; width: 462px; padding-top:12px; font-size: 20px; vertical-align:middle;">
-							<a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vs1z">Hands Up For The Hipsters - Glastonbury 2014</a>
+							<a class="shakeable" target="_blank" href="https://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vs1z">Hands Up For The Hipsters - Glastonbury 2014</a>
 						</div>
 					</div>
 
@@ -819,18 +819,18 @@
 						<iframe width="600" height="500" src="//www.youtube.com/embed/bCPjqivy7Rg?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 
 						<div style="margin: 0 auto; width: 462px; padding-top:12px; font-size: 20px; vertical-align:middle;">
-						   <a class="shakeable" target="_blank" href="http://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vrnj">Don't Think This Through - Glastonbury 2014</a>
+						   <a class="shakeable" target="_blank" href="https://www.bbc.co.uk/events/errnc8/acts/ahhfhn#p021vrnj">Don't Think This Through - Glastonbury 2014</a>
 						</div>
 					</div>
 				</div>-->
                 <!-- video glasto -->
 
 				<div id="supercellVideo" class="videoEmbed">
-					<iframe width="1280" height="720" src="http://www.youtube.com/embed/mTdQ99G1n8A?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+					<iframe width="1280" height="720" src="https://www.youtube.com/embed/mTdQ99G1n8A?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 				</div>
 			
 				<div id="hollywoodVideo" class="videoEmbed">
-					<iframe width="1280" height="720" src="http://www.youtube.com/embed/mSQMpqb-zTA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+					<iframe width="1280" height="720" src="https://www.youtube.com/embed/mSQMpqb-zTA?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 				</div>
 				
 				<!-- new -->
@@ -849,7 +849,7 @@
 
 		</div>
 		
-		<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
